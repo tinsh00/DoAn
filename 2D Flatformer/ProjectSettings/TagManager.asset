@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
-  - 
+  - Damageable
+  - Dead
+  - Player
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Flatform
     uniqueID: 2833293011
+    locked: 0
+  - name: Enemy
+    uniqueID: 1481233211
     locked: 0
   - name: Player
     uniqueID: 1479642517
