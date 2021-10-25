@@ -23,7 +23,12 @@ public class E1_MoveState : MoveState
 	public override void LogicUpdate()
 	{
 		base.LogicUpdate();
-		if(!isDetectedLedge || isDetectedWall)
+
+		if (isPlayerInMinAgroRange)
+		{
+			stateMachine.ChangeState(enemy.playerDetectedState);
+		}
+		else if(!isDetectedLedge || isDetectedWall)
 		{
 			enemy.idleState.SetFlipAfterIdle(true);
 			stateMachine.ChangeState(enemy.idleState);
