@@ -25407,6 +25407,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &330507083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 330507084}
+  m_Layer: 9
+  m_Name: MeleeAttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &330507084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330507083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.99, y: -0.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1904729546}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -29349,6 +29379,8 @@ MonoBehaviour:
   playerDetectedData: {fileID: 11400000, guid: 0f2b24ad13c69d34c81706d019a51cec, type: 2}
   chargeStateData: {fileID: 11400000, guid: 8565bf6b658e44b498792393dccc6a4c, type: 2}
   lookForPlayerStateData: {fileID: 11400000, guid: fbade90bbf9380c4484f9afecba654f3, type: 2}
+  meleeAttackStateData: {fileID: 11400000, guid: cbfc7dbf0963e7244bfd050097039910, type: 2}
+  meleeAttackPosition: {fileID: 330507084}
 --- !u!1 &1193217453
 GameObject:
   m_ObjectHideFlags: 0
@@ -30076,6 +30108,7 @@ GameObject:
   - component: {fileID: 1904729547}
   - component: {fileID: 1904729550}
   - component: {fileID: 1904729549}
+  - component: {fileID: 1904729551}
   m_Layer: 9
   m_Name: Alive
   m_TagString: Enemy
@@ -30098,6 +30131,7 @@ Transform:
   - {fileID: 1193217454}
   - {fileID: 1627175002}
   - {fileID: 1741964664}
+  - {fileID: 330507084}
   m_Father: {fileID: 1175211740}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30218,6 +30252,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1904729551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904729545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a95e6c1682e3c9541aaaac18aaeb0865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1942297820
 GameObject:
   m_ObjectHideFlags: 0
