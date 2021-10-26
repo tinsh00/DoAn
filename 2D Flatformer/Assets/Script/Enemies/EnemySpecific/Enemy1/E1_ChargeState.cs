@@ -47,6 +47,12 @@ public class E1_ChargeState : ChargeState
 				stateMachine.ChangeState(enemy.lookForPlayerState);
 			}
 		}
+		 if (!isDetectedLedge)
+		{
+			//entity.SetVelocity(0f);
+			entity.Flip();
+			stateMachine.ChangeState(enemy.moveState);
+		}
 	}
 
 	public override void PhysicsUpdate()

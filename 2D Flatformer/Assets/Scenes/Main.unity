@@ -425,6 +425,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &157748988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 157748989}
+  m_Layer: 9
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &157748989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157748988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.908, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1904729546}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &241351301
 GameObject:
   m_ObjectHideFlags: 0
@@ -29374,6 +29404,7 @@ MonoBehaviour:
   wallCheck: {fileID: 674029681}
   ledgeCheck: {fileID: 1193217454}
   playerCheck: {fileID: 1741964664}
+  groundCheck: {fileID: 157748989}
   idleStateData: {fileID: 11400000, guid: 420d8e4fb22515e41a5e6479743d1e92, type: 2}
   moveStateData: {fileID: 11400000, guid: 3d487a6c4418ec2469927f1b68db7fca, type: 2}
   playerDetectedData: {fileID: 11400000, guid: 0f2b24ad13c69d34c81706d019a51cec, type: 2}
@@ -29381,6 +29412,8 @@ MonoBehaviour:
   lookForPlayerStateData: {fileID: 11400000, guid: fbade90bbf9380c4484f9afecba654f3, type: 2}
   meleeAttackStateData: {fileID: 11400000, guid: cbfc7dbf0963e7244bfd050097039910, type: 2}
   meleeAttackPosition: {fileID: 330507084}
+  stunStateData: {fileID: 11400000, guid: 6697623a755b96240ab32d17528d4568, type: 2}
+  deadStateData: {fileID: 11400000, guid: 78b90c108b543d5478e81f5d7a0dfb42, type: 2}
 --- !u!1 &1193217453
 GameObject:
   m_ObjectHideFlags: 0
@@ -30132,6 +30165,7 @@ Transform:
   - {fileID: 1627175002}
   - {fileID: 1741964664}
   - {fileID: 330507084}
+  - {fileID: 157748989}
   m_Father: {fileID: 1175211740}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
