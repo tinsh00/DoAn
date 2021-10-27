@@ -117,7 +117,7 @@ public class Entity : MonoBehaviour
 		currentStunResistance -= attackDetails.stunDamageAmount;
 
 		DamageHop(entityData.damageHopSpeed);
-		Instantiate(entityData.hitParticle, transform.position, Quaternion.Euler(0f, 0f, Random.Range(0.0f, 360.0f)));
+		Instantiate(entityData.hitParticle,aliveGO.transform.position, Quaternion.Euler(0f, 0f, Random.Range(0.0f, 360.0f)));
 		if (attackDetails.position.x > aliveGO.transform.position.x)
 		{
 			lastDamageDirection = -1;
