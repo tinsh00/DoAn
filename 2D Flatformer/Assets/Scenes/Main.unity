@@ -415,6 +415,36 @@ Transform:
   m_Father: {fileID: 1904729546}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &193305793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193305794}
+  m_Layer: 11
+  m_Name: LedgeClimbCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &193305794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193305793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.35, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1250146309}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &194173749
 GameObject:
   m_ObjectHideFlags: 0
@@ -29653,7 +29683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135298603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.36, y: -0.29, z: 0}
+  m_LocalPosition: {x: 0, y: -0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1250146309}
@@ -30322,6 +30352,7 @@ Transform:
   m_Children:
   - {fileID: 1399470860}
   - {fileID: 1135298604}
+  - {fileID: 193305794}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -30355,7 +30386,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -30470,6 +30501,7 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: 5e9f972b0dc1f814f86388150ece3e88, type: 2}
   groundCheck: {fileID: 1399470860}
   wallCheck: {fileID: 1135298604}
+  ledgeCheck: {fileID: 193305794}
 --- !u!1 &1399470859
 GameObject:
   m_ObjectHideFlags: 0
