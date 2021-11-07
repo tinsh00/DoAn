@@ -19,7 +19,7 @@ TagManager:
   - Dead
   - Player
   - Weapon
-  - 
+  - UI front
   - 
   - 
   - 
@@ -59,4 +59,7 @@ TagManager:
     locked: 0
   - name: Foreground Decoration
     uniqueID: 1796422411
+    locked: 0
+  - name: UI
+    uniqueID: 1187012529
     locked: 0
