@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class PlayerJumpState : PlayerAbilityState
@@ -13,6 +14,7 @@ public class PlayerJumpState : PlayerAbilityState
 	public override void Enter()
 	{
 		base.Enter();
+		
 		player.InputHandler.UseJumpInput();
 		player.SetVelocityY(playerData.jumpVelocity);
 		isAbilityDone = true;
