@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class Player : MonoBehaviour
     public PlayerCrouchMoveState CrouchMoveState { get; private set; }
     public PlayerAttackState PrimaryAttackState { get; private set; }
     public PlayerAttackState SecondaryAttackState { get; private set; }
+   
+    
 
     [SerializeField]
     private PlayerData playerData;
@@ -83,6 +86,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+		if (EventSystem.current.IsPointerOverGameObject())
+		{
+            return;
+		}
         Core.LogicUpdate();
         StateMachine.CurrentState.LogicUpdate();
     }
@@ -105,7 +112,7 @@ public class Player : MonoBehaviour
         MovementCollider.size = workspace;
         MovementCollider.offset = center;
     }   
-
+   
     private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
 
     private void AnimtionFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
