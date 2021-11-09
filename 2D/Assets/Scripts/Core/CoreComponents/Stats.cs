@@ -6,15 +6,27 @@ public class Stats : CoreComponent
 {
     [SerializeField] private float maxHealth;
     private float currentHealth;
+    [SerializeField]
+    private bool isRepawn;
+    [SerializeField]
+    private GameObject
+        deathChunkParticle,
+        deathBloodParticle;
 
-	protected override void Awake()
+    private GameManager GM;
+    protected override void Awake()
 	{
 		base.Awake();
 
 		currentHealth = maxHealth;
-	}
+      
+    }
+	private void Start()
+	{
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
-    public void DecreaseHealth(float amount)
+	public void DecreaseHealth(float amount)
     {
         currentHealth -= amount;
 
@@ -23,11 +35,26 @@ public class Stats : CoreComponent
             currentHealth = 0;
             Debug.Log("Health is zero!!");
 
-            //Die
+            Die();
         }
     }
     public void IncreaseHealth(float amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
+
+    private void Die()
+    {
+        Instantiate(deathChunkParticle, transform.position, deathChunkParticle.transform.rotation);
+        Instantiate(deathBloodParticle, transform.position, deathBloodParticle.transform.rotation);
+		if(isRepawn)
+        {
+            GM.Respawn();
+		}
+        DestroyPlayer();
+    }
+	public override void DestroyPlayer()
+	{
+		base.DestroyPlayer();
+	}
 }

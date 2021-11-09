@@ -101,7 +101,10 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Other Functions
-
+    public void DestroyPlayer()
+	{
+        Destroy(gameObject);
+	}
     public void SetColliderHeight(float height)
     {
         Vector2 center = MovementCollider.offset;

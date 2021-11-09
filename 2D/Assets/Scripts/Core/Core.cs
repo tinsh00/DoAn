@@ -56,5 +56,9 @@ public class Core : MonoBehaviour
             components.Add(component);
         }
     }
+    public void DestroyPlayer()
+	{
+        Destroy(transform.parent.gameObject);
+	}
 
 }
