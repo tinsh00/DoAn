@@ -8,16 +8,22 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
     private float maxKnockbackTime = 0.2f;
     private bool isKnockbackActive;
     private float knockbackStartTime;
+	
 
-    public override void LogicUpdate()
+	
+	public override void LogicUpdate()
     {
         CheckKnockback();
     }
 
     public void Damage(float amount)
     {
-        Debug.Log(core.transform.parent.name + " Damaged!");
-        core.Stats.DecreaseHealth(amount);
+		if (core)
+		{
+            Debug.Log(core.transform.parent.name + " Damaged!");
+            core.Stats.DecreaseHealth(amount);
+
+		}
     }
 
     public void Knockback(Vector2 angle, float strength, int direction)
@@ -26,6 +32,8 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
         core.Movement.CanSetVelocity = false;
         isKnockbackActive = true;
         knockbackStartTime = Time.time;
+        
+        core.PlayerSP.color = Color.red;
     }
 
     private void CheckKnockback()
@@ -34,6 +42,15 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
         {
             isKnockbackActive = false;
             core.Movement.CanSetVelocity = true;
+            core.PlayerSP.color = core.color;
         }
     }
+    private void Blink()
+	{
+		while (!isKnockbackActive)
+		{
+            core.PlayerSP.color = Color.red;
+            
+		}
+	}
 }

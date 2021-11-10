@@ -734,6 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d0858588cb91c488efaa7dffe2054e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &3216350002171531389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,10 +1041,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12d400a1bff6b2429dfae98539f0e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 100
+  isRepawn: 1
   deathChunkParticle: {fileID: 1962614393226834858, guid: 3d13ef1f52d189642930444f906fc622,
     type: 3}
   deathBloodParticle: {fileID: 5096148057906189823, guid: 4a122dcc68153794295f6953dd91521e,
+    type: 3}
+  hitParticle: {fileID: 6240072112886026631, guid: d3ad3f1375e0d114ca19695641fceb61,
     type: 3}
 --- !u!1 &3216350002981314403
 GameObject:

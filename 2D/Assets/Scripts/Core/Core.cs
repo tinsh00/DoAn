@@ -24,11 +24,18 @@ public class Core : MonoBehaviour
         get => GenericNotImplementedError<Stats>.TryGet(stats, transform.parent.name);
         private set => stats = value;
 	}
+    public SpriteRenderer PlayerSP
+	{
+        get => GenericNotImplementedError<SpriteRenderer>.TryGet(playerSP, transform.parent.name);
+        private set => playerSP = value;
+    }
 
     private Movement movement;
     private CollisionSenses collisionSenses;
     private Combat combat;
     private Stats stats;
+    private SpriteRenderer playerSP;
+    public Color color;
 
     private List<ILogicUpdate> components = new List<ILogicUpdate>();
 
@@ -38,6 +45,8 @@ public class Core : MonoBehaviour
         CollisionSenses = GetComponentInChildren<CollisionSenses>();
         Combat = GetComponentInChildren<Combat>();
         stats = GetComponentInChildren<Stats>();
+        playerSP = GetComponentInParent<SpriteRenderer>();
+        color = PlayerSP.color;
     }
 
     public void LogicUpdate()
@@ -60,5 +69,7 @@ public class Core : MonoBehaviour
 	{
         Destroy(transform.parent.gameObject);
 	}
+   
+    
 
 }

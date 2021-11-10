@@ -9,6 +9,8 @@ public class AggressiveWeapon : Weapon
 
     private List<IDamageable> detectedDamageables = new List<IDamageable>();
     private List<IKnockbackable> detectedKnockbackables = new List<IKnockbackable>();
+    int i = 0;
+    int j = 0;
 
     protected override void Awake()
     {
@@ -22,6 +24,7 @@ public class AggressiveWeapon : Weapon
         {
             Debug.LogError("Wrong data for the weapon");
         }
+        
     }
 
     public override void AnimationActionTrigger()
@@ -34,14 +37,16 @@ public class AggressiveWeapon : Weapon
     private void CheckMeleeAttack()
     {
         WeaponAttackDetails details = aggressiveWeaponData.AttackDetails[attackCounter];
-
+      
         foreach (IDamageable item in detectedDamageables.ToList())
         {
             item.Damage(details.damageAmount);
+            
         }
 
         foreach (IKnockbackable item in detectedKnockbackables.ToList())
         {
+            
             item.Knockback(details.knockbackAngle, details.knockbackStrength, core.Movement.FacingDirection);
         }
     }
@@ -53,14 +58,18 @@ public class AggressiveWeapon : Weapon
 
         if(damageable != null)
         {
+            i++;
             detectedDamageables.Add(damageable);
+            Debug.Log("damage" + i);
         }
 
         IKnockbackable knockbackable = collision.GetComponent<IKnockbackable>();
 
         if(knockbackable != null)
         {
+            j++;
             detectedKnockbackables.Add(knockbackable);
+            Debug.Log("knockback" + j);
         }
     }
 
@@ -70,13 +79,17 @@ public class AggressiveWeapon : Weapon
 
         if (damageable != null)
         {
+            i--;
             detectedDamageables.Remove(damageable);
+            Debug.Log("damage -" + i);
         }
 
         IKnockbackable knockbackable = collision.GetComponent<IKnockbackable>();
 
         if (knockbackable != null)
         {
+            j--;
+            Debug.Log("damage -" + j);
             detectedKnockbackables.Remove(knockbackable);
         }
     }
