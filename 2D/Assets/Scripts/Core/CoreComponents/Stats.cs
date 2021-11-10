@@ -4,49 +4,59 @@ using UnityEngine;
 
 public class Stats : CoreComponent
 {
-    [SerializeField] private float maxHealth;
-    private float currentHealth;
+    [SerializeField] protected float maxHealth;
+    protected float currentHealth;
     [SerializeField]
-    private bool isRepawn;
-    private bool isDead;
+    protected bool isRepawn;
+    protected bool isDead;
     [SerializeField]
-    private GameObject
+    protected GameObject
         deathChunkParticle,
         deathBloodParticle;
     [SerializeField]
-    private GameObject hitParticle;
+    protected GameObject hitParticle;
 
 
-    private float TimeStartDie;
-    private float TimeToDie = .5f;
 
-    private GameManager GM;
+    protected float TimeStartDie;
+    protected float TimeToDie = .5f;
+    [SerializeField]
+    protected HealthBar healthBar;
+
+    protected GameManager GM;
     protected override void Awake()
 	{
 		base.Awake();
 
-		currentHealth = maxHealth;
-      
+	
     }
-	private void Start()
+	public virtual void Start()
 	{
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (!healthBar)
+		{
+            healthBar = GameObject.Find("Health Bar").GetComponent<HealthBar>();
+            healthBar.SetMaxHealth(maxHealth);
+
+		}
         currentHealth = maxHealth;
         isDead=false;
         
+        
     }
-	private void Update()
+	public virtual void Update()
 	{
-		
+        
         if (isDead && Time.time >= TimeStartDie + TimeToDie)
         {
             Died();
         }
     }
 
-	public void DecreaseHealth(float amount)
+	public virtual void DecreaseHealth(float amount)
     {
         currentHealth -= amount;
+        healthBar.SetHealth(currentHealth);
         Instantiate(hitParticle, transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 180.0f)));
 
         //Instantiate(hitParticle, alive.transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 180.0f)));
@@ -66,9 +76,11 @@ public class Stats : CoreComponent
 
     }
 
-    public void IncreaseHealth(float amount)
+    public virtual void IncreaseHealth(float amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        
+
     }
 
     private void Die()
@@ -77,7 +89,7 @@ public class Stats : CoreComponent
 		
         
     }
-    private void Died()
+    public virtual void Died()
 	{
         Instantiate(deathChunkParticle, transform.position, deathChunkParticle.transform.rotation);
         Instantiate(deathBloodParticle, transform.position, deathBloodParticle.transform.rotation);
