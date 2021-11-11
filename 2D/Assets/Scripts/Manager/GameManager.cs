@@ -6,7 +6,7 @@ using Cinemachine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private Transform respawnPoint;
+    public Transform respawnPoint;
     [SerializeField]
     private GameObject player;
     [SerializeField]
@@ -23,10 +23,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
+
     }
 
     private void Update()
     {
+        
         CheckRespawn();
     }
     public void Respawn()
@@ -39,8 +41,11 @@ public class GameManager : MonoBehaviour
     {
         if(Time.time >= respawnTimeStart + respawnTime && respawn)
         {
+           
             var playerTemp = Instantiate(player, respawnPoint);
-            
+            PlayerStatus status = player.GetComponentInChildren<PlayerStatus>();
+            status.LoadDPlayer();
+            playerTemp.transform.position = status.transform.position;
             CVC.m_Follow = playerTemp.transform;
             respawn = false;
         }

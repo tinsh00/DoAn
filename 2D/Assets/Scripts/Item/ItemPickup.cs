@@ -10,8 +10,21 @@ public class ItemPickup : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
+		
 		if(collision.gameObject.tag == "Player")
-			PickUp(); 
+		{
+			if (item.isDefauleItem)
+			{
+				PlayerStatus status = collision.gameObject.GetComponentInChildren<PlayerStatus>();
+				status.IncreateExp(item.amountExp);
+				status.IncreateCoin(item.amountCoin);
+				Destroy(gameObject);
+			}
+			else
+				PickUp(); 
+
+		}
+		
 		
 	}
 	void PickUp()

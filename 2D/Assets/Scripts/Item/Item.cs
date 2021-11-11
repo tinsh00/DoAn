@@ -6,7 +6,8 @@ public class Item : ScriptableObject
     new public string name = "New Item";
     public Sprite icon = null;
     public bool isDefauleItem = false;
-
+    public float amountExp;
+    public float amountCoin;
 
     public virtual void Use()
 	{
@@ -14,5 +15,6 @@ public class Item : ScriptableObject
         //Something might happen
 
         Debug.Log("Using " + name);
+        
 	}
 }
