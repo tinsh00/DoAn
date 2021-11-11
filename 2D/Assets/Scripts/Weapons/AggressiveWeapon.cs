@@ -58,18 +58,14 @@ public class AggressiveWeapon : Weapon
 
         if(damageable != null)
         {
-            i++;
             detectedDamageables.Add(damageable);
-            Debug.Log("damage" + i);
         }
 
         IKnockbackable knockbackable = collision.GetComponent<IKnockbackable>();
 
         if(knockbackable != null)
         {
-            j++;
             detectedKnockbackables.Add(knockbackable);
-            Debug.Log("knockback" + j);
         }
     }
 
@@ -79,17 +75,13 @@ public class AggressiveWeapon : Weapon
 
         if (damageable != null)
         {
-            i--;
-            detectedDamageables.Remove(damageable);
-            Debug.Log("damage -" + i);
+            detectedDamageables.Remove(damageable);           
         }
 
         IKnockbackable knockbackable = collision.GetComponent<IKnockbackable>();
 
         if (knockbackable != null)
         {
-            j--;
-            Debug.Log("damage -" + j);
             detectedKnockbackables.Remove(knockbackable);
         }
     }

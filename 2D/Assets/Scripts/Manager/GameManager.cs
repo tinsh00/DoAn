@@ -43,9 +43,7 @@ public class GameManager : MonoBehaviour
         {
            
             var playerTemp = Instantiate(player, respawnPoint);
-            PlayerStatus status = player.GetComponentInChildren<PlayerStatus>();
-            status.LoadDPlayer();
-            playerTemp.transform.position = status.transform.position;
+           
             CVC.m_Follow = playerTemp.transform;
             respawn = false;
         }

@@ -26,6 +26,7 @@ public class PlayerStatus : Stats
 	public override void DecreaseHealth(float amount)
 	{
 		base.DecreaseHealth(amount);
+		healthBar.SetHealth(currentHealth);
 
 	}
 
@@ -38,6 +39,7 @@ public class PlayerStatus : Stats
 	public override void IncreaseHealth(float amount)
 	{
 		base.IncreaseHealth(amount);
+		healthBar.SetHealth(currentHealth);
 	}
 
 	public override void LogicUpdate()
@@ -108,16 +110,20 @@ public class PlayerStatus : Stats
 		DPlayer data = SaveSystem.LoadPlayer();
 
 		currentExp = data.exp;
+		expSlider.SetExp(currentExp);
 		level = data.level;
+		LevelText.text = "LV." + level;
 		currentHealth = data.health;
+		healthBar.SetHealth(currentExp);
 		coin = data.coin;
+		coinText.text = "X" + coin;
 
 		Vector3 position;
 		position.x = data.position[0];
 		position.y = data.position[1];
 		position.z = data.position[2];
 		
-		transform.position = position;
+		transform.parent.parent.position = position;
 		Debug.Log(position);
 	}
 

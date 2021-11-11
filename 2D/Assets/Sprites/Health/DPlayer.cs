@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class DPlayer : MonoBehaviour
+public class DPlayer 
 {
 	public float exp;
 	public float health;
@@ -17,8 +17,8 @@ public class DPlayer : MonoBehaviour
 		this.health = stats.currentHealth;
 		this.coin = stats.coin;
 		position = new float[3];
-		position[0] = stats.transform.parent.parent.position.x;
-		position[1] = stats.transform.parent.parent.position.y;
-		position[2] = stats.transform.parent.parent.position.z;
+		position[0] = stats.transform.position.x;
+		position[1] = stats.transform.position.y;
+		position[2] = stats.transform.position.z;
 	}
 }
