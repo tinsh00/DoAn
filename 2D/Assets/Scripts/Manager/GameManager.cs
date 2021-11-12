@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
-
+        
     }
 
     private void Update()
@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
         {
            
             var playerTemp = Instantiate(player, respawnPoint);
-           
             CVC.m_Follow = playerTemp.transform;
             respawn = false;
         }

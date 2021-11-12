@@ -8,9 +8,9 @@ public class PlayerStatus : Stats
 	
 	[SerializeField]
 	private float maxExp;
-	public float currentExp = 0;
-	public float coin = 0;
-	public float level = 0;
+	public float currentExp;
+	public float coin;
+	public float level;
 	//public float 
 
 
@@ -50,8 +50,26 @@ public class PlayerStatus : Stats
 	public override void Start()
 	{
 		base.Start();
+		//SaveDPlayer();
+		//LoadDPlayer();
+		isPlayer = true;
+		if (!expSlider)
+		{
+			expSlider = GameObject.Find("Exp Bar").GetComponent<ExpBar>();
+		}
+		currentExp = Inventory.instance.currentExp;
 		expSlider.SetExp(currentExp);
+		if (!coinText)
+		{
+			coinText = GameObject.Find("coinText").GetComponent<Text>();
+		}
+		coin = Inventory.instance.coin;
 		coinText.text = "X" + coin;
+		if (!LevelText)
+		{
+			LevelText = GameObject.Find("Level").GetComponent<Text>();
+		}
+		level = Inventory.instance.level;
 		LevelText.text = "lV." + level;
 	}
 
@@ -63,6 +81,7 @@ public class PlayerStatus : Stats
 	protected override void Awake()
 	{
 		base.Awake();
+		
 
 	}
 
@@ -75,7 +94,8 @@ public class PlayerStatus : Stats
 
 			if (currentExp >= maxExp)
 			{
-				level++;
+				Inventory.instance.IncreaseLevel();
+				level=Inventory.instance.level;
 				LevelText.text = "LV." + level;
 				currentExp = 0;
 				expSlider.SetExp(currentExp);
@@ -87,17 +107,14 @@ public class PlayerStatus : Stats
 	}
 	public void IncreateCoin(float amount)
 	{
-		coin += amount;
+		Inventory.instance.IncreaseCoin(amount);
+		coin = Inventory.instance.coin;
 		coinText.text = "X" + coin;
 	}
 	public void DecreateCoin(float amount)
 	{
-		if (coin < amount)
-		{
-			return;
-		}
-		else
-			coin -= amount;
+		Inventory.instance.DecreaseCoin(amount);
+		coin = Inventory.instance.coin;
 		coinText.text = "X" + coin;
 
 	}

@@ -27,6 +27,7 @@ public class ItemPickup : MonoBehaviour
 		
 		
 	}
+	
 	void PickUp()
 	{
 		Debug.Log("Picking up "+item.name);

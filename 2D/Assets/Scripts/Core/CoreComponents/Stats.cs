@@ -117,7 +117,7 @@ public class Stats : CoreComponent
         Instantiate(deathChunkParticle, transform.position, deathChunkParticle.transform.rotation);
         Instantiate(deathBloodParticle, transform.position, deathBloodParticle.transform.rotation);
 
-        if (!isPlayer)
+        if (!isPlayer && expGO && coinGO)
         {
             Instantiate(expGO, new Vector3(transform.position.x + Random.Range(-10, 10) / 100, transform.position.y, transform.position.z), expGO.transform.rotation);
             Instantiate(coinGO, new Vector3(transform.position.x + Random.Range(-10, 10) / 100, transform.position.y, transform.position.z), expGO.transform.rotation);

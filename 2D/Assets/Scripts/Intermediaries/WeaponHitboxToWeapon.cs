@@ -6,6 +6,7 @@ public class WeaponHitboxToWeapon : MonoBehaviour
 {
     private AggressiveWeapon weapon;
 
+    Collider2D colEner;
     private void Awake()
     {
         weapon = GetComponentInParent<AggressiveWeapon>();
@@ -13,11 +14,15 @@ public class WeaponHitboxToWeapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         weapon.AddToDetected(collision);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
-    {        
+    {     
+        
         weapon.RemoveFromDetected(collision);
+        
+        
     }
 }
