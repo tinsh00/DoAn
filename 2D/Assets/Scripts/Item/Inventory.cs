@@ -5,14 +5,11 @@ using UnityEngine;
 public class Inventory : Singleton<Inventory>
 {
 
-
-
-
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallBack;
 	public List<Item> items = new List<Item>();
-    public int space = 20;
-    public float maxExp = Player.instance.playerStatus.maxExp;
+    private int space = 20;
+    private float maxExp ;
     public float coin { get; private set; }
     public float level { get; private set; }
     public float currentExp { get; private set; }
@@ -23,7 +20,11 @@ public class Inventory : Singleton<Inventory>
 
 	//}
 
-	
+	private void Start()
+	{
+        maxExp = Player.instance.playerStatus.maxExp;
+
+    }
 
 	public void ResetCoin()
 	{
