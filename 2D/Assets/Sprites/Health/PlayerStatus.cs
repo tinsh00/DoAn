@@ -7,7 +7,7 @@ public class PlayerStatus : Stats
 {
 	
 	[SerializeField]
-	private float maxExp;
+	public float maxExp;
 	public float currentExp;
 	public float coin;
 	public float level;
@@ -89,20 +89,13 @@ public class PlayerStatus : Stats
 	{
 		if (isPlayer)
 		{
-			currentExp = Mathf.Clamp(currentExp + amount, 0, maxExp);
+			Inventory.instance.IncreaseCurExp(amount);
+			currentExp = Inventory.instance.currentExp;
 			expSlider.SetExp(currentExp);
-
-			if (currentExp >= maxExp)
-			{
-				Inventory.instance.IncreaseLevel();
-				level=Inventory.instance.level;
-				LevelText.text = "LV." + level;
-				currentExp = 0;
-				expSlider.SetExp(currentExp);
-				currentHealth = maxHealth;
-				healthBar.SetHealth(currentHealth);
-			}
-
+			level = Inventory.instance.level;
+			LevelText.text = "LV." + level;
+			currentHealth = maxHealth;
+			healthBar.SetHealth(currentHealth);
 		}
 	}
 	public void IncreateCoin(float amount)

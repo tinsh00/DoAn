@@ -12,20 +12,20 @@ public class Inventory : Singleton<Inventory>
     public OnItemChanged onItemChangedCallBack;
 	public List<Item> items = new List<Item>();
     public int space = 20;
-    //public float maxExp = 100;
+    public float maxExp = Player.instance.playerStatus.maxExp;
     public float coin { get; private set; }
     public float level { get; private set; }
     public float currentExp { get; private set; }
-    //public void addToInventory(Item item)
-    //{
-    //    Debug.Log("picked" + item.name);
-    //    addItem(item);
+	//public void addToInventory(Item item)
+	//{
+	//    Debug.Log("picked" + item.name);
+	//    addItem(item);
 
-    //}
+	//}
 
-    
-  
-    public void ResetCoin()
+	
+
+	public void ResetCoin()
 	{
         coin = 0;
 	}
@@ -55,7 +55,12 @@ public class Inventory : Singleton<Inventory>
     public void IncreaseCurExp(float amount)
     {
         currentExp += amount;
-        
+		if (currentExp >= maxExp)
+		{
+            IncreaseLevel();
+            currentExp -=maxExp;
+		}
+
     }
     public bool DecreaseCurExp(float amount)
     {

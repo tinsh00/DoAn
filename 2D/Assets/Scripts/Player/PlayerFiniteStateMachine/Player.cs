@@ -39,46 +39,46 @@ public PlayerStateMachine StateMachine { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public Transform DashDirectionIndicator { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
-    public PlayerInventory Inventory { get; private set; }
+    public PlayerInventory PlayerInventory { get; private set; }
 
     
     public PlayerStatus playerStatus;
+    public Quest quest;
+    
     
     #endregion
 
     #region Other Variables         
 
     private Vector2 workspace;
-    #endregion
+	#endregion
 
-    #region Unity Callback Functions
-    
-    private  void Awake()
-    {
-        base.Awake();
-        
-        Debug.Log("**********");
-        Core = GetComponentInChildren<Core>();
+	#region Unity Callback Functions
 
-        StateMachine = new PlayerStateMachine();
+	protected override void Awake()
+	{
+		base.Awake();
+		Core = GetComponentInChildren<Core>();
 
-        IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
-        MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
-        JumpState = new PlayerJumpState(this, StateMachine, playerData, "inAir");
-        InAirState = new PlayerInAirState(this, StateMachine, playerData, "inAir");
-        LandState = new PlayerLandState(this, StateMachine, playerData, "land");
-        WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "wallSlide");
-        WallGrabState = new PlayerWallGrabState(this, StateMachine, playerData, "wallGrab");
-        WallClimbState = new PlayerWallClimbState(this, StateMachine, playerData, "wallClimb");
-        WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
-        LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
-        DashState = new PlayerDashState(this, StateMachine, playerData, "inAir");
-        CrouchIdleState = new PlayerCrouchIdleState(this, StateMachine, playerData, "crouchIdle");
-        CrouchMoveState = new PlayerCrouchMoveState(this, StateMachine, playerData, "crouchMove");
-        PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
-        SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
-    }
+		StateMachine = new PlayerStateMachine();
 
+		IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
+		MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
+		JumpState = new PlayerJumpState(this, StateMachine, playerData, "inAir");
+		InAirState = new PlayerInAirState(this, StateMachine, playerData, "inAir");
+		LandState = new PlayerLandState(this, StateMachine, playerData, "land");
+		WallSlideState = new PlayerWallSlideState(this, StateMachine, playerData, "wallSlide");
+		WallGrabState = new PlayerWallGrabState(this, StateMachine, playerData, "wallGrab");
+		WallClimbState = new PlayerWallClimbState(this, StateMachine, playerData, "wallClimb");
+		WallJumpState = new PlayerWallJumpState(this, StateMachine, playerData, "inAir");
+		LedgeClimbState = new PlayerLedgeClimbState(this, StateMachine, playerData, "ledgeClimbState");
+		DashState = new PlayerDashState(this, StateMachine, playerData, "inAir");
+		CrouchIdleState = new PlayerCrouchIdleState(this, StateMachine, playerData, "crouchIdle");
+		CrouchMoveState = new PlayerCrouchMoveState(this, StateMachine, playerData, "crouchMove");
+		PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+		SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+
+	}
     private void Start()
     {
         Anim = GetComponent<Animator>();
@@ -86,11 +86,15 @@ public PlayerStateMachine StateMachine { get; private set; }
         RB = GetComponent<Rigidbody2D>();
         DashDirectionIndicator = transform.Find("DashDirectionIndicator");
         MovementCollider = GetComponent<BoxCollider2D>();
-        Inventory = GetComponent<PlayerInventory>();
+        PlayerInventory = GetComponent<PlayerInventory>();
 
-        PrimaryAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
+        PrimaryAttackState.SetWeapon(PlayerInventory.weapons[(int)CombatInputs.primary]);
         //SecondaryAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
         StateMachine.Initialize(IdleState);
+
+
+        Player.instance.quest.isActive = true;
+        Player.instance.quest = DetailQuest.instance.quest ;
     }
 
     private void Update()
@@ -110,6 +114,20 @@ public PlayerStateMachine StateMachine { get; private set; }
     #endregion
 
     #region Other Functions
+
+    public void AttackQuest()
+	{
+		if (quest.isActive)
+		{
+            //quest.goal.EnemyKilled();
+			if (quest.goal.IsReacher())
+			{
+                Inventory.instance.IncreaseCoin(quest.coinReward);
+                Inventory.instance.IncreaseCurExp(quest.expReward);
+            }
+		}
+		
+	}
     public void DestroyPlayer()
 	{
         Destroy(gameObject);
