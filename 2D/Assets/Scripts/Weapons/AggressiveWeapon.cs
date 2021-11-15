@@ -10,8 +10,7 @@ public class AggressiveWeapon : Weapon
     private List<IDamageable> detectedDamageables = new List<IDamageable>();
     private List<IKnockbackable> detectedKnockbackables = new List<IKnockbackable>();
 
-    int i = 0;
-    int j = 0;
+
     protected override void Awake()
     {
         base.Awake();
@@ -30,7 +29,6 @@ public class AggressiveWeapon : Weapon
     public override void AnimationActionTrigger()
     {
         base.AnimationActionTrigger();
-        Debug.Log("star action");
         CheckMeleeAttack();
     }
 
@@ -58,17 +56,13 @@ public class AggressiveWeapon : Weapon
         
         if (knockbackable != null)
         {
-            i++;
             detectedKnockbackables.Add(knockbackable);
-            Debug.Log("knock + " + i);
         }
         IDamageable damageable = collision.GetComponent<IDamageable>();
 
         if(damageable != null)
         {
-            j++;
             detectedDamageables.Add(damageable);
-            Debug.Log("dame + " + j);
         }
 
         
@@ -80,17 +74,13 @@ public class AggressiveWeapon : Weapon
 
         if (knockbackable != null)
         {
-            i--;
             detectedKnockbackables.Remove(knockbackable);
-            Debug.Log("knock + " + i);
         }
         IDamageable damageable = collision.GetComponent<IDamageable>();
 
         if (damageable != null)
         {
-            j--;
             detectedDamageables.Remove(damageable);
-            Debug.Log("damage + " + j);
         }
 
         

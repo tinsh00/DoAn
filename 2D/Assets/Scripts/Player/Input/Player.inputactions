@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": " Defense",
+                    "type": "Button",
+                    "id": "a7f499d3-75ab-40a9-a708-0122a9f8e201",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -258,6 +266,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "SecondaryAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c4b25dd-8e9e-4bb2-a8d9-bd755b6a4b9c",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": " Defense",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

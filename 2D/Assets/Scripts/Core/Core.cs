@@ -33,7 +33,7 @@ public class Core : MonoBehaviour
     private Movement movement;
     private CollisionSenses collisionSenses;
     private Combat combat;
-    private Stats stats;
+    public Stats stats;
     private SpriteRenderer playerSP;
     public Color color;
 

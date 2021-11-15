@@ -6,5 +6,6 @@ using UnityEngine;
 public class SO_WeaponData : ScriptableObject
 {
     public int amountOfAttacks { get; protected set; }
+    public int[] amountOfWeapons { get; protected set; }
     public float[] movementSpeed { get; protected set; }
 }

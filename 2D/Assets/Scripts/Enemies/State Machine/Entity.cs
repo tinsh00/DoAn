@@ -29,6 +29,8 @@ public class Entity : MonoBehaviour
     private Vector2 velocityWorkspace;
 
     protected bool isStunned;
+    protected int amountOfStun = 1;
+    protected bool isStun;
     protected bool isDead;
 
     public virtual void Awake()
@@ -42,18 +44,32 @@ public class Entity : MonoBehaviour
         atsm = GetComponent<AnimationToStatemachine>();
 
         stateMachine = new FiniteStateMachine();
+        
     }
 
     public virtual void Update()
     {
         Core.LogicUpdate();
         stateMachine.currentState.LogicUpdate();
-
-        anim.SetFloat("yVelocity", Core.Movement.RB.velocity.y);
+        
+        if (Core.Stats.currentHealth <= 10f) 
+        {
+            //Core.Movement.SetVelocityZero();
+            //isStunned = true;
+            isStun = true;
+       
+        }
+        
+		else
+		{
+            anim.SetFloat("yVelocity", Core.Movement.RB.velocity.y);
+		}
 
         if(Time.time >= lastDamageTime + entityData.stunRecoveryTime)
         {
             ResetStunResistance();
+           
+            isStun = false;
         }
     }
 

@@ -76,7 +76,7 @@ public class Stats : CoreComponent
     }
 	public virtual void Update()
 	{
-        
+		
         if (isDead && Time.time >= TimeStartDie + TimeToDie)
         {
             Died();

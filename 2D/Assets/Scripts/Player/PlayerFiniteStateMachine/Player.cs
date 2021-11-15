@@ -25,8 +25,9 @@ public PlayerStateMachine StateMachine { get; private set; }
     public PlayerCrouchMoveState CrouchMoveState { get; private set; }
     public PlayerAttackState PrimaryAttackState { get; private set; }
     public PlayerAttackState SecondaryAttackState { get; private set; }
-   
-    
+    public PlayerAttackState DefenseState { get; private set; }
+
+
 
     [SerializeField]
     private PlayerData playerData;
@@ -77,8 +78,10 @@ public PlayerStateMachine StateMachine { get; private set; }
 		CrouchMoveState = new PlayerCrouchMoveState(this, StateMachine, playerData, "crouchMove");
 		PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
 		SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        DefenseState = new PlayerAttackState(this, StateMachine, playerData, "attack");
 
-	}
+
+    }
     private void Start()
     {
         Anim = GetComponent<Animator>();
@@ -89,7 +92,8 @@ public PlayerStateMachine StateMachine { get; private set; }
         PlayerInventory = GetComponent<PlayerInventory>();
 
         PrimaryAttackState.SetWeapon(PlayerInventory.weapons[(int)CombatInputs.primary]);
-        //SecondaryAttackState.SetWeapon(Inventory.weapons[(int)CombatInputs.primary]);
+        SecondaryAttackState.SetWeapon(PlayerInventory.weapons[(int)CombatInputs.secondary]);
+        DefenseState.SetWeapon(PlayerInventory.weapons[(int)CombatInputs.defense]);
         StateMachine.Initialize(IdleState);
 
 

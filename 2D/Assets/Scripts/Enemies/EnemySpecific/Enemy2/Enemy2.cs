@@ -53,13 +53,26 @@ public class Enemy2 : Entity
         rangedAttackState = new E2_RangedAttackState(this, stateMachine, "rangedAttack", rangedAttackPosition, rangedAttackStateData, this);
 
     }
+	public override void Update()
+	{
+		base.Update();
 
-    private void Start()
+
+		//if (isStun)
+		//{
+  //          stateMachine.ChangeState(stunState);
+  //          isStun=false;
+		//}
+        
+
+    }
+	private void Start()
     {
         stateMachine.Initialize(moveState);        
     }
+	
 
-    public override void OnDrawGizmos()
+	public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
 

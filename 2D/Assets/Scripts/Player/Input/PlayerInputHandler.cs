@@ -43,6 +43,18 @@ public class PlayerInputHandler : MonoBehaviour
         CheckJumpInputHoldTime();
         CheckDashInputHoldTime();
     }
+    public void  OnDefenseInput(InputAction.CallbackContext context)
+	{
+        if (context.started)
+        {
+            AttackInputs[(int)CombatInputs.defense] = true;
+        }
+
+        if (context.canceled)
+        {
+            AttackInputs[(int)CombatInputs.defense] = false;
+        }
+    }
 
     public void OnPrimaryAttackInput(InputAction.CallbackContext context)
     {
@@ -157,5 +169,6 @@ public class PlayerInputHandler : MonoBehaviour
 public enum CombatInputs
 {
     primary,
-    secondary
+    secondary,
+    defense
 }

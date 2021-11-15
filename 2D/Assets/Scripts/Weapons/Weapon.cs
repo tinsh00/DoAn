@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
 
     protected int attackCounter;
 
+
     protected virtual void Awake()
     {
         baseAnimator = transform.Find("Base").GetComponent<Animator>();
@@ -30,6 +31,7 @@ public class Weapon : MonoBehaviour
         if(attackCounter >= weaponData.amountOfAttacks)
         {
             attackCounter = 0;
+            
         }
 
         baseAnimator.SetBool("attack", true);

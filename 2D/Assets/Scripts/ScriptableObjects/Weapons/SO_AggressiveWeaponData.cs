@@ -7,6 +7,7 @@ public class SO_AggressiveWeaponData : SO_WeaponData
 {
     [SerializeField] private WeaponAttackDetails[] attackDetails;
 
+    
     public WeaponAttackDetails[] AttackDetails { get => attackDetails; private set => attackDetails = value; }
 
     private void OnEnable()
@@ -14,10 +15,12 @@ public class SO_AggressiveWeaponData : SO_WeaponData
         amountOfAttacks = attackDetails.Length;
 
         movementSpeed = new float[amountOfAttacks];
+        amountOfWeapons = new int[amountOfAttacks];
 
         for (int i = 0; i < amountOfAttacks; i++)
         {
             movementSpeed[i] = attackDetails[i].movementSpeed;
+            amountOfWeapons[i] = attackDetails[i].amountOfWeapon;
         }
     }
 }

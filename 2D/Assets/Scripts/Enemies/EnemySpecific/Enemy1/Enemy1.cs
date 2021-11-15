@@ -55,7 +55,19 @@ public class Enemy1 : Entity
         stateMachine.Initialize(moveState);        
     }
 
-    public override void OnDrawGizmos()
+	public override void Update()
+	{
+		base.Update();
+        if (isStun)
+        {
+            Debug.Log("stun");
+            stateMachine.ChangeState(stunState);
+            isStun = false;
+            
+        }
+    }
+
+	public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
 

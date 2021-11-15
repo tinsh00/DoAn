@@ -27,4 +27,4 @@ MonoBehaviour:
     movementSpeed: 2
     damageAmount: 20
     knockbackStrength: 20
-    knockbackAngle: {x: 1, y: 2}
+    knockbackAngle: {x: 1, y: 1.5}
