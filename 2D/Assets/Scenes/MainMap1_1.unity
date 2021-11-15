@@ -49742,18 +49742,6 @@ Transform:
   m_Father: {fileID: 501013666}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1715746908 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1922346234, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
-    type: 3}
-  m_PrefabInstance: {fileID: 3216350002289878185}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278de0c2b8a851c4484d36c9c85d1330, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1721943764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51200,14 +51188,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 710113429705700503}
-    - target: {fileID: 1764627293, guid: 0fe21e3b0f8a6604abecc907f08b4db3, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1819796738, guid: 0fe21e3b0f8a6604abecc907f08b4db3, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3216350002068953729, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
         type: 3}
       propertyPath: m_RootOrder
@@ -51263,16 +51243,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3216350002068953735, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
-        type: 3}
-      propertyPath: weapons.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3216350002068953735, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
-        type: 3}
-      propertyPath: weapons.Array.data[3]
-      value: 
-      objectReference: {fileID: 1715746908}
     - target: {fileID: 3216350002068953740, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
         type: 3}
       propertyPath: m_Name

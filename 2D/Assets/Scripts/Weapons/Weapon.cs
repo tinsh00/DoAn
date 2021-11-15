@@ -14,7 +14,8 @@ public class Weapon : MonoBehaviour
     protected Core core;
 
     protected int attackCounter;
-    public float TimerHolder=.5f;
+    public float TimerEnter=.5f;
+    public float TimeHold=7f;
     public float TimerStartHolder;
 
 
@@ -24,6 +25,7 @@ public class Weapon : MonoBehaviour
         weaponAnimator = transform.Find("Weapon").GetComponent<Animator>();
 
         gameObject.SetActive(false);
+        
     }
 
     public virtual void EnterWeapon()

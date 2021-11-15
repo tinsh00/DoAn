@@ -13,7 +13,8 @@ public class PlayerAttackState : PlayerAbilityState
     private bool setVelocity;
     private bool shouldCheckFlip;
 
-    private bool shieldInput;
+    public bool shieldInput;
+    public bool shieldInputStop;
 
     public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -24,7 +25,8 @@ public class PlayerAttackState : PlayerAbilityState
         base.Enter();
 
         setVelocity = false;
-        shieldInput = player.InputHandler.;
+        
+
         weapon.EnterWeapon();
     }
 
@@ -40,6 +42,8 @@ public class PlayerAttackState : PlayerAbilityState
         base.LogicUpdate();
 
         xInput = player.InputHandler.NormInputX;
+        shieldInput = player.InputHandler.ShieldInput;
+        shieldInputStop = player.InputHandler.ShieldInputStop;
 
         if (shouldCheckFlip)
         {
@@ -51,6 +55,12 @@ public class PlayerAttackState : PlayerAbilityState
         {
             core.Movement.SetVelocityX(velocityToSet * core.Movement.FacingDirection);
         }
+		//if(shieldInput && Time.time )
+		//if (!shieldInput )
+		//{
+  //          isAbilityDone = true;
+
+  //      }
     }
 
     public void SetWeapon(Weapon weapon)

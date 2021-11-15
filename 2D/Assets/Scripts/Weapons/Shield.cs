@@ -6,7 +6,7 @@ public class Shield : Weapon
 {
 	protected SO_AggressiveWeaponData aggressiveWeaponData;
 
-	public float TimeToHold;
+	
 
 	public override void AnimationActionTrigger()
 	{
@@ -48,14 +48,49 @@ public class Shield : Weapon
 	}
 	private void Update()
 	{
-		
-		if (Time.time >= TimerStartHolder + TimerHolder)
+		if (state.shieldInput)
 		{
+			baseAnimator.SetBool("enter", true);
+			weaponAnimator.SetBool("enter", true);
+
+			
+			if (Time.time >= TimerStartHolder + TimerEnter)
+			{
+				//Debug.Log("hold shield");
+
+				baseAnimator.SetBool("enter", false);
+				weaponAnimator.SetBool("enter", false);
+
+				baseAnimator.SetBool("hold", true);
+				weaponAnimator.SetBool("hold", true);
+			}
+			else if (Time.time >= TimerStartHolder + TimerEnter + TimeHold)
+			{
+				//Debug.Log("exit shield");
+				baseAnimator.SetBool("enter", false);
+				weaponAnimator.SetBool("enter", false);
+
+				baseAnimator.SetBool("hold", false);
+				weaponAnimator.SetBool("hold", false);
+
+				baseAnimator.SetBool("exit", true);
+				weaponAnimator.SetBool("exit", true);
+			}
+
+
+		}
+		else if(!state.shieldInput)
+		{
+			//exit
+			
 			baseAnimator.SetBool("enter", false);
 			weaponAnimator.SetBool("enter", false);
 
-			baseAnimator.SetBool("hold", true);
-			weaponAnimator.SetBool("hold", true);
+			baseAnimator.SetBool("hold", false);
+			weaponAnimator.SetBool("hold", false);
+
+			baseAnimator.SetBool("exit", true);
+			weaponAnimator.SetBool("exit", true);
 		}
 	}
 	public override void ExitWeapon()

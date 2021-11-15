@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 471043026}
   - component: {fileID: 471043025}
   - component: {fileID: 471043024}
+  - component: {fileID: 732033442}
   m_Layer: 12
   m_Name: Weapon
   m_TagString: Untagged
@@ -230,6 +231,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8bf4b1ea693e14e8185729d7db9459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &732033442
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471043022}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.0001, y: 0.0001}
+  m_EdgeRadius: 0
 --- !u!1 &606514182
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +728,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -763,6 +790,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 428b5c9ddd2c8cf41a5f23e59a647ed1, type: 2}
+  TimerEnter: 0.5
+  TimeHold: 7
+  TimerStartHolder: 0
 --- !u!1 &1955413080
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +839,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 33863569d2deaa941a5d0793a185953a, type: 2}
+  TimerEnter: 0.5
+  TimeHold: 3
+  TimerStartHolder: 0
 --- !u!1 &2062491379
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +889,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 75004aae571b3c64b883b4d51270e65f, type: 2}
+  TimerEnter: 0.5
+  TimeHold: 7
+  TimerStartHolder: 0
   projectileaction: {fileID: 2112009918875074241, guid: 755bd68c0181c6941b7ca013d8945d09,
     type: 3}
   projectileDamage: 10
@@ -968,6 +1004,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 93770b71b038e5f429d963a9c4752350, type: 2}
+  TimerEnter: 0.5
+  TimeHold: 7
+  TimerStartHolder: 0
 --- !u!1 &3216350001660204179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputHoldTime: 0.2
+  ShieldInputHoldTime: 7
 --- !u!212 &3216350002068953733
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1610,6 +1650,7 @@ MonoBehaviour:
   - {fileID: 3216350001515468371}
   - {fileID: 2062491381}
   - {fileID: 3216350002289878187}
+  - {fileID: 1922346234}
 --- !u!1 &3216350002118270508
 GameObject:
   m_ObjectHideFlags: 0

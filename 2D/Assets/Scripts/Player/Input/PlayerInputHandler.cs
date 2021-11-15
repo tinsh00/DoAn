@@ -27,10 +27,15 @@ public class PlayerInputHandler : MonoBehaviour
 
     [SerializeField]
     private float inputHoldTime = 0.2f;
+    
+    public float ShieldInputHoldTime = 7f;
 
     private float jumpInputStartTime;
     private float dashInputStartTime;
     private float shieldInputStartTime;
+    private float shieldColdDownStartTime;
+
+    private float ShieldColdDown=3f;
 
     private void Start()
     {
@@ -40,12 +45,14 @@ public class PlayerInputHandler : MonoBehaviour
         AttackInputs = new bool[count];
         Debug.Log(count);
         cam = Camera.main;
+        shieldColdDownStartTime = -3f;
     }
 
     private void Update()
     {
         CheckJumpInputHoldTime();
         CheckDashInputHoldTime();
+        CheckShieldInputHoldTime();
     }
 
     public void OnKnifeAttackInput(InputAction.CallbackContext context)
@@ -62,16 +69,21 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void  OnDefenseInput(InputAction.CallbackContext context)
 	{
-        if (context.started)
+        if (Time.time >= shieldColdDownStartTime + ShieldColdDown)
         {
-            ShieldInput = true;
-            AttackInputs[(int)CombatInputs.defense] = true;
-            Debug.Log("Defense");
+            if (context.started)
+            {
+                ShieldInput = true;
+                shieldInputStartTime = Time.time;
+                AttackInputs[(int)CombatInputs.defense] = true;
+            }
         }
+        else return;
         
         if (context.canceled)
         {
             ShieldInput = false;
+            shieldColdDownStartTime = Time.time;
             AttackInputs[(int)CombatInputs.defense] = false;
         }
     }
@@ -178,10 +190,13 @@ public class PlayerInputHandler : MonoBehaviour
     }
     private void CheckShieldInputHoldTime()
     {
-        if (Time.time >= shieldInputStartTime + 10f)
+        if (Time.time >= shieldInputStartTime + ShieldInputHoldTime && ShieldInput)
         {
             ShieldInput = false;
+            shieldColdDownStartTime = Time.time;
         }
+
+
     }
     private void CheckDashInputHoldTime()
     {
