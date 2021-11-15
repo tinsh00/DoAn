@@ -90,6 +90,14 @@ public class PlayerInAirState : PlayerState
         {
             stateMachine.ChangeState(player.SecondaryAttackState);
         }
+        else if (player.InputHandler.AttackInputs[(int)CombatInputs.defense])
+        {
+            stateMachine.ChangeState(player.DefenseState);
+        }
+        else if (player.InputHandler.AttackInputs[(int)CombatInputs.knife])
+        {
+            stateMachine.ChangeState(player.KnifeAttackState);
+        }
         else if (isGrounded && core.Movement.CurrentVelocity.y < 0.01f)
         {            
             stateMachine.ChangeState(player.LandState);

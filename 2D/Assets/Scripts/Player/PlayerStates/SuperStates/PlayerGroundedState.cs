@@ -61,6 +61,15 @@ public class PlayerGroundedState : PlayerState
         {
             stateMachine.ChangeState(player.SecondaryAttackState);
         }
+        else if (player.InputHandler.AttackInputs[(int)CombatInputs.defense] && !isTouchingCeiling)
+        {
+            stateMachine.ChangeState(player.DefenseState);
+        }
+        else if (player.InputHandler.AttackInputs[(int)CombatInputs.knife] && !isTouchingCeiling)
+        {
+            stateMachine.ChangeState(player.KnifeAttackState);
+        }
+
         else if (JumpInput && player.JumpState.CanJump())
         {
             stateMachine.ChangeState(player.JumpState);

@@ -26,6 +26,7 @@ public PlayerStateMachine StateMachine { get; private set; }
     public PlayerAttackState PrimaryAttackState { get; private set; }
     public PlayerAttackState SecondaryAttackState { get; private set; }
     public PlayerAttackState DefenseState { get; private set; }
+    public PlayerAttackState KnifeAttackState { get; private set; }
 
 
 
@@ -79,6 +80,7 @@ public PlayerStateMachine StateMachine { get; private set; }
 		PrimaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
 		SecondaryAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         DefenseState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        KnifeAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
 
 
     }
@@ -94,6 +96,7 @@ public PlayerStateMachine StateMachine { get; private set; }
         PrimaryAttackState.SetWeapon(PlayerInventory.weapons[(int)CombatInputs.primary]);
         SecondaryAttackState.SetWeapon(PlayerInventory.weapons[(int)CombatInputs.secondary]);
         DefenseState.SetWeapon(PlayerInventory.weapons[(int)CombatInputs.defense]);
+        KnifeAttackState.SetWeapon(PlayerInventory.weapons[(int)CombatInputs.knife]);
         StateMachine.Initialize(IdleState);
 
 

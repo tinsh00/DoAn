@@ -19,6 +19,9 @@ public class PlayerInputHandler : MonoBehaviour
     public bool GrabInput { get; private set; }
     public bool DashInput { get; private set; }
     public bool DashInputStop { get; private set; }
+    public bool ShieldInput { get; private set; }
+    public bool ShieldInputStop { get; private set; }
+
 
     public bool[] AttackInputs { get; private set; }
 
@@ -27,6 +30,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     private float jumpInputStartTime;
     private float dashInputStartTime;
+    private float shieldInputStartTime;
 
     private void Start()
     {
@@ -34,7 +38,7 @@ public class PlayerInputHandler : MonoBehaviour
 
         int count = Enum.GetValues(typeof(CombatInputs)).Length;
         AttackInputs = new bool[count];
-
+        Debug.Log(count);
         cam = Camera.main;
     }
 
@@ -43,15 +47,31 @@ public class PlayerInputHandler : MonoBehaviour
         CheckJumpInputHoldTime();
         CheckDashInputHoldTime();
     }
-    public void  OnDefenseInput(InputAction.CallbackContext context)
-	{
+
+    public void OnKnifeAttackInput(InputAction.CallbackContext context)
+    {
         if (context.started)
         {
-            AttackInputs[(int)CombatInputs.defense] = true;
+            AttackInputs[(int)CombatInputs.knife] = true;
         }
 
         if (context.canceled)
         {
+            AttackInputs[(int)CombatInputs.knife] = false;
+        }
+    }
+    public void  OnDefenseInput(InputAction.CallbackContext context)
+	{
+        if (context.started)
+        {
+            ShieldInput = true;
+            AttackInputs[(int)CombatInputs.defense] = true;
+            Debug.Log("Defense");
+        }
+        
+        if (context.canceled)
+        {
+            ShieldInput = false;
             AttackInputs[(int)CombatInputs.defense] = false;
         }
     }
@@ -156,7 +176,13 @@ public class PlayerInputHandler : MonoBehaviour
             JumpInput = false;
         }
     }
-
+    private void CheckShieldInputHoldTime()
+    {
+        if (Time.time >= shieldInputStartTime + 10f)
+        {
+            ShieldInput = false;
+        }
+    }
     private void CheckDashInputHoldTime()
     {
         if(Time.time >= dashInputStartTime + inputHoldTime)
@@ -170,5 +196,6 @@ public enum CombatInputs
 {
     primary,
     secondary,
-    defense
+    defense,
+    knife
 }

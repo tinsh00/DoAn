@@ -14,6 +14,8 @@ public class Weapon : MonoBehaviour
     protected Core core;
 
     protected int attackCounter;
+    public float TimerHolder=.5f;
+    public float TimerStartHolder;
 
 
     protected virtual void Awake()
@@ -33,7 +35,7 @@ public class Weapon : MonoBehaviour
             attackCounter = 0;
             
         }
-
+        TimerStartHolder = Time.time;
         baseAnimator.SetBool("attack", true);
         weaponAnimator.SetBool("attack", true);
 

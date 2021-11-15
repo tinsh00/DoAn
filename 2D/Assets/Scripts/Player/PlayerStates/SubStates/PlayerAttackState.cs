@@ -13,6 +13,8 @@ public class PlayerAttackState : PlayerAbilityState
     private bool setVelocity;
     private bool shouldCheckFlip;
 
+    private bool shieldInput;
+
     public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -22,7 +24,7 @@ public class PlayerAttackState : PlayerAbilityState
         base.Enter();
 
         setVelocity = false;
-
+        shieldInput = player.InputHandler.;
         weapon.EnterWeapon();
     }
 
