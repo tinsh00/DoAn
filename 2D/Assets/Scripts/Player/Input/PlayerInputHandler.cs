@@ -33,9 +33,9 @@ public class PlayerInputHandler : MonoBehaviour
     private float jumpInputStartTime;
     private float dashInputStartTime;
     private float shieldInputStartTime;
-    private float shieldColdDownStartTime;
+    //private float shieldColdDownStartTime;
 
-    private float ShieldColdDown=3f;
+    //private float ShieldColdDown=3f;
 
     private void Start()
     {
@@ -45,14 +45,14 @@ public class PlayerInputHandler : MonoBehaviour
         AttackInputs = new bool[count];
         Debug.Log(count);
         cam = Camera.main;
-        shieldColdDownStartTime = -3f;
+        //shieldColdDownStartTime = -3f;
     }
 
     private void Update()
     {
         CheckJumpInputHoldTime();
         CheckDashInputHoldTime();
-        CheckShieldInputHoldTime();
+        //CheckShieldInputHoldTime();
     }
 
     public void OnKnifeAttackInput(InputAction.CallbackContext context)
@@ -69,23 +69,24 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void  OnDefenseInput(InputAction.CallbackContext context)
 	{
-        if (Time.time >= shieldColdDownStartTime + ShieldColdDown)
-        {
+        
             if (context.started)
             {
                 ShieldInput = true;
                 shieldInputStartTime = Time.time;
                 AttackInputs[(int)CombatInputs.defense] = true;
             }
-        }
-        else return;
+            
+
+            if (context.canceled)
+            {
+                ShieldInput = false;
+               
+                AttackInputs[(int)CombatInputs.defense] = false;
+            }
         
-        if (context.canceled)
-        {
-            ShieldInput = false;
-            shieldColdDownStartTime = Time.time;
-            AttackInputs[(int)CombatInputs.defense] = false;
-        }
+        
+        
     }
 
     public void OnPrimaryAttackInput(InputAction.CallbackContext context)
@@ -193,7 +194,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (Time.time >= shieldInputStartTime + ShieldInputHoldTime && ShieldInput)
         {
             ShieldInput = false;
-            shieldColdDownStartTime = Time.time;
+            //shieldColdDownStartTime = Time.time;
         }
 
 

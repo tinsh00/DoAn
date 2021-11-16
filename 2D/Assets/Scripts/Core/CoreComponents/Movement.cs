@@ -13,6 +13,7 @@ public class Movement : CoreComponent
     public Vector2 CurrentVelocity { get; private set; }
 
     private Vector2 workspace;
+  
 
     protected override void Awake()
     {
@@ -81,8 +82,17 @@ public class Movement : CoreComponent
 
     public void Flip()
     {
-        FacingDirection *= -1;
-        RB.transform.Rotate(0.0f, 180.0f, 0.0f);
+        if (RB.transform.rotation.y == 180f)
+        {
+            FacingDirection *= -1;
+            RB.transform.Rotate(0.0f, 0.0f, 0.0f);
+        }
+		else
+		{
+            FacingDirection *= -1;
+            RB.transform.Rotate(0.0f, 180.0f, 0.0f);
+        }
+
     }
 
     #endregion

@@ -50,13 +50,13 @@ public class Shield : Weapon
 	{
 		if (state.shieldInput)
 		{
-			baseAnimator.SetBool("enter", true);
-			weaponAnimator.SetBool("enter", true);
+			//baseAnimator.SetBool("enter", true);
+			//weaponAnimator.SetBool("enter", true);
 
 			
-			if (Time.time >= TimerStartHolder + TimerEnter)
+			if (Time.time >= state.shieldInputStart + TimerEnter)
 			{
-				//Debug.Log("hold shield");
+				Debug.Log("hold shield");
 
 				baseAnimator.SetBool("enter", false);
 				weaponAnimator.SetBool("enter", false);
@@ -64,20 +64,7 @@ public class Shield : Weapon
 				baseAnimator.SetBool("hold", true);
 				weaponAnimator.SetBool("hold", true);
 			}
-			else if (Time.time >= TimerStartHolder + TimerEnter + TimeHold)
-			{
-				//Debug.Log("exit shield");
-				baseAnimator.SetBool("enter", false);
-				weaponAnimator.SetBool("enter", false);
-
-				baseAnimator.SetBool("hold", false);
-				weaponAnimator.SetBool("hold", false);
-
-				baseAnimator.SetBool("exit", true);
-				weaponAnimator.SetBool("exit", true);
-			}
-
-
+			
 		}
 		else if(!state.shieldInput)
 		{

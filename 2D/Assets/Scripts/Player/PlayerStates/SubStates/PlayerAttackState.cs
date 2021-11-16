@@ -14,6 +14,7 @@ public class PlayerAttackState : PlayerAbilityState
     private bool shouldCheckFlip;
 
     public bool shieldInput;
+    public float shieldInputStart;
     public bool shieldInputStop;
 
     public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
@@ -25,9 +26,9 @@ public class PlayerAttackState : PlayerAbilityState
         base.Enter();
 
         setVelocity = false;
-        
 
         weapon.EnterWeapon();
+        shieldInputStart = weapon.TimerStartHolderShield;
     }
 
     public override void Exit()
@@ -55,13 +56,13 @@ public class PlayerAttackState : PlayerAbilityState
         {
             core.Movement.SetVelocityX(velocityToSet * core.Movement.FacingDirection);
         }
-		//if(shieldInput && Time.time )
-		//if (!shieldInput )
-		//{
-  //          isAbilityDone = true;
+		//if (shieldInput && Time.time)
+		//	if (!shieldInput)
+		//	{
+				
 
-  //      }
-    }
+		//	}
+	}
 
     public void SetWeapon(Weapon weapon)
     {

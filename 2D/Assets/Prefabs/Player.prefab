@@ -790,9 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 428b5c9ddd2c8cf41a5f23e59a647ed1, type: 2}
-  TimerEnter: 0.5
-  TimeHold: 7
-  TimerStartHolder: 0
+  TimerStartHolderShield: 0
 --- !u!1 &1955413080
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,9 +837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 33863569d2deaa941a5d0793a185953a, type: 2}
-  TimerEnter: 0.5
-  TimeHold: 3
-  TimerStartHolder: 0
+  TimerStartHolderShield: 0
 --- !u!1 &2062491379
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,9 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 75004aae571b3c64b883b4d51270e65f, type: 2}
-  TimerEnter: 0.5
-  TimeHold: 7
-  TimerStartHolder: 0
+  TimerStartHolderShield: 0
   projectileaction: {fileID: 2112009918875074241, guid: 755bd68c0181c6941b7ca013d8945d09,
     type: 3}
   projectileDamage: 10
@@ -1004,9 +998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 93770b71b038e5f429d963a9c4752350, type: 2}
-  TimerEnter: 0.5
-  TimeHold: 7
-  TimerStartHolder: 0
+  TimerStartHolderShield: 0
 --- !u!1 &3216350001660204179
 GameObject:
   m_ObjectHideFlags: 0

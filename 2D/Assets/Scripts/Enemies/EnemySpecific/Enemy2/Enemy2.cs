@@ -56,15 +56,6 @@ public class Enemy2 : Entity
 	public override void Update()
 	{
 		base.Update();
-
-
-		//if (isStun)
-		//{
-  //          stateMachine.ChangeState(stunState);
-  //          isStun=false;
-		//}
-        
-
     }
 	private void Start()
     {
