@@ -43,8 +43,8 @@ public class Stats : CoreComponent
 
     
 
-    protected float TimeStartDie;
-    protected float TimeToDie = .3f;
+    //protected float TimeStartDie;
+    //protected float TimeToDie = .3f;
     [SerializeField]
     protected HealthBar healthBar;
 
@@ -77,10 +77,10 @@ public class Stats : CoreComponent
 	public virtual void Update()
 	{
 		
-        if (isDead && Time.time >= TimeStartDie + TimeToDie)
-        {
-            Died();
-        }
+        //if (isDead && Time.time >= TimeStartDie + TimeToDie)
+        //{
+        //    Died();
+        //}
     }
 
 	public virtual void DecreaseHealth(float amount)
@@ -95,11 +95,11 @@ public class Stats : CoreComponent
             currentHealth = 0;
             Debug.Log("Health is zero!!");
 
-            isDead = true;
+            //isDead = true;
             
-                core.PlayerSP.color = Color.red;
-                core.Movement.SetVelocityZero();
-                TimeStartDie = Time.time;
+            core.PlayerSP.color = Color.red;
+            core.Movement.SetVelocityZero();
+                //TimeStartDie = Time.time;
             
         }
 

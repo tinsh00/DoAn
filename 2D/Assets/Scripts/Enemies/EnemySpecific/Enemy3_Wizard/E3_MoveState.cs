@@ -34,8 +34,8 @@ public class E3_MoveState : MoveState
 		}
 		else if (isDetectingWall || !isDetectingLedge)
 		{
+
 			enemy.idleState.SetFlipAfterIdle(true);
-			//enemy.transform.position.x-=enemy.
 			stateMachine.ChangeState(enemy.idleState);
 		}
 	}

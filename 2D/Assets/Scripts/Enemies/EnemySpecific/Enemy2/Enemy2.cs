@@ -38,6 +38,8 @@ public class Enemy2 : Entity
     [SerializeField]
     private Transform rangedAttackPosition;
 
+    public Stats stats;
+
     public override void Awake()
     {
         base.Awake();
@@ -56,11 +58,16 @@ public class Enemy2 : Entity
 	public override void Update()
 	{
 		base.Update();
+		if (stats.currentHealth <= 0.0f)
+		{
+            stateMachine.ChangeState(deadState);
+        }
     }
 	private void Start()
     {
         stateMachine.Initialize(moveState);        
     }
+    
 	
 
 	public override void OnDrawGizmos()

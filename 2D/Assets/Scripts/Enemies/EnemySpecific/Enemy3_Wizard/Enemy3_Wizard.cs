@@ -7,6 +7,9 @@ public class Enemy3_Wizard : Entity
 	public E3_MoveState moveState { get; private set; }
 	public E3_IdleState idleState { get; private set; }
 	public E3_PlayerDetectedState playerDetectedState { get; private set; }
+	public E3_MeleeAttackState meleeAttackState { get; private set; }
+	public E3_LookForPlayerState lookForPlayerState { get; private set; }
+
 
 
 
@@ -16,6 +19,16 @@ public class Enemy3_Wizard : Entity
 	private D_IdleState idleStateData;
 	[SerializeField]
 	private D_PlayerDetected playerDetectedData;
+	[SerializeField]
+	private D_MeleeAttack meleeAttackData;
+	[SerializeField]
+	private D_LookForPlayer lookForPlayerData;
+
+
+	[SerializeField]
+	private Transform meleeAttackPosition;
+
+
 
 	public override void Awake()
 	{
@@ -24,6 +37,8 @@ public class Enemy3_Wizard : Entity
 		moveState = new E3_MoveState(this, stateMachine, "move", moveStateData, this);
 		idleState = new E3_IdleState(this, stateMachine, "idle", idleStateData, this);
 		playerDetectedState = new E3_PlayerDetectedState(this, stateMachine, "playerDetected", playerDetectedData, this);
+		meleeAttackState = new E3_MeleeAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackData, this);
+		lookForPlayerState = new E3_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerData, this);
 
 	}
 	private void Start()
@@ -33,10 +48,12 @@ public class Enemy3_Wizard : Entity
 	public override void Update()
 	{
 		base.Update();
+
 	}
 	public override void OnDrawGizmos()
 	{
 		base.OnDrawGizmos();
+		Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackData.attackRadius);
 	}
 
 }

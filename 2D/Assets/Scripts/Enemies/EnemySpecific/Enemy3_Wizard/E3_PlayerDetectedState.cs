@@ -28,29 +28,26 @@ public class E3_PlayerDetectedState : PlayerDetectedState
 	public override void LogicUpdate()
 	{
 		base.LogicUpdate();
-		//if (performCloseRangeAction)
-		//{
-		//	if (Time.time >= enemy.dodgeState.startTime + enemy.dodgeStateData.dodgeCooldown)
-		//	{
-		//		stateMachine.ChangeState(enemy.dodgeState);
-		//	}
-		//	else
-		//	{
-		//		stateMachine.ChangeState(enemy.meleeAttackState);
-		//	}
-		//}
+
+		if (performCloseRangeAction)
+		{
+			{
+				stateMachine.ChangeState(enemy.meleeAttackState);
+			}
+		}
 		//else if (performLongRangeAction)
 		//{
 		//	stateMachine.ChangeState(enemy.rangedAttackState);
 		//}
-		//else if (!isPlayerInMaxAgroRange)
-		//{
-		//	stateMachine.ChangeState(enemy.lookForPlayerState);
-		//}
+		else if (!isPlayerInMaxAgroRange)
+		{
+			stateMachine.ChangeState(enemy.lookForPlayerState);
+		}
 	}
 
 	public override void PhysicsUpdate()
 	{
 		base.PhysicsUpdate();
 	}
+
 }
