@@ -33,6 +33,7 @@ public class Enemy1 : Entity
 
     [SerializeField]
     private Transform meleeAttackPosition;
+    public Stats stats;
 
     public override void Awake()
     {
@@ -58,6 +59,10 @@ public class Enemy1 : Entity
 	public override void Update()
 	{
 		base.Update();
+        if (stats.currentHealth <= 0.0f)
+        {
+            stateMachine.ChangeState(deadState);
+        }
         if (isStun)
         {
             Debug.Log("stun");
@@ -73,4 +78,7 @@ public class Enemy1 : Entity
 
         Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackStateData.attackRadius);
     }
+    private void AnimationTrigger() => stateMachine.currentState.AnimationTrigger();
+
+    private void AnimtionFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 }

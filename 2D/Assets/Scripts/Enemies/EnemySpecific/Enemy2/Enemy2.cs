@@ -69,11 +69,14 @@ public class Enemy2 : Entity
     }
     
 	
-
+    
 	public override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
 
         Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackStateData.attackRadius);
     }
+    private void AnimationTrigger() => stateMachine.currentState.AnimationTrigger();
+
+    private void AnimtionFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 }

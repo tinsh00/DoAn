@@ -9,7 +9,8 @@ public class Enemy3_Wizard : Entity
 	public E3_PlayerDetectedState playerDetectedState { get; private set; }
 	public E3_MeleeAttackState meleeAttackState { get; private set; }
 	public E3_LookForPlayerState lookForPlayerState { get; private set; }
-
+	public E3_CastAttackState castAttackState { get; private set; }
+	public E3_DeadState deadState { get; private set; }
 
 
 
@@ -23,10 +24,16 @@ public class Enemy3_Wizard : Entity
 	private D_MeleeAttack meleeAttackData;
 	[SerializeField]
 	private D_LookForPlayer lookForPlayerData;
+	[SerializeField]
+	private D_RangedAttackState castAttackData;
+	[SerializeField]
+	private D_DeadState deadStateData;
 
 
 	[SerializeField]
 	private Transform meleeAttackPosition;
+
+	public Stats stats;
 
 
 
@@ -39,6 +46,8 @@ public class Enemy3_Wizard : Entity
 		playerDetectedState = new E3_PlayerDetectedState(this, stateMachine, "playerDetected", playerDetectedData, this);
 		meleeAttackState = new E3_MeleeAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackData, this);
 		lookForPlayerState = new E3_LookForPlayerState(this, stateMachine, "lookForPlayer", lookForPlayerData, this);
+		castAttackState = new E3_CastAttackState(this, stateMachine, "castAttack", meleeAttackPosition, castAttackData, this);
+		deadState = new E3_DeadState(this, stateMachine, "dead", deadStateData, this);
 
 	}
 	private void Start()
@@ -48,6 +57,10 @@ public class Enemy3_Wizard : Entity
 	public override void Update()
 	{
 		base.Update();
+		if (stats.currentHealth <= 0.0f)
+		{
+			stateMachine.ChangeState(deadState);
+		}
 
 	}
 	public override void OnDrawGizmos()
@@ -55,5 +68,9 @@ public class Enemy3_Wizard : Entity
 		base.OnDrawGizmos();
 		Gizmos.DrawWireSphere(meleeAttackPosition.position, meleeAttackData.attackRadius);
 	}
+	private void AnimationTrigger() => stateMachine.currentState.AnimationTrigger();
+
+	private void AnimtionFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
+
 
 }

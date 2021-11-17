@@ -6,6 +6,7 @@ public class DeadState : State
 {
     protected D_DeadState stateData;
 
+
     public DeadState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_DeadState stateData) : base(etity, stateMachine, animBoolName)
     {
         this.stateData = stateData;
@@ -19,28 +20,46 @@ public class DeadState : State
     public override void Enter()
     {
         base.Enter();
-        
+        isAnimationFinished = false;
+        core.Movement.SetVelocityZero();
 
     }
 
     public override void Exit()
     {
+       
         base.Exit();
-        GameObject.Instantiate(stateData.deathBloodParticle, entity.transform.position, stateData.deathBloodParticle.transform.rotation);
-        GameObject.Instantiate(stateData.deathChunkParticle, entity.transform.position, stateData.deathChunkParticle.transform.rotation);
-
-        entity.gameObject.SetActive(false);
-
+        
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if (isAnimationFinished)
+        {
+            if (stateData.deathBloodParticle)
+                GameObject.Instantiate(stateData.deathBloodParticle, entity.transform.position, stateData.deathBloodParticle.transform.rotation);
+            if (stateData.deathChunkParticle)
+                GameObject.Instantiate(stateData.deathChunkParticle, entity.transform.position, stateData.deathChunkParticle.transform.rotation);
+
+            GameObject.Destroy(entity.gameObject);
+        }
+
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+        
+
     }
+	public override void AnimationTrigger()
+	{
+		base.AnimationTrigger();
+	}
+	public override void AnimationFinishTrigger()
+	{
+		base.AnimationFinishTrigger();
+	}
 
 }

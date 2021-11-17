@@ -10,6 +10,20 @@ public class E3_DeadState : DeadState
 		this.enemy = enemy;
 	}
 
+	public override void AnimationFinishTrigger()
+	{
+		base.AnimationFinishTrigger();
+	}
+
+
+
+	public override void AnimationTrigger()
+	{
+		base.AnimationTrigger();
+	}
+
+
+
 	public override void DoChecks()
 	{
 		base.DoChecks();
@@ -34,4 +48,5 @@ public class E3_DeadState : DeadState
 	{
 		base.PhysicsUpdate();
 	}
+
 }

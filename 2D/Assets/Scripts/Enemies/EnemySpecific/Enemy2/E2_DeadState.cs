@@ -12,7 +12,17 @@ public class E2_DeadState : DeadState
         this.enemy = enemy;
     }
 
-    public override void DoChecks()
+	public override void AnimationFinishTrigger()
+	{
+		base.AnimationFinishTrigger();
+	}
+
+	public override void AnimationTrigger()
+	{
+		base.AnimationTrigger();
+	}
+
+	public override void DoChecks()
     {
         base.DoChecks();
     }

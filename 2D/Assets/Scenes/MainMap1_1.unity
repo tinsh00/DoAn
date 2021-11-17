@@ -258,7 +258,10 @@ MonoBehaviour:
   playerDetectedData: {fileID: 11400000, guid: e7ce9993417b4484486574f3de2abffb, type: 2}
   meleeAttackData: {fileID: 11400000, guid: 1114a1209c1b08741a6115025a0cc333, type: 2}
   lookForPlayerData: {fileID: 11400000, guid: f98ef1f534ed2e349a48d140c412f382, type: 2}
+  castAttackData: {fileID: 11400000, guid: 7049707b258433146b322c4ccbdd31b4, type: 2}
+  deadStateData: {fileID: 11400000, guid: 2a3290b56cc33e04a90742ee498e752c, type: 2}
   meleeAttackPosition: {fileID: 1792674083}
+  stats: {fileID: 1633081491}
 --- !u!114 &25303778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3387,7 +3390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.8223324, y: -10.197929, z: -9.999551}
+  m_LocalPosition: {x: -14.407668, y: 20.70207, z: -9.999551}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1600806940}
@@ -15698,6 +15701,7 @@ MonoBehaviour:
   stunStateData: {fileID: 11400000, guid: feb476734f45df242b04c3b50b211dc5, type: 2}
   deadStateData: {fileID: 11400000, guid: 803c5f6895b75114087f77743674c1bc, type: 2}
   meleeAttackPosition: {fileID: 1111674814}
+  stats: {fileID: 1172439029}
 --- !u!1 &992417385
 GameObject:
   m_ObjectHideFlags: 0
@@ -51575,7 +51579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671423152}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.62, y: -5.19, z: 0}
+  m_LocalPosition: {x: 6.95, y: -5.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 931219636}
@@ -52890,7 +52894,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850200801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.8223324, y: -10.197929, z: -9.999551}
+  m_LocalPosition: {x: -14.407668, y: 20.70207, z: -9.999551}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 931385145}
@@ -53716,12 +53720,12 @@ PrefabInstance:
     - target: {fileID: 3216350002068953729, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.71
+      value: -15.52
       objectReference: {fileID: 0}
     - target: {fileID: 3216350002068953729, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.33
+      value: 26.57
       objectReference: {fileID: 0}
     - target: {fileID: 3216350002068953729, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
         type: 3}

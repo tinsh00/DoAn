@@ -6,7 +6,7 @@ public class AttackState : State
 {
     protected Transform attackPosition;
 
-    protected bool isAnimationFinished;
+
     protected bool isPlayerInMinAgroRange;
 
     public AttackState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition) : base(etity, stateMachine, animBoolName)

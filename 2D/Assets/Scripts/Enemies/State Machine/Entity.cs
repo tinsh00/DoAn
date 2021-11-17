@@ -59,6 +59,7 @@ public class Entity : MonoBehaviour
             isStun = true;
        
         }
+
         
 		else
 		{
