@@ -24,13 +24,15 @@ public class Entity : MonoBehaviour
 
     private float currentHealth;
     private float currentStunResistance;
+
     private float lastDamageTime;
 
     private Vector2 velocityWorkspace;
 
     protected bool isStunned;
+ 
     protected int amountOfStun = 1;
-    protected bool isStun;
+
     protected bool isDead;
 
     public virtual void Awake()
@@ -51,26 +53,15 @@ public class Entity : MonoBehaviour
     {
         Core.LogicUpdate();
         stateMachine.currentState.LogicUpdate();
-        
-        if (Core.Stats.currentHealth <= 10f) 
-        {
-            //Core.Movement.SetVelocityZero();
-            //isStunned = true;
-            isStun = true;
-       
-        }
 
-        
-		else
-		{
-            anim.SetFloat("yVelocity", Core.Movement.RB.velocity.y);
-		}
+	
+        anim.SetFloat("yVelocity", Core.Movement.RB.velocity.y);
 
         if(Time.time >= lastDamageTime + entityData.stunRecoveryTime)
         {
             ResetStunResistance();
            
-            isStun = false;
+          
         }
     }
 
@@ -105,6 +96,7 @@ public class Entity : MonoBehaviour
         isStunned = false;
         currentStunResistance = entityData.stunResistance;
     }
+ 
 
     public virtual void OnDrawGizmos()
     {

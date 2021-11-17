@@ -13,6 +13,7 @@ public class Enemy2 : Entity
     public E2_DeadState deadState { get; private set; }
     public E2_DodgeState dodgeState { get; private set; }
     public E2_RangedAttackState rangedAttackState { get; private set; }
+    public E2_HurtState hurtState { get; private set; }
 
     [SerializeField]
     private D_MoveState moveStateData;
@@ -32,6 +33,8 @@ public class Enemy2 : Entity
     public D_DodgeState dodgeStateData;
     [SerializeField]
     private D_RangedAttackState rangedAttackStateData;
+    [SerializeField]
+    private D_HurtState hurtStateData;
 
     [SerializeField]
     private Transform meleeAttackPosition;
@@ -39,11 +42,12 @@ public class Enemy2 : Entity
     private Transform rangedAttackPosition;
 
     public Stats stats;
+    public bool canStun;
 
     public override void Awake()
     {
         base.Awake();
-
+        canStun = true;
         moveState = new E2_MoveState(this, stateMachine, "move", moveStateData, this);
         idleState = new E2_IdleState(this, stateMachine, "idle", idleStateData, this);
         playerDetectedState = new E2_PlayerDetectedState(this, stateMachine, "playerDetected", playerDetectedStateData, this);
@@ -53,6 +57,7 @@ public class Enemy2 : Entity
         deadState = new E2_DeadState(this, stateMachine, "dead", deadStateData, this);
         dodgeState = new E2_DodgeState(this, stateMachine, "dodge", dodgeStateData, this);
         rangedAttackState = new E2_RangedAttackState(this, stateMachine, "rangedAttack", rangedAttackPosition, rangedAttackStateData, this);
+        hurtState = new E2_HurtState(this, stateMachine, "hurt", hurtStateData, this);
 
     }
 	public override void Update()
@@ -62,6 +67,14 @@ public class Enemy2 : Entity
 		{
             stateMachine.ChangeState(deadState);
         }
+        else if (stats.currentHealth <= 20.0f && stateMachine.currentState != stunState)
+        {
+            stateMachine.ChangeState(stunState);
+        }
+        else if (stats.hurt)
+		{
+            stateMachine.ChangeState(hurtState);
+		}
     }
 	private void Start()
     {

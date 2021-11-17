@@ -19,11 +19,13 @@ public class E2_StunState : StunState
     public override void Enter()
     {
         base.Enter();
+        enemy.canStun = false;
     }
 
     public override void Exit()
     {
         base.Exit();
+        
     }
 
     public override void LogicUpdate()
@@ -31,7 +33,8 @@ public class E2_StunState : StunState
         base.LogicUpdate();
 
         if (isStunTimeOver)
-        {
+        { 
+            enemy.stats.IncreaseHealth(30f);
             if (isPlayerInMinAgroRange)
             {
                 stateMachine.ChangeState(enemy.playerDetectedState);

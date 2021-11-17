@@ -12,6 +12,7 @@ public class Enemy1 : Entity
     public E1_MeleeAttackState meleeAttackState { get; private set; }
     public E1_StunState stunState { get; private set; }
     public E1_DeadState deadState { get; private set; }
+    public E1_HurtState hurtState { get; private set; }
 
     [SerializeField]
     private D_IdleState idleStateData;
@@ -29,6 +30,8 @@ public class Enemy1 : Entity
     private D_StunState stunStateData;
     [SerializeField]
     private D_DeadState deadStateData;
+    [SerializeField]
+    private D_HurtState hurtStateData;
 
 
     [SerializeField]
@@ -47,6 +50,7 @@ public class Enemy1 : Entity
         meleeAttackState = new E1_MeleeAttackState(this, stateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
         stunState = new E1_StunState(this, stateMachine, "stun", stunStateData, this);
         deadState = new E1_DeadState(this, stateMachine, "dead", deadStateData, this);
+        hurtState = new E1_HurtState(this, stateMachine, "hurt", hurtStateData, this);
 
        
     }
@@ -63,13 +67,21 @@ public class Enemy1 : Entity
         {
             stateMachine.ChangeState(deadState);
         }
-        if (isStun)
+        //else if (stats.currentHealth <= 30.0f)
+        //{
+        //    Debug.Log("stun");
+        //    stateMachine.ChangeState(stunState);
+        //    isStun = false;
+        //}
+        else if (stats.currentHealth <= 20.0f && stateMachine.currentState != stunState)
         {
-            Debug.Log("stun");
             stateMachine.ChangeState(stunState);
-            isStun = false;
-            
         }
+        else if (stats.hurt)
+        {
+            stateMachine.ChangeState(hurtState);
+        }
+
     }
 
 	public override void OnDrawGizmos()

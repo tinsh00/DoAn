@@ -11,6 +11,7 @@ public class StunState : State
     protected bool isMovementStopped;
     protected bool performCloseRangeAction;
     protected bool isPlayerInMinAgroRange;
+    
 
     public StunState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_StunState stateData) : base(etity, stateMachine, animBoolName)
     {
@@ -29,7 +30,7 @@ public class StunState : State
     public override void Enter()
     {
         base.Enter();
-
+        
         isStunTimeOver = false;
         isMovementStopped = false;
         core.Movement.SetVelocity(stateData.stunKnockbackSpeed, stateData.stunKnockbackAngle, entity.lastDamageDirection);

@@ -41,8 +41,8 @@ public class Stats : CoreComponent
     [SerializeField]
     protected GameObject expGO;
 
-    
 
+    public bool hurt;
     //protected float TimeStartDie;
     //protected float TimeToDie = .3f;
     [SerializeField]
@@ -52,7 +52,7 @@ public class Stats : CoreComponent
     protected override void Awake()
 	{
 		base.Awake();
-
+        hurt = false;
 	
     }
 	public virtual void Start()
@@ -85,6 +85,7 @@ public class Stats : CoreComponent
 
 	public virtual void DecreaseHealth(float amount)
     {
+        hurt = true;
         currentHealth -= amount;
         healthBar.SetHealth(currentHealth);
         Instantiate(hitParticle, transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 180.0f)));

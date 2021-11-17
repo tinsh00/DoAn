@@ -32,6 +32,7 @@ public class E1_StunState : StunState
 
         if (isStunTimeOver)
         {
+            enemy.stats.IncreaseHealth(30f);
             if (performCloseRangeAction)
             {
                 stateMachine.ChangeState(enemy.meleeAttackState);
