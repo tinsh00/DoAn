@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E4_PlayerDetected : PlayerDetectedState
+public class E5_PlayerDetectedState : PlayerDetectedState
 {
-	private Enemy4_Goblin enemy;
-	public E4_PlayerDetected(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData, Enemy4_Goblin enemy) : base(etity, stateMachine, animBoolName, stateData)
+	private Enemy5 enemy;
+	public E5_PlayerDetectedState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData, Enemy5 enemy) : base(etity, stateMachine, animBoolName, stateData)
 	{
 		this.enemy = enemy;
 	}
@@ -30,10 +30,10 @@ public class E4_PlayerDetected : PlayerDetectedState
 		base.LogicUpdate();
 		if (performCloseRangeAction)
 		{
-			if (enemy.CountAttack >= 2)
-				stateMachine.ChangeState(enemy.meleeSpecialAttackState);
+			if (enemy.CountAttack < 2)
+				stateMachine.ChangeState(enemy.meleeAttack1State);
 			else
-				stateMachine.ChangeState(enemy.meleeAttackState);
+				stateMachine.ChangeState(enemy.meleeAttack2State);
 		}
 		else if (performLongRangeAction)
 		{

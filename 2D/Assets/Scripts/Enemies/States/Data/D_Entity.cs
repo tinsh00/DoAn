@@ -19,7 +19,8 @@ public class D_Entity : ScriptableObject
     public float stunResistance = 3f;
     public float stunRecoveryTime = 2f;
 
- 
+    public float shieldResistance = 4f;
+    public float shieldRecoveryTime = 2f;
 
     public float closeRangeActionDistance = 1f;
 

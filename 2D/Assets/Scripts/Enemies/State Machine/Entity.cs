@@ -24,12 +24,14 @@ public class Entity : MonoBehaviour
 
     private float currentHealth;
     private float currentStunResistance;
+    private float currentShieldResistance;
 
     private float lastDamageTime;
 
     private Vector2 velocityWorkspace;
 
     protected bool isStunned;
+    protected bool isShielded;
  
     protected int amountOfStun = 1;
 
@@ -60,8 +62,10 @@ public class Entity : MonoBehaviour
         if(Time.time >= lastDamageTime + entityData.stunRecoveryTime)
         {
             ResetStunResistance();
-           
-          
+        }
+        if (Time.time >= lastDamageTime + entityData.shieldRecoveryTime)
+        {
+            ResetShieldResistance();
         }
     }
 
@@ -96,6 +100,12 @@ public class Entity : MonoBehaviour
         isStunned = false;
         currentStunResistance = entityData.stunResistance;
     }
+    public virtual void ResetShieldResistance()
+	{
+        isShielded = false;
+        currentShieldResistance = entityData.shieldResistance;
+        
+	}
  
 
     public virtual void OnDrawGizmos()

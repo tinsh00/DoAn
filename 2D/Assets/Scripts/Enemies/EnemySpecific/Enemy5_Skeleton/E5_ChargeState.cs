@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E4_ChargeState : ChargeState
+public class E5_ChargeState : ChargeState
 {
-	private Enemy4_Goblin enemy;
-	public E4_ChargeState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_ChargeState stateData, Enemy4_Goblin enemy) : base(etity, stateMachine, animBoolName, stateData)
+	private Enemy5 enemy;
+	public E5_ChargeState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, D_ChargeState stateData, Enemy5 enemy) : base(etity, stateMachine, animBoolName, stateData)
 	{
 		this.enemy = enemy;
 	}
@@ -30,10 +30,10 @@ public class E4_ChargeState : ChargeState
 		base.LogicUpdate();
 		if (performCloseRangeAction)
 		{
-			if (enemy.CountAttack < 2)
-				stateMachine.ChangeState(enemy.meleeAttackState);
+			if(enemy.CountAttack < 2)
+				stateMachine.ChangeState(enemy.meleeAttack1State);
 			else
-				stateMachine.ChangeState(enemy.meleeSpecialAttackState);
+				stateMachine.ChangeState(enemy.meleeAttack2State);
 		}
 		else if (!isDetectingLedge || isDetectingWall)
 		{

@@ -19,7 +19,7 @@ public class E2_StunState : StunState
     public override void Enter()
     {
         base.Enter();
-        enemy.canStun = false;
+        
     }
 
     public override void Exit()

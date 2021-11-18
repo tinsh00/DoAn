@@ -42,12 +42,12 @@ public class Enemy2 : Entity
     private Transform rangedAttackPosition;
 
     public Stats stats;
-    public bool canStun;
+    
 
     public override void Awake()
     {
         base.Awake();
-        canStun = true;
+        
         moveState = new E2_MoveState(this, stateMachine, "move", moveStateData, this);
         idleState = new E2_IdleState(this, stateMachine, "idle", idleStateData, this);
         playerDetectedState = new E2_PlayerDetectedState(this, stateMachine, "playerDetected", playerDetectedStateData, this);

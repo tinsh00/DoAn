@@ -67,12 +67,6 @@ public class Enemy1 : Entity
         {
             stateMachine.ChangeState(deadState);
         }
-        //else if (stats.currentHealth <= 30.0f)
-        //{
-        //    Debug.Log("stun");
-        //    stateMachine.ChangeState(stunState);
-        //    isStun = false;
-        //}
         else if (stats.currentHealth <= 20.0f && stateMachine.currentState != stunState)
         {
             stateMachine.ChangeState(stunState);

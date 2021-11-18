@@ -18,7 +18,7 @@ public class E4_MeleeAttackState : MeleeAttackState
 	public override void Enter()
 	{
 		base.Enter();
-		enemy.count++;
+		enemy.CountAttack++;
 	}
 
 	public override void Exit()

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E4_MeleeSpecialAttackState : MeleeAttackState
+public class E5_MeleeAttack2State : MeleeAttackState
 {
-	private Enemy4_Goblin enemy;
-	public E4_MeleeSpecialAttackState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_MeleeAttack stateData, Enemy4_Goblin enemy) : base(etity, stateMachine, animBoolName, attackPosition, stateData)
+	private Enemy5 enemy;
+	public E5_MeleeAttack2State(Entity etity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_MeleeAttack stateData, Enemy5 enemy) : base(etity, stateMachine, animBoolName, attackPosition, stateData)
 	{
 		this.enemy = enemy;
 	}

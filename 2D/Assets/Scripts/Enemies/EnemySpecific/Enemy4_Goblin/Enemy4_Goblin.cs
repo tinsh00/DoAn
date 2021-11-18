@@ -43,12 +43,12 @@ public class Enemy4_Goblin : Entity
 
 	[SerializeField]
 	public Stats stats;
-	public int count;
+	public int CountAttack;
 
 	public override void Awake()
 	{
 		base.Awake();
-		count = 0;
+		CountAttack = 0;
 		moveState = new E4_MoveState(this, stateMachine, "move", MoveStateData, this);
 		idleState = new E4_IdleState(this, stateMachine, "idle", IdleStateData, this);
 		playerDetectedState = new E4_PlayerDetected(this, stateMachine, "playerDetected", PlayerDetectedData, this);
