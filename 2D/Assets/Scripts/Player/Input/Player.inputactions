@@ -38,6 +38,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "DodgeRoll",
+                    "type": "Button",
+                    "id": "3441b619-66d9-47d3-aade-7066d4512aaf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "DashDirection",
                     "type": "Value",
                     "id": "4f82a0cb-8525-49a6-99f9-b2785d6dc619",
@@ -296,6 +304,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Knife",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0c0a98d1-5c17-46f1-9fa8-e72e6f1d4850",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "DodgeRoll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
