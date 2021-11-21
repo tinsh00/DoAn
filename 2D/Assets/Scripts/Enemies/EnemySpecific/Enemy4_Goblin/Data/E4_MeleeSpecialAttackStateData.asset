@@ -19,3 +19,6 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 2048
+  whatIsShield:
+    serializedVersion: 2
+    m_Bits: 32768

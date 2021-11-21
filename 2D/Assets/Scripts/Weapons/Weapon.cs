@@ -14,9 +14,9 @@ public class Weapon : MonoBehaviour
     protected Core core;
 
     protected int attackCounter;
-    protected float TimerEnter=.5f;
+    //protected float TimerEnter=.5f;
     //public float TimeHold=7f;
-    public float TimerStartHolderShield;
+    //public float TimerStartHolderShield;
 
 
     protected virtual void Awake()

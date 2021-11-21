@@ -6,6 +6,24 @@ public class Shield : Weapon
 {
 	protected SO_AggressiveWeaponData aggressiveWeaponData;
 
+	[SerializeField]
+	private LayerMask whatIsProje;
+	[SerializeField]
+	private Transform shieldPosition;
+	[SerializeField]
+	private float shieldRadius;
+
+
+	private bool isFinishAnimationParry;
+	private bool isShieldHit;
+	Collider2D shieldHit;
+
+	public bool isFinishEnter;
+
+	private void Start()
+	{
+
+	}
 	
 
 	public override void AnimationActionTrigger()
@@ -38,6 +56,11 @@ public class Shield : Weapon
 		base.AnimationTurnOnFlipTigger();
 	}
 
+	public  void AnimationFinishEnterState()
+	{
+		isFinishEnter = true;
+	}
+
 	public override void EnterWeapon()
 	{
 		base.EnterWeapon();
@@ -45,31 +68,35 @@ public class Shield : Weapon
 		baseAnimator.SetBool("enter", true);
 		weaponAnimator.SetBool("enter", true);
 		
+		
+
 	}
 	private void Update()
 	{
 		if (state.shieldInput)
 		{
-			//baseAnimator.SetBool("enter", true);
-			//weaponAnimator.SetBool("enter", true);
-
-			
-			if (Time.time >= state.shieldInputStart + TimerEnter)
+			if (isFinishEnter)
 			{
-				Debug.Log("hold shield");
+				//Debug.Log("hold shield");
+				Player.instance.Core.Combat.gameObject.SetActive(false);
+				baseAnimator.SetBool("hold", true);
+				weaponAnimator.SetBool("hold", true);
 
 				baseAnimator.SetBool("enter", false);
 				weaponAnimator.SetBool("enter", false);
 
-				baseAnimator.SetBool("hold", true);
-				weaponAnimator.SetBool("hold", true);
-			}
-			
+				if (isShieldHit || CheckShieldHit())
+				{
+					StartParry();
+				}
+				else if (isFinishAnimationParry)
+				{
+					FinishParry();
+				}
+			}			
 		}
 		else if(!state.shieldInput)
 		{
-			//exit
-			
 			baseAnimator.SetBool("enter", false);
 			weaponAnimator.SetBool("enter", false);
 
@@ -86,11 +113,52 @@ public class Shield : Weapon
 
 		baseAnimator.SetBool("exit", true);
 		weaponAnimator.SetBool("exit", true);
+		Player.instance.Core.Combat.gameObject.SetActive(true);
+		SetShieldHitMeleeAttack(false);
+		isFinishEnter = false;
+
+
+	}
+	public bool CheckShieldHit()
+	{
+		return shieldHit = Physics2D.OverlapCircle(shieldPosition.position, shieldRadius, whatIsProje);
+
+	}
+	public void SetShieldHitMeleeAttack(bool shieldhit)
+	{
+		isShieldHit = shieldhit;
+	}
+	public void StartParry()
+	{
+		//Debug.Log("Shield hit");
+		weaponAnimator.SetBool("hold", false);
+		weaponAnimator.SetBool("parry", true);
+		if (shieldHit)
+			Destroy(shieldHit.gameObject);
+	}
+	public void FinishParry()
+	{
+		weaponAnimator.SetBool("parry", false);
+		weaponAnimator.SetBool("hold", true);
+		isFinishAnimationParry = false;
+
+	}
+	public void FinishAnimationParry()
+	{
+		isFinishAnimationParry = true;
+		isShieldHit = false;
+	}
+
+	private void OnDrawGizmos()
+	{
+		Gizmos.DrawWireSphere(shieldPosition.position, shieldRadius);
 	}
 
 	protected override void Awake()
 	{
 		base.Awake();
+		isFinishAnimationParry = false;
+		isShieldHit = false;
 		if (weaponData.GetType() == typeof(SO_AggressiveWeaponData))
 		{
 			aggressiveWeaponData = (SO_AggressiveWeaponData)weaponData;

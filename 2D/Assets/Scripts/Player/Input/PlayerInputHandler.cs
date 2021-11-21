@@ -28,11 +28,11 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField]
     private float inputHoldTime = 0.2f;
     
-    public float ShieldInputHoldTime = 7f;
+    //public float ShieldInputHoldTime = 7f;
 
     private float jumpInputStartTime;
     private float dashInputStartTime;
-    private float shieldInputStartTime;
+    public float shieldInputStartTime;
     //private float shieldColdDownStartTime;
 
     //private float ShieldColdDown=3f;
@@ -189,16 +189,16 @@ public class PlayerInputHandler : MonoBehaviour
             JumpInput = false;
         }
     }
-    private void CheckShieldInputHoldTime()
-    {
-        if (Time.time >= shieldInputStartTime + ShieldInputHoldTime && ShieldInput)
-        {
-            ShieldInput = false;
-            //shieldColdDownStartTime = Time.time;
-        }
+    //private void CheckShieldInputHoldTime()
+    //{
+    //    if (Time.time >= shieldInputStartTime + ShieldInputHoldTime && ShieldInput)
+    //    {
+    //        ShieldInput = false;
+    //        //shieldColdDownStartTime = Time.time;
+    //    }
 
 
-    }
+    //}
     private void CheckDashInputHoldTime()
     {
         if(Time.time >= dashInputStartTime + inputHoldTime)

@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3852460595949208098}
   - component: {fileID: 8439628491643525613}
   - component: {fileID: 6479748268199543809}
-  m_Layer: 0
+  - component: {fileID: 5044489772047822353}
+  m_Layer: 14
   m_Name: ArrowPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,6 +129,32 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   damagePosition: {fileID: 3209376504768440650}
+--- !u!61 &5044489772047822353
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112009918875074241}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.3260646, y: -0.026500225}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.36410236, y: 0.28633976}
+  m_EdgeRadius: 0
 --- !u!1 &5184457194668555520
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3209376504768440650}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: DamagePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

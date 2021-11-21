@@ -28,7 +28,7 @@ public class PlayerAttackState : PlayerAbilityState
         setVelocity = false;
 
         weapon.EnterWeapon();
-        shieldInputStart = weapon.TimerStartHolderShield;
+        shieldInputStart = player.GetComponent<PlayerInputHandler>().shieldInputStartTime;
     }
 
     public override void Exit()
@@ -45,6 +45,7 @@ public class PlayerAttackState : PlayerAbilityState
         xInput = player.InputHandler.NormInputX;
         shieldInput = player.InputHandler.ShieldInput;
         shieldInputStop = player.InputHandler.ShieldInputStop;
+        shieldInputStart = player.InputHandler.shieldInputStartTime;
 
         if (shouldCheckFlip)
         {

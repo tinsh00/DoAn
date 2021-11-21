@@ -56050,10 +56050,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 710113429705700503}
-    - target: {fileID: 860874543, guid: 0fe21e3b0f8a6604abecc907f08b4db3, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3216350002068953729, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
         type: 3}
       propertyPath: m_RootOrder

@@ -29,6 +29,7 @@ public class Projectile : MonoBehaviour
     private LayerMask whatIsGround;
     [SerializeField]
     private LayerMask whatIsPlayer;
+
     [SerializeField]
     private Transform damagePosition;
 
@@ -77,25 +78,25 @@ public class Projectile : MonoBehaviour
             //Collider2D damageHit = Physics2D.OverlapCircle(damagePosition.position, damageRadius, whatIsPlayer);
             Collider2D groundHit = Physics2D.OverlapCircle(damagePosition.position, damageRadius, whatIsGround);
             Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(damagePosition.position, damageRadius,whatIsPlayer);
+           
 
 
+            //         if (damageHit)
+            //         {
+            //	Debug.Log("dame");
+            //	IDamageable damageable = damageHit.GetComponent<IDamageable>();
+            //	if (damageable != null)
+            //	{
+            //		//damageable.Damage(15f);
+            //		Debug.Log("dame -15");
 
-   //         if (damageHit)
-   //         {
-			//	Debug.Log("dame");
-			//	IDamageable damageable = damageHit.GetComponent<IDamageable>();
-			//	if (damageable != null)
-			//	{
-			//		//damageable.Damage(15f);
-			//		Debug.Log("dame -15");
+            //		damageable.Damage(damage);
+            //		Destroy(gameObject);
+            //	}
+            //	//damageHit.transform.SendMessage("Damage", attackDetails);
+            //}
 
-			//		damageable.Damage(damage);
-			//		Destroy(gameObject);
-			//	}
-			//	//damageHit.transform.SendMessage("Damage", attackDetails);
-			//}
-
-			foreach (Collider2D collider in detectedObjects)
+            foreach (Collider2D collider in detectedObjects)
                 {
                     IDamageable damageable = collider.GetComponent<IDamageable>();
 
@@ -112,8 +113,8 @@ public class Projectile : MonoBehaviour
 					knockbackable.Knockback(Vector2.one, 10f, leftOnPlayer);
 				}
 			}
-            
-            
+
+	
 
             if (groundHit)
             {

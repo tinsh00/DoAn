@@ -5,8 +5,8 @@ using UnityEngine;
 public class MeleeAttackState : AttackState
 {
     protected D_MeleeAttack stateData;
-    
 
+    private Animator anim;
     public MeleeAttackState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_MeleeAttack stateData) : base(etity, stateMachine, animBoolName, attackPosition)
     {
         this.stateData = stateData;
@@ -47,7 +47,7 @@ public class MeleeAttackState : AttackState
         base.TriggerAttack();
 
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attackPosition.position, stateData.attackRadius, stateData.whatIsPlayer);
-
+        Collider2D shieldHit = Physics2D.OverlapCircle(attackPosition.position, stateData.attackRadius, stateData.whatIsShield);
         foreach (Collider2D collider in detectedObjects)
         {
             IDamageable damageable = collider.GetComponent<IDamageable>();
@@ -64,5 +64,11 @@ public class MeleeAttackState : AttackState
                 knockbackable.Knockback(stateData.knockbackAngle, stateData.knockbackStrength, core.Movement.FacingDirection);
             }
         }
+		if (shieldHit)
+		{
+            Debug.Log(shieldHit.gameObject.name);
+            shieldHit.gameObject.transform.parent.gameObject.SendMessage("SetShieldHitMeleeAttack", true);
+		}
+		
     }
 }
