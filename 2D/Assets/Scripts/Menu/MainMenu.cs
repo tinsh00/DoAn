@@ -5,14 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+	//AudioManager audioManager;
+	[SerializeField]
+	string hoverOverSound = "ButtonHover";
+
+	[SerializeField]
+	string pressButtonSound = "ButtonPress";
+	private void Start()
+	{
+		
+	}
+	public void PlayGame()
 	{
 		
 	}
 
 	public void QuitGame()
 	{
+		
 		Debug.Log("Quit game");
 		Application.Quit();
 	}
+	public void OnMouseOver()
+	{
+		AudioManager.instance.PlaySound(hoverOverSound);
+	}
+	public void OnMouseDown()
+	{
+		AudioManager.instance.PlaySound(pressButtonSound);
+	}
+
 }

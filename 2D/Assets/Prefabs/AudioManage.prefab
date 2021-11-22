@@ -45,9 +45,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDestroyOnLoad: 0
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Music
+    clip: {fileID: 8300000, guid: 4ba60f4a5374e6948bc357d908e41c28, type: 3}
+    volume: 0.4
+    pitch: 1
     randomVolume: 0
     randomPitch: 0
+    loop: 0
+  - name: ButtonHover
+    clip: {fileID: 8300000, guid: bfe634ff7a4a748469b58a940e39908e, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: ButtonPress
+    clip: {fileID: 8300000, guid: aa3f72c5abaf96041abdebd5ffe45932, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
