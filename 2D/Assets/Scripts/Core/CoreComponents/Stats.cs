@@ -57,13 +57,8 @@ public class Stats : CoreComponent
     }
 	public virtual void Start()
 	{
-        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        if (!healthBar)
-		{
-            healthBar = GameObject.Find("Health Bar").GetComponent<HealthBar>();
-            
-            
-		}
+        //GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+       
         healthBar.SetMaxHealth(maxHealth);
         //expSlider.SetExp(currentExp);
         //coinText.text = "X" + coin;
@@ -122,12 +117,7 @@ public class Stats : CoreComponent
         {
             Instantiate(expGO, new Vector3(transform.position.x + Random.Range(-10, 10) / 100, transform.position.y, transform.position.z), expGO.transform.rotation);
             Instantiate(coinGO, new Vector3(transform.position.x + Random.Range(-10, 10) / 100, transform.position.y, transform.position.z), expGO.transform.rotation);
-        }
-        if (isRepawn)
-        {
-            GM.Respawn();
-        }
-        
+        }    
         core.DestroyPlayer();
 		
     }

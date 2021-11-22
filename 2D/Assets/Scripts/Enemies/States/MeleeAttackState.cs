@@ -66,7 +66,7 @@ public class MeleeAttackState : AttackState
         }
 		if (shieldHit)
 		{
-            Debug.Log(shieldHit.gameObject.name);
+            //Debug.Log(shieldHit.gameObject.name);
             shieldHit.gameObject.transform.parent.gameObject.SendMessage("SetShieldHitMeleeAttack", true);
 		}
 		

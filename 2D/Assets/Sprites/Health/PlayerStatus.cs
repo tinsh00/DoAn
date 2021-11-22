@@ -53,22 +53,11 @@ public class PlayerStatus : Stats
 		//SaveDPlayer();
 		//LoadDPlayer();
 		isPlayer = true;
-		if (!expSlider)
-		{
-			expSlider = GameObject.Find("Exp Bar").GetComponent<ExpBar>();
-		}
+		
 		currentExp = Inventory.instance.currentExp;
-		expSlider.SetExp(currentExp);
-		if (!coinText)
-		{
-			coinText = GameObject.Find("coinText").GetComponent<Text>();
-		}
+		expSlider.SetExp(currentExp);		
 		coin = Inventory.instance.coin;
 		coinText.text = "X" + coin;
-		if (!LevelText)
-		{
-			LevelText = GameObject.Find("Level").GetComponent<Text>();
-		}
 		level = Inventory.instance.level;
 		LevelText.text = "lV." + level;
 	}

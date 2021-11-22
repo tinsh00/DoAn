@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private float respawnTimeStart;
 
     private bool respawn;
+    [SerializeField]
+    private InventoryUI Canvas;
 
     //HealthBar healthBar;
 
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
+        Player.instance.transform.localScale = new Vector3(1f, 1f, 1f);
+        Canvas.gameObject.SetActive(true);
         
     }
 

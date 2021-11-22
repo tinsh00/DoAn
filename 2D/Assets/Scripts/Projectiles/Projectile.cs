@@ -29,6 +29,8 @@ public class Projectile : MonoBehaviour
     private LayerMask whatIsGround;
     [SerializeField]
     private LayerMask whatIsPlayer;
+    [SerializeField]
+    private LayerMask whatIsShield;
 
     [SerializeField]
     private Transform damagePosition;
@@ -78,7 +80,7 @@ public class Projectile : MonoBehaviour
             //Collider2D damageHit = Physics2D.OverlapCircle(damagePosition.position, damageRadius, whatIsPlayer);
             Collider2D groundHit = Physics2D.OverlapCircle(damagePosition.position, damageRadius, whatIsGround);
             Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(damagePosition.position, damageRadius,whatIsPlayer);
-           
+            Collider2D ShieldHit = Physics2D.OverlapCircle(damagePosition.position, damageRadius, whatIsShield);
 
 
             //         if (damageHit)
@@ -114,7 +116,10 @@ public class Projectile : MonoBehaviour
 				}
 			}
 
-	
+			if (ShieldHit)
+			{
+                Destroy(gameObject);
+            }
 
             if (groundHit)
             {

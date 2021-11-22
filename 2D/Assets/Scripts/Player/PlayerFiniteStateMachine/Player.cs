@@ -99,9 +99,7 @@ public PlayerStateMachine StateMachine { get; private set; }
         KnifeAttackState.SetWeapon(PlayerInventory.weapons[(int)CombatInputs.knife]);
         StateMachine.Initialize(IdleState);
 
-
-        Player.instance.quest.isActive = true;
-        Player.instance.quest = DetailQuest.instance.quest ;
+	
     }
 
     private void Update()

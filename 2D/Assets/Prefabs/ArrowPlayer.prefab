@@ -128,6 +128,9 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
+  whatIsShield:
+    serializedVersion: 2
+    m_Bits: 32768
   damagePosition: {fileID: 3209376504768440650}
 --- !u!61 &5044489772047822353
 BoxCollider2D:

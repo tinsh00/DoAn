@@ -23,6 +23,7 @@ public class Inventory : Singleton<Inventory>
 	private void Start()
 	{
         maxExp = Player.instance.playerStatus.maxExp;
+ 
 
     }
 
