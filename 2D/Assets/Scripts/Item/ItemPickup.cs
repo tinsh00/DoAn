@@ -6,13 +6,15 @@ public class ItemPickup : MonoBehaviour
 {
     public Item item;
 
-
+	[SerializeField]
+	private string pickUpItem = "pickUpItem";
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		
 		if(collision.gameObject.tag == "Player")
 		{
+			AudioManager.instance.PlaySound(pickUpItem);
 			if (item.isDefauleItem)
 			{
 				PlayerStatus status = collision.gameObject.GetComponentInChildren<PlayerStatus>();

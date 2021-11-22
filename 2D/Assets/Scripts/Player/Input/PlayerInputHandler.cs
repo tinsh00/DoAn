@@ -36,7 +36,7 @@ public class PlayerInputHandler : MonoBehaviour
     //private float shieldColdDownStartTime;
 
     //private float ShieldColdDown=3f;
-
+   // private string attackVoice = "MeleeAttack";
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -60,6 +60,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             AttackInputs[(int)CombatInputs.knife] = true;
+            
         }
 
         if (context.canceled)
@@ -94,6 +95,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             AttackInputs[(int)CombatInputs.primary] = true;
+            
         }
 
         if (context.canceled)

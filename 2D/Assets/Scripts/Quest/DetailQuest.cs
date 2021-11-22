@@ -19,8 +19,7 @@ public class DetailQuest : Singleton<DetailQuest>
 	protected override void Awake()
 	{
 		base.Awake();
-		i++;
-		Debug.Log(i++);
+		
 	}
 
 	public void SetDetailQuest()
@@ -48,7 +47,8 @@ public class DetailQuest : Singleton<DetailQuest>
 	{
 		questGiver.DQuest.SetActive(false);
 		quest.isActive = true;
-
+		Player.instance.quest.isActive = true;
+		Player.instance.quest = quest;
 
 		SceneManager.LoadScene(questGiver.sceneText);
 		

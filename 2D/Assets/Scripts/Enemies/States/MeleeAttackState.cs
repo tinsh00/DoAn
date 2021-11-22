@@ -7,6 +7,11 @@ public class MeleeAttackState : AttackState
     protected D_MeleeAttack stateData;
 
     private Animator anim;
+
+    [SerializeField]
+    private string playerHurt = "playerHurt";
+    [SerializeField]
+    private string shieldHitClip = "shieldHit";
     public MeleeAttackState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_MeleeAttack stateData) : base(etity, stateMachine, animBoolName, attackPosition)
     {
         this.stateData = stateData;
@@ -55,6 +60,7 @@ public class MeleeAttackState : AttackState
             if(damageable != null)
             {
                 damageable.Damage(stateData.attackDamage);
+                AudioManager.instance.PlaySound(playerHurt);
             }
 
             IKnockbackable knockbackable = collider.GetComponent<IKnockbackable>();
@@ -68,6 +74,7 @@ public class MeleeAttackState : AttackState
 		{
             //Debug.Log(shieldHit.gameObject.name);
             shieldHit.gameObject.transform.parent.gameObject.SendMessage("SetShieldHitMeleeAttack", true);
+            AudioManager.instance.PlaySound(shieldHitClip);
 		}
 		
     }

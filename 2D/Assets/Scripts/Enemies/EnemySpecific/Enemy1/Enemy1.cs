@@ -32,6 +32,8 @@ public class Enemy1 : Entity
     private D_DeadState deadStateData;
     [SerializeField]
     private D_HurtState hurtStateData;
+    [SerializeField]
+    private string deadEnemy = "deadEnemy";
 
 
     [SerializeField]
@@ -66,6 +68,7 @@ public class Enemy1 : Entity
         if (stats.currentHealth <= 0.0f)
         {
             stateMachine.ChangeState(deadState);
+            AudioManager.instance.PlaySound(deadEnemy);
         }
         else if (stats.currentHealth <= 20.0f && stateMachine.currentState != stunState)
         {

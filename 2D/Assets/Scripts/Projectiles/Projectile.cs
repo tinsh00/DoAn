@@ -35,6 +35,9 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     private Transform damagePosition;
 
+    [SerializeField]
+    private string shotClip = "Shot";
+
 
 	private void Start()
     {
@@ -150,6 +153,7 @@ public class Projectile : MonoBehaviour
         this.travelDistance = travelDistance;
         //attackDetails.damageAmount = damage;
         this.damage = damage;
+        AudioManager.instance.PlaySound(shotClip);
     }
 
     private void OnDrawGizmos()

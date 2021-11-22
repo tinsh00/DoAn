@@ -41,6 +41,11 @@ public class Enemy2 : Entity
     [SerializeField]
     private Transform rangedAttackPosition;
 
+    [SerializeField]
+    private string deadVoice = "deadPlayer"; 
+    [SerializeField]
+    private string hurtVoice = "hurtPlayer";
+
     public Stats stats;
     
 
@@ -66,6 +71,7 @@ public class Enemy2 : Entity
 		if (stats.currentHealth <= 0.0f)
 		{
             stateMachine.ChangeState(deadState);
+            AudioManager.instance.PlaySound(deadVoice);
         }
         else if (stats.currentHealth <= 20.0f && stateMachine.currentState != stunState)
         {
@@ -74,6 +80,7 @@ public class Enemy2 : Entity
         else if (stats.hurt)
 		{
             stateMachine.ChangeState(hurtState);
+            AudioManager.instance.PlaySound(hurtVoice);
 		}
     }
 	private void Start()

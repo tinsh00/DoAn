@@ -9,6 +9,10 @@ public class AggressiveWeapon : Weapon
 
     private List<IDamageable> detectedDamageables = new List<IDamageable>();
     private List<IKnockbackable> detectedKnockbackables = new List<IKnockbackable>();
+    [SerializeField]
+    private string meleeAttack = "meleeAttack";
+    [SerializeField]
+    private string meleeAttackHit = "meleeAttackHit";
 
 
     protected override void Awake()
@@ -30,6 +34,7 @@ public class AggressiveWeapon : Weapon
     {
         base.AnimationActionTrigger();
         CheckMeleeAttack();
+        AudioManager.instance.PlaySound(meleeAttack);
     }
 
     private void CheckMeleeAttack()
@@ -43,6 +48,7 @@ public class AggressiveWeapon : Weapon
         foreach (IDamageable item in detectedDamageables.ToList())
         {
             item.Damage(details.damageAmount);
+            AudioManager.instance.PlaySound(meleeAttackHit);
         } 
     }
     public void AddToDetected(Collider2D collision)

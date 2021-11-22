@@ -47,11 +47,11 @@ MonoBehaviour:
   sounds:
   - name: Music
     clip: {fileID: 8300000, guid: 4ba60f4a5374e6948bc357d908e41c28, type: 3}
-    volume: 0.4
+    volume: 0.717
     pitch: 1
-    randomVolume: 0
-    randomPitch: 0
-    loop: 0
+    randomVolume: 0.049
+    randomPitch: 0.22
+    loop: 1
   - name: ButtonHover
     clip: {fileID: 8300000, guid: bfe634ff7a4a748469b58a940e39908e, type: 3}
     volume: 0.7
@@ -61,6 +61,69 @@ MonoBehaviour:
     loop: 0
   - name: ButtonPress
     clip: {fileID: 8300000, guid: aa3f72c5abaf96041abdebd5ffe45932, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: Shot
+    clip: {fileID: 8300000, guid: 312837ac3b2bdfd4cb4b4183df956431, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: deadEnemy
+    clip: {fileID: 8300000, guid: 3bcef4aac5dcb38469640581831cb84c, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: deadPlayer
+    clip: {fileID: 8300000, guid: 3bcef4aac5dcb38469640581831cb84c, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: hurtPlayer
+    clip: {fileID: 8300000, guid: 81e5b0a4bdcbb2c4694bdaee6ecdc9ff, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: meleeAttack
+    clip: {fileID: 8300000, guid: 8dd0202f09171a448b1e5f972bd601d5, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: meleeAttackHit
+    clip: {fileID: 8300000, guid: 02b4a6e7020fd764bb032a7046ce325f, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: playerHurt
+    clip: {fileID: 8300000, guid: 1c25aa79df3c606478c6655e62a1ae4e, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: shieldHit
+    clip: {fileID: 8300000, guid: baf5e5aab44976746a74a78597544d27, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: pickUpItem
+    clip: {fileID: 8300000, guid: e73c8a49f434ebf4f9420d06599e4a86, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
