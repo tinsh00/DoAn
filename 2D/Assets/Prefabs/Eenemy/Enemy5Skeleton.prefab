@@ -271,6 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7575869846786731082}
   - component: {fileID: 7575869846786731093}
+  - component: {fileID: 84667384037199312}
   m_Layer: 15
   m_Name: Shield
   m_TagString: Untagged
@@ -318,6 +319,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &84667384037199312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7575869846786731083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c869c874c32d04d905f19db0875412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7575869846787061699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +1140,8 @@ MonoBehaviour:
   meleeAttack2Position: {fileID: 7575869847679346819}
   shieldGO: {fileID: 7575869846786731083}
   CombatGO: {fileID: 7575869846787061699}
+  deadVoice: deadEnemy
+  hurtVoice: hurtEnemy
   stats: {fileID: 7575869846688651076}
   CountAttack: 0
   CountHurt: 0

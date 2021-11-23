@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerJumpState : PlayerAbilityState
 {
     private int amountOfJumpsLeft;
+    private string landPlayer = "landPlayer";
 
     public PlayerJumpState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -20,6 +21,7 @@ public class PlayerJumpState : PlayerAbilityState
         isAbilityDone = true;
         amountOfJumpsLeft--;
         player.InAirState.SetIsJumping();
+        AudioManager.instance.PlaySound(landPlayer);
     }
 
     public bool CanJump()

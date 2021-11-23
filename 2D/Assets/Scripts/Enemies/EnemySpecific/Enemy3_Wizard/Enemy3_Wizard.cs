@@ -36,6 +36,11 @@ public class Enemy3_Wizard : Entity
 	[SerializeField]
 	private Transform meleeAttackPosition;
 
+	[SerializeField]
+	private string deadVoice = "deadEnemy";
+	[SerializeField]
+	private string hurtVoice = "hurtEnemy";
+
 	public Stats stats;
 
 
@@ -64,10 +69,13 @@ public class Enemy3_Wizard : Entity
 		if (stats.currentHealth <= 0.0f)
 		{
 			stateMachine.ChangeState(deadState);
+			AudioManager.instance.PlaySound(deadVoice);
 		}
 		else if (stats.hurt)
 		{
 			stateMachine.ChangeState(hurtState);
+			AudioManager.instance.PlaySound(hurtVoice);
+
 		}
 
 	}

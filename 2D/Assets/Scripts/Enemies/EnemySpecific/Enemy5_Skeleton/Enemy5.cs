@@ -50,6 +50,11 @@ public class Enemy5 : Entity
 	[SerializeField]
 	private GameObject CombatGO;
 
+	[SerializeField]
+	private string deadVoice = "deadEnemy";
+	[SerializeField]
+	private string hurtVoice = "hurtEnemy";
+
 	public Stats stats;
 	public int CountAttack;
 	public int CountHurt;
@@ -82,15 +87,20 @@ public class Enemy5 : Entity
 		if (stats.currentHealth <= 0.0f)
 		{
 			stateMachine.ChangeState(deadState);
+			AudioManager.instance.PlaySound(deadVoice);
+
 		}
 		else if (CountHurt >= 2) 
 		{
 			stateMachine.ChangeState(shieldState);
+			shieldGO.SetActive(true);
+			
 		}
 		else if (stats.hurt)
 		{
-			
 			stateMachine.ChangeState(hurtState);
+			AudioManager.instance.PlaySound(hurtVoice);
+
 		}
 	}
 

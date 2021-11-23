@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerWallJumpState : PlayerAbilityState
 {
     private int wallJumpDirection;
+    private string landPlayer = "landPlayer";
 
     public PlayerWallJumpState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -18,6 +19,7 @@ public class PlayerWallJumpState : PlayerAbilityState
         core.Movement.SetVelocity(playerData.wallJumpVelocity, playerData.wallJumpAngle, wallJumpDirection);
         core.Movement.CheckIfShouldFlip(wallJumpDirection);
         player.JumpState.DecreaseAmountOfJumpsLeft();
+        AudioManager.instance.PlaySound(landPlayer);
     }
 
     public override void LogicUpdate()

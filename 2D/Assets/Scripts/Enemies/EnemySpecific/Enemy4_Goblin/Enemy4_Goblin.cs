@@ -41,6 +41,11 @@ public class Enemy4_Goblin : Entity
 	[SerializeField]
 	private Transform meleeSpecialAttackPosition;
 
+
+	[SerializeField]
+	private string deadVoice = "deadEnemy";
+	[SerializeField]
+	private string hurtVoice = "hurtEnemy";
 	[SerializeField]
 	public Stats stats;
 	public int CountAttack;
@@ -76,10 +81,13 @@ public class Enemy4_Goblin : Entity
 		if (stats.currentHealth <= 0.0f)
 		{
 			stateMachine.ChangeState(deadState);
+			AudioManager.instance.PlaySound(deadVoice);
 		}
 		else if (stats.hurt)
 		{
 			stateMachine.ChangeState(hurtState);
+			AudioManager.instance.PlaySound(hurtVoice);
+
 		}
 
 	}

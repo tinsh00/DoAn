@@ -5,6 +5,7 @@ using UnityEngine;
 public class E3_CastAttackState : RangedAttackState
 {
 	private Enemy3_Wizard enemy;
+	string cast = "cast";
 	public E3_CastAttackState(Entity etity, FiniteStateMachine stateMachine, string animBoolName, Transform attackPosition, D_RangedAttackState stateData, Enemy3_Wizard enemy) : base(etity, stateMachine, animBoolName, attackPosition, stateData)
 	{
 		this.enemy = enemy;
@@ -18,6 +19,7 @@ public class E3_CastAttackState : RangedAttackState
 	public override void Enter()
 	{
 		base.Enter();
+		AudioManager.instance.PlaySound(cast);
 	}
 
 	public override void Exit()

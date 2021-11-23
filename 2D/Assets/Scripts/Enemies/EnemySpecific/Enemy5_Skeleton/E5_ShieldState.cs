@@ -27,6 +27,7 @@ public class E5_ShieldState : ShieldState
 	{
 		
 		base.Exit();
+		//enemy.shieldGO.SetActive(false);
 	}
 
 	public override void LogicUpdate()

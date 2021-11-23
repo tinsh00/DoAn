@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class E5_Shield : MonoBehaviour
 {
-    
+    string shieldHitClip = "shieldHit";
     void Start()
     {
         
@@ -17,9 +17,9 @@ public class E5_Shield : MonoBehaviour
     }
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.gameObject.name=="ArrowPlayer"|| collision.gameObject.name == "Arrow")
-
-        {
+        AudioManager.instance.PlaySound(shieldHitClip);
+        if (collision.gameObject.name=="ArrowPlayer")
+        { 
             Destroy(collision.gameObject);
 		}
 	}
