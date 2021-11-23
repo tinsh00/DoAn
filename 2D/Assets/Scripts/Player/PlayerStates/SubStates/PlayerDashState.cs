@@ -14,6 +14,8 @@ public class PlayerDashState : PlayerAbilityState
     private Vector2 dashDirectionInput;
     private Vector2 lastAIPos;
 
+    [SerializeField]
+    private string dashPlayer = "dashPlayer";
     public PlayerDashState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -31,6 +33,7 @@ public class PlayerDashState : PlayerAbilityState
         startTime = Time.unscaledTime;
 
         player.DashDirectionIndicator.gameObject.SetActive(true);
+        
 
     }
 
@@ -71,6 +74,7 @@ public class PlayerDashState : PlayerAbilityState
 
                 if(dashInputStop || Time.unscaledTime >= startTime + playerData.maxHoldTime)
                 {
+                    AudioManager.instance.PlaySound(dashPlayer);
                     isHolding = false;
                     Time.timeScale = 1f;
                     startTime = Time.time;
@@ -83,6 +87,7 @@ public class PlayerDashState : PlayerAbilityState
             }
             else
             {
+                AudioManager.instance.PlaySound(dashPlayer);
                 core.Movement.SetVelocity(playerData.dashVelocity, dashDirection);
                 CheckIfShouldPlaceAfterImage();
 

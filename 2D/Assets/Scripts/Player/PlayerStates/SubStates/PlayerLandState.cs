@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class PlayerLandState : PlayerGroundedState
 {
+    private string landPlayer = "landPlayer";
     public PlayerLandState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
 
-    public override void LogicUpdate()
+	public override void Enter()
+	{
+		base.Enter();
+        AudioManager.instance.PlaySound(landPlayer);
+	}
+
+	public override void Exit()
+	{
+		base.Exit();
+	}
+
+	public override void LogicUpdate()
     {
         base.LogicUpdate();
 

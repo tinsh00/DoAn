@@ -45,7 +45,7 @@ public class PlayerState
 
     public virtual void LogicUpdate()
     {
-
+        
     }
 
     public virtual void PhysicsUpdate()

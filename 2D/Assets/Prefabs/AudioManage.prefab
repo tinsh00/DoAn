@@ -54,7 +54,7 @@ MonoBehaviour:
     loop: 1
   - name: ButtonHover
     clip: {fileID: 8300000, guid: bfe634ff7a4a748469b58a940e39908e, type: 3}
-    volume: 0.7
+    volume: 0.5
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
@@ -102,7 +102,7 @@ MonoBehaviour:
     randomPitch: 0.1
     loop: 0
   - name: meleeAttackHit
-    clip: {fileID: 8300000, guid: 02b4a6e7020fd764bb032a7046ce325f, type: 3}
+    clip: {fileID: 8300000, guid: 341cee4e07fa9449885fc189ccdba475, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
@@ -116,15 +116,29 @@ MonoBehaviour:
     randomPitch: 0.1
     loop: 0
   - name: shieldHit
-    clip: {fileID: 8300000, guid: baf5e5aab44976746a74a78597544d27, type: 3}
+    clip: {fileID: 8300000, guid: 04ac4b3437db843058ef7b7bfe73f8dc, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
     loop: 0
   - name: pickUpItem
-    clip: {fileID: 8300000, guid: e73c8a49f434ebf4f9420d06599e4a86, type: 3}
+    clip: {fileID: 8300000, guid: 560b59f7bba57425da9d11fb4794b676, type: 3}
     volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: levelUp
+    clip: {fileID: 8300000, guid: fd7aa363a188d47858202c3344e3fd2c, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: movePlayer
+    clip: {fileID: 8300000, guid: ced7c09d955e74b70a97af69106fb289, type: 3}
+    volume: 0.5
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
