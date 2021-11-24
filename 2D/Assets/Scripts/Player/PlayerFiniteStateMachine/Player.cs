@@ -99,8 +99,14 @@ public PlayerStateMachine StateMachine { get; private set; }
         KnifeAttackState.SetWeapon(PlayerInventory.weapons[(int)CombatInputs.knife]);
         StateMachine.Initialize(IdleState);
 
-	
-    }
+		if (DetailQuest.instance != null)
+		{
+			Player.instance.quest.isActive = true;
+			Player.instance.quest = DetailQuest.instance.quest;
+
+		}
+
+	}
 
     private void Update()
     {
@@ -110,6 +116,13 @@ public PlayerStateMachine StateMachine { get; private set; }
 		}
         Core.LogicUpdate();
         StateMachine.CurrentState.LogicUpdate();
+  //      if(StateMachine.CurrentState == CrouchIdleState || StateMachine.CurrentState == CrouchMoveState)
+		//{
+		//	if (InputHandler.JumpInput)
+		//	{
+  //              return;
+		//	}
+		//}
     }
 
     private void FixedUpdate()

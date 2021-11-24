@@ -773,6 +773,8 @@ MonoBehaviour:
   deadStateData: {fileID: 11400000, guid: 2a3290b56cc33e04a90742ee498e752c, type: 2}
   hurtStateData: {fileID: 11400000, guid: e7f63206f994fdf4f9eefab28f303fa9, type: 2}
   meleeAttackPosition: {fileID: 8782088347381879830}
+  deadVoice: deadEnemy
+  hurtVoice: hurtEnemy
   stats: {fileID: 8782088347188692390}
 --- !u!61 &8782088348804270038
 BoxCollider2D:

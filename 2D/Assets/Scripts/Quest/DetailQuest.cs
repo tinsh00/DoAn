@@ -47,11 +47,12 @@ public class DetailQuest : Singleton<DetailQuest>
 	{
 		questGiver.DQuest.SetActive(false);
 		quest.isActive = true;
-		Player.instance.quest.isActive = true;
 		Player.instance.quest = quest;
+		Player.instance.quest.isActive = true;
 
 		SceneManager.LoadScene(questGiver.sceneText);
 		
 
 	}
+
 }

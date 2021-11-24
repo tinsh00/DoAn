@@ -554,6 +554,8 @@ MonoBehaviour:
   hurtStateData: {fileID: 11400000, guid: e7f63206f994fdf4f9eefab28f303fa9, type: 2}
   meleeAttackPosition: {fileID: 8524148019492880528}
   meleeSpecialAttackPosition: {fileID: 8524148017819619470}
+  deadVoice: deadEnemy
+  hurtVoice: hurtEnemy
   stats: {fileID: 8524148017830789072}
   CountAttack: 0
 --- !u!114 &8524148018092834374

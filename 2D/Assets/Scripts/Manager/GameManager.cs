@@ -22,10 +22,15 @@ public class GameManager : MonoBehaviour
 
     private CinemachineVirtualCamera CVC;
 
-    private void Start()
+	private void Awake()
+	{
+        Player.instance.transform.position = respawnPoint.position;
+    }
+	private void Start()
     {
         CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
-        Player.instance.transform.localScale = new Vector3(1f, 1f, 1f);
+        //Player.instance.transform.localScale = new Vector3(1f, 1f, 1f);
+        
         Canvas.gameObject.SetActive(true);
         
     }
