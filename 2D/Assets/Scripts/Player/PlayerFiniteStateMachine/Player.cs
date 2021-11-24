@@ -46,7 +46,7 @@ public PlayerStateMachine StateMachine { get; private set; }
     
     public PlayerStatus playerStatus;
     public Quest quest;
-    
+    public int questSuccess;
     
     #endregion
 
@@ -82,7 +82,7 @@ public PlayerStateMachine StateMachine { get; private set; }
         DefenseState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         KnifeAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
 
-
+        questSuccess = 0;
     }
     private void Start()
     {
@@ -116,13 +116,7 @@ public PlayerStateMachine StateMachine { get; private set; }
 		}
         Core.LogicUpdate();
         StateMachine.CurrentState.LogicUpdate();
-  //      if(StateMachine.CurrentState == CrouchIdleState || StateMachine.CurrentState == CrouchMoveState)
-		//{
-		//	if (InputHandler.JumpInput)
-		//	{
-  //              return;
-		//	}
-		//}
+
     }
 
     private void FixedUpdate()
@@ -140,6 +134,7 @@ public PlayerStateMachine StateMachine { get; private set; }
             //quest.goal.EnemyKilled();
 			if (quest.goal.IsReacher())
 			{
+                Player.instance.questSuccess++;
                 Inventory.instance.IncreaseCoin(quest.coinReward);
                 Inventory.instance.IncreaseCurExp(quest.expReward);
             }
