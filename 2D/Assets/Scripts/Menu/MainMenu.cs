@@ -13,7 +13,8 @@ public class MainMenu : MonoBehaviour
 	string pressButtonSound = "ButtonPress";
 	private void Start()
 	{
-		
+		//Player.instance.SaveDPlayer();
+		Player.instance.LoadDPlayer();
 	}
 	public void PlayGame()
 	{

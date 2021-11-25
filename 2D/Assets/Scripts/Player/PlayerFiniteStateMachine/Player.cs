@@ -127,17 +127,21 @@ public PlayerStateMachine StateMachine { get; private set; }
 
     #region Other Functions
 
-    public void AttackQuest()
+    public void CompleteQuest()
 	{
 		if (quest.isActive)
 		{
-            //quest.goal.EnemyKilled();
 			if (quest.goal.IsReacher())
 			{
                 Player.instance.questSuccess++;
                 Inventory.instance.IncreaseCoin(quest.coinReward);
                 Inventory.instance.IncreaseCurExp(quest.expReward);
+                SaveDPlayer();
             }
+			else
+			{
+                LoadDPlayer();
+			}
 		}
 		
 	}
@@ -145,6 +149,38 @@ public PlayerStateMachine StateMachine { get; private set; }
 	{
         Destroy(gameObject);
 	}
+    public void SaveDPlayer()
+    {
+        Debug.Log("save data");
+
+        SaveSystem.SavePlayer();
+    }
+    public void LoadDPlayer()
+    {
+        DPlayer data = SaveSystem.LoadPlayer();
+        if(data!=null)
+		{
+            Debug.Log("load data");
+            Inventory.instance.currentExp = data.currentExp;
+            Player.instance.playerStatus.expSlider.SetExp(Inventory.instance.currentExp);
+            Player.instance.playerStatus.level = data.level;
+            Player.instance.playerStatus.LevelText.text = "LV." + Player.instance.playerStatus.level;
+            //Player.instance.playerStatus.currentHealth = data.currentHealth;
+            //Player.instance.playerStatus.healthBar.SetHealth(currentExp);
+            Player.instance.playerStatus.coin = data.coin;
+            Player.instance.playerStatus.coinText.text = "X" + Player.instance.playerStatus.coin;
+            Player.instance.questSuccess = data.missionSuccess;
+        }
+       
+        //Vector3 position;
+        //position.x = data.position[0];
+        //position.y = data.position[1];
+        //position.z = data.position[2];
+
+        //transform.parent.parent.position = position;
+        //Debug.Log(position);
+    }
+
     public void SetColliderHeight(float height)
     {
         Vector2 center = MovementCollider.offset;

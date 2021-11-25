@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New Item",menuName ="Data/Inventory/Item")]
-public class Item : ScriptableObject
+[System.Serializable]
+public class ItemData
 {
     new public string name = "New Item";
     public Sprite icon = null;
@@ -10,7 +10,7 @@ public class Item : ScriptableObject
     public float amountCoin;
     public float amountHealth;
 
-    public virtual void Use()
+	public virtual void Use()
 	{
 		//Use the Item
 		//Something might happen
@@ -19,11 +19,14 @@ public class Item : ScriptableObject
 		//playerStatus.coin
 		playerStatus.IncreateCoin(amountCoin);
 		playerStatus.IncreateExp(amountExp);
-
-
-
 		Debug.Log("Using " + name);
-        
-       
+
 	}
 }
+[CreateAssetMenu(fileName = "New Item", menuName = "Data/Inventory/Item")]
+public class Item: ScriptableObject
+{
+	public ItemData item = new ItemData();
+	
+}
+

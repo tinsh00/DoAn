@@ -70,6 +70,7 @@ public class Enemy3_Wizard : Entity
 		{
 			stateMachine.ChangeState(deadState);
 			AudioManager.instance.PlaySound(deadVoice);
+			Player.instance.quest.goal.EnemyKilled();
 		}
 		else if (stats.hurt)
 		{

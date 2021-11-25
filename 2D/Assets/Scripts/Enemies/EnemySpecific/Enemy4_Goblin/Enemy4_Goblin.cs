@@ -82,6 +82,7 @@ public class Enemy4_Goblin : Entity
 		{
 			stateMachine.ChangeState(deadState);
 			AudioManager.instance.PlaySound(deadVoice);
+			Player.instance.quest.goal.EnemyKilled();
 		}
 		else if (stats.hurt)
 		{

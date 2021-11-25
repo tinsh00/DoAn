@@ -7,12 +7,12 @@ public class Inventory : Singleton<Inventory>
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallBack;
-	public List<Item> items = new List<Item>();
+	public List<ItemData> items = new List<ItemData>();
     private int space = 20;
     private float maxExp ;
-    public float coin { get; private set; }
-    public float level { get; private set; }
-    public float currentExp { get; private set; }
+    public float coin;
+    public float level;
+    public float currentExp;
 	//public void addToInventory(Item item)
 	//{
 	//    Debug.Log("picked" + item.name);
@@ -80,7 +80,7 @@ public class Inventory : Singleton<Inventory>
         level++;
 	}
     
-    public bool addItem(Item item)
+    public bool addItem(ItemData item)
     {
         if (!item.isDefauleItem)
 		{
@@ -97,7 +97,7 @@ public class Inventory : Singleton<Inventory>
 		}
         return true;
     }
-    public void removeItem(Item item)
+    public void removeItem(ItemData item)
     {
         Debug.Log("Coount " + items.Count);
         Debug.Log("Name" + item.name);

@@ -46,7 +46,7 @@ public class Stats : CoreComponent
     //protected float TimeStartDie;
     //protected float TimeToDie = .3f;
     [SerializeField]
-    protected HealthBar healthBar;
+    public HealthBar healthBar;
 
     protected GameManager GM;
     protected override void Awake()

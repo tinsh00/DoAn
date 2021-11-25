@@ -88,6 +88,7 @@ public class Enemy5 : Entity
 		{
 			stateMachine.ChangeState(deadState);
 			AudioManager.instance.PlaySound(deadVoice);
+			Player.instance.quest.goal.EnemyKilled();
 
 		}
 		else if (CountHurt >= 2) 

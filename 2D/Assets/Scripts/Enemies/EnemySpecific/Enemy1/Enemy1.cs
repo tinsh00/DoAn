@@ -69,6 +69,7 @@ public class Enemy1 : Entity
         {
             stateMachine.ChangeState(deadState);
             AudioManager.instance.PlaySound(deadEnemy);
+            Player.instance.quest.goal.EnemyKilled();
         }
         else if (stats.currentHealth <= 20.0f && stateMachine.currentState != stunState)
         {

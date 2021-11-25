@@ -4645,21 +4645,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 737916977}
-    - target: {fileID: 1944099659454279747, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2825365446467055943, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2825365446467055943, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3216350002068953729, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
         type: 3}
       propertyPath: m_RootOrder
@@ -4719,11 +4704,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5796653056112903048, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fe21e3b0f8a6604abecc907f08b4db3, type: 3}

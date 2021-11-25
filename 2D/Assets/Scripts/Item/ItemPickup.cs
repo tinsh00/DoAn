@@ -15,11 +15,11 @@ public class ItemPickup : MonoBehaviour
 		if(collision.gameObject.tag == "Player")
 		{
 			AudioManager.instance.PlaySound(pickUpItem);
-			if (item.isDefauleItem)
+			if (item.item.isDefauleItem)
 			{
 				PlayerStatus status = collision.gameObject.GetComponentInChildren<PlayerStatus>();
-				status.IncreateExp(item.amountExp);
-				status.IncreateCoin(item.amountCoin);
+				status.IncreateExp(item.item.amountExp);
+				status.IncreateCoin(item.item.amountCoin);
 				Destroy(gameObject);
 			}
 			else
@@ -34,7 +34,7 @@ public class ItemPickup : MonoBehaviour
 	{
 		Debug.Log("Picking up "+item.name);
 
-		bool wasPickup = Inventory.instance.addItem(item);
+		bool wasPickup = Inventory.instance.addItem(item.item);
 		if (wasPickup)
 			Destroy(gameObject);
 	}
