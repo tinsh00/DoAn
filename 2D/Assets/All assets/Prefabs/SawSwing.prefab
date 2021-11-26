@@ -183,7 +183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 0
@@ -288,9 +288,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   damagePosition: {fileID: 652387982}
+  damagePosition2: {fileID: 0}
   damage: 10
-  gravity: 0
   damageRadius: 0.5
+  damageRadius2: 0
 --- !u!1 &100006
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +695,7 @@ Transform:
   - {fileID: 652387982}
   m_Father: {fileID: 400004}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -204.5908}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -189.69171}
 --- !u!212 &21200014
 SpriteRenderer:
   m_ObjectHideFlags: 0

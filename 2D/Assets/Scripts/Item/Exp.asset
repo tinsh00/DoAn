@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03315599834982449b27093e29b3c950, type: 3}
   m_Name: Exp
   m_EditorClassIdentifier: 
-  name: exp
-  icon: {fileID: 21300000, guid: 6cebba6dd0d62794cbf3e2cbc5cbf1da, type: 3}
-  isDefauleItem: 1
-  amountExp: 10
-  amountCoin: 0
+  item:
+    name: Exp
+    icon: {fileID: 21300000, guid: 6cebba6dd0d62794cbf3e2cbc5cbf1da, type: 3}
+    isDefauleItem: 1
+    amountExp: 10
+    amountCoin: 0
+    amountHealth: 0

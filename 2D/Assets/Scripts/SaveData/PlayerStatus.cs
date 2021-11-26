@@ -31,7 +31,7 @@ public class PlayerStatus : Stats
 	public override void DecreaseHealth(float amount)
 	{
 		base.DecreaseHealth(amount);
-		healthBar.SetHealth(currentHealth);
+		//healthBar.SetHealth(currentHealth);
 
 	}
 
@@ -44,7 +44,7 @@ public class PlayerStatus : Stats
 	public override void IncreaseHealth(float amount)
 	{
 		base.IncreaseHealth(amount);
-		healthBar.SetHealth(currentHealth);
+		//healthBar.SetHealth(currentHealth);
 	}
 
 	public override void LogicUpdate()
@@ -81,16 +81,13 @@ public class PlayerStatus : Stats
 
 	public void IncreateExp(float amount)
 	{
-		if (isPlayer)
-		{
 			Inventory.instance.IncreaseCurExp(amount);
 			currentExp = Inventory.instance.currentExp;
 			expSlider.SetExp(currentExp);
 			level = Inventory.instance.level;
 			LevelText.text = "LV." + level;
-			currentHealth = maxHealth;
+			//currentHealth = maxHealth;
 			healthBar.SetHealth(currentHealth);
-		}
 	}
 	public void IncreateCoin(float amount)
 	{

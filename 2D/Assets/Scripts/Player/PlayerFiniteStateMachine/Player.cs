@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 
 public class Player : Singleton<Player>
 {
@@ -47,6 +49,7 @@ public PlayerStateMachine StateMachine { get; private set; }
     public PlayerStatus playerStatus;
     public Quest quest;
     public int questSuccess;
+    public VictoryCanvas GameOver;
     
     #endregion
 
@@ -116,6 +119,12 @@ public PlayerStateMachine StateMachine { get; private set; }
 		}
         Core.LogicUpdate();
         StateMachine.CurrentState.LogicUpdate();
+
+		if (Player.instance.playerStatus.currentHealth <= 0.0f)
+		{
+            GameOver.gameObject.SetActive(true);
+
+        }
 
     }
 

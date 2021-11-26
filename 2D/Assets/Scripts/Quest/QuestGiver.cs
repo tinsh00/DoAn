@@ -8,14 +8,14 @@ public class QuestGiver : MonoBehaviour
 {
 	public Quest quest;
 	//public Player player;
-	public GameObject DQuest;
+
 	
 
 	public string sceneText;
 	public void OpenQuestWindow()
 	{
 		DetailQuest.instance.questGiver = this;
-		DQuest.SetActive(true);
+		DetailQuest.instance.gameObject.SetActive(true);
 		DetailQuest.instance.SetDetailQuest();
 		
 

@@ -5346,6 +5346,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a2728e15-a5f0-423c-9a61-ca3ed3e93434
     m_ActionName: Gameplay/Knife[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3441b619-66d9-47d3-aade-7066d4512aaf
+    m_ActionName: Gameplay/DodgeRoll
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -5377,6 +5381,7 @@ MonoBehaviour:
       requiredAmount: 0
       currentAmount: 0
   questSuccess: 0
+  GameOver: {fileID: 5077313147036763016}
 --- !u!114 &3216350002068953743
 MonoBehaviour:
   m_ObjectHideFlags: 0

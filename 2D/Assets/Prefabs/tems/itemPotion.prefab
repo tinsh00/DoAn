@@ -96,7 +96,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa503cd37f485e14ab4eff0ccabf3010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 68c1af00d8c106a4d8b17d5608908d8f, type: 2}
+  item:
+    name: Posion1
+    icon: {fileID: 21300000, guid: 2f605f8487435b64780f2f663cc01c4c, type: 3}
+    isDefauleItem: 0
+    amountExp: 0
+    amountCoin: 0
+    amountHealth: 5
+  pickUpItem: pickUpItem
 --- !u!61 &6445629262593317308
 BoxCollider2D:
   m_ObjectHideFlags: 0

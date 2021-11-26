@@ -21,7 +21,10 @@ public class DetailQuest : Singleton<DetailQuest>
 		base.Awake();
 		
 	}
-
+	private void Start()
+	{
+		gameObject.SetActive(false);
+	}
 	public void SetDetailQuest()
 	{
 		quest = questGiver.quest;
@@ -40,12 +43,12 @@ public class DetailQuest : Singleton<DetailQuest>
 	}
 	public void SetActive(bool flag)
 	{
-		questGiver.DQuest.SetActive(flag);
+		DetailQuest.instance.SetActive(flag);
 	}
 
 	public void AttackQuest()
 	{
-		questGiver.DQuest.SetActive(false);
+		
 		quest.isActive = true;
 		Player.instance.quest = quest;
 		Player.instance.quest.isActive = true;

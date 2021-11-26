@@ -13,14 +13,13 @@ public class trap : MonoBehaviour
     [SerializeField]
     private float damage;
 
-    [SerializeField]
-    private float gravity;
+
     [SerializeField]
     private float damageRadius;
     [SerializeField]
     private float damageRadius2;
 
-    private Rigidbody2D rb;
+
     private int leftOnPlayer=-1;
 
     private float timeRecover = 2f;
@@ -29,7 +28,7 @@ public class trap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponentInChildren<Rigidbody2D>();
+
         timeRecoverStart = Time.time;
 		if (!damagePosition2)
 		{
@@ -96,6 +95,6 @@ public class trap : MonoBehaviour
 	{
         Gizmos.DrawWireSphere(damagePosition.position, damageRadius);
         if(damagePosition2)
-        Gizmos.DrawWireSphere(damagePosition2.position, damageRadius2);
+            Gizmos.DrawWireSphere(damagePosition2.position, damageRadius2);
 	}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    public Item item;
+    public ItemData item;
 
 	[SerializeField]
 	private string pickUpItem = "pickUpItem";
@@ -15,11 +15,10 @@ public class ItemPickup : MonoBehaviour
 		if(collision.gameObject.tag == "Player")
 		{
 			AudioManager.instance.PlaySound(pickUpItem);
-			if (item.item.isDefauleItem)
+			if (item.isDefauleItem)
 			{
-				PlayerStatus status = collision.gameObject.GetComponentInChildren<PlayerStatus>();
-				status.IncreateExp(item.item.amountExp);
-				status.IncreateCoin(item.item.amountCoin);
+				Player.instance.playerStatus.IncreateExp(item.amountExp);
+				Player.instance.playerStatus.IncreateCoin(item.amountCoin);
 				Destroy(gameObject);
 			}
 			else
@@ -34,7 +33,7 @@ public class ItemPickup : MonoBehaviour
 	{
 		Debug.Log("Picking up "+item.name);
 
-		bool wasPickup = Inventory.instance.addItem(item.item);
+		bool wasPickup = Inventory.instance.addItem(item);
 		if (wasPickup)
 			Destroy(gameObject);
 	}

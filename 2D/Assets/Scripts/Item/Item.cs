@@ -9,17 +9,12 @@ public class ItemData
     public float amountExp;
     public float amountCoin;
     public float amountHealth;
-
 	public virtual void Use()
 	{
-		//Use the Item
-		//Something might happen
-		PlayerStatus playerStatus = Player.instance.playerStatus;
-		playerStatus.IncreaseHealth(amountHealth);
-		//playerStatus.coin
-		playerStatus.IncreateCoin(amountCoin);
-		playerStatus.IncreateExp(amountExp);
-		Debug.Log("Using " + name);
+		Player.instance.playerStatus.IncreaseHealth(amountHealth);
+		Player.instance.playerStatus.IncreateCoin(amountCoin);
+		Player.instance.playerStatus.IncreateExp(amountExp);
+		Debug.Log("Using " + name +" + "+ amountHealth);
 
 	}
 }

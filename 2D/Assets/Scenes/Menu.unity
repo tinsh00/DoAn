@@ -221,7 +221,6 @@ MonoBehaviour:
       goalType: 0
       requiredAmount: 0
       currentAmount: 0
-  DQuest: {fileID: 1599911889}
   sceneText: MainMap1_1
 --- !u!114 &26085013
 MonoBehaviour:
@@ -532,7 +531,6 @@ MonoBehaviour:
       goalType: 0
       requiredAmount: 0
       currentAmount: 0
-  DQuest: {fileID: 1599911889}
   sceneText: MainMap1_1
 --- !u!114 &143530814
 MonoBehaviour:
@@ -730,7 +728,6 @@ MonoBehaviour:
       goalType: 0
       requiredAmount: 2
       currentAmount: 0
-  DQuest: {fileID: 1599911889}
   sceneText: MainMap2_1
 --- !u!114 &155212056
 MonoBehaviour:
@@ -2547,7 +2544,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1949359651}
+      - m_Target: {fileID: 1599911891}
         m_TargetAssemblyTypeName: DetailQuest, Assembly-CSharp
         m_MethodName: AttackQuest
         m_Mode: 1
@@ -4699,6 +4696,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3216350002068953732, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
+        type: 3}
+      propertyPath: isDestroyOnLoad
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3216350002068953740, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
         type: 3}
@@ -7310,7 +7312,6 @@ MonoBehaviour:
       goalType: 0
       requiredAmount: 4
       currentAmount: 0
-  DQuest: {fileID: 1599911889}
   sceneText: MainMap1_1
 --- !u!114 &1191147463
 MonoBehaviour:
@@ -8046,7 +8047,6 @@ MonoBehaviour:
       goalType: 1
       requiredAmount: 1000
       currentAmount: 0
-  DQuest: {fileID: 1599911889}
   sceneText: MainMap1_1
 --- !u!114 &1321183880
 MonoBehaviour:
@@ -8408,13 +8408,26 @@ GameObject:
   - component: {fileID: 1385248918}
   - component: {fileID: 1385248917}
   - component: {fileID: 1385248916}
+  - component: {fileID: 1385248915}
   m_Layer: 5
   m_Name: Canvas Quest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!114 &1385248915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385248914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69b520f0a7d49a4b8cc3ad9e5dddf8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1385248916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9392,7 +9405,6 @@ MonoBehaviour:
       goalType: 0
       requiredAmount: 0
       currentAmount: 0
-  DQuest: {fileID: 1599911889}
   sceneText: MainMap2_1
 --- !u!114 &1582361595
 MonoBehaviour:
@@ -9681,13 +9693,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1599911890}
+  - component: {fileID: 1599911891}
   m_Layer: 5
   m_Name: DetailQuest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1599911890
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9714,6 +9727,34 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1599911891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599911889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ae11525c49da64289a5460b3e1674a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDestroyOnLoad: 0
+  questGiver: {fileID: 0}
+  quest:
+    isActive: 0
+    title: 
+    description: 
+    expReward: 0
+    coinReward: 0
+    goal:
+      goalType: 0
+      requiredAmount: 0
+      currentAmount: 0
+  titleText: {fileID: 1896049271}
+  descriptionText: {fileID: 618864179}
+  expText: {fileID: 866580777}
+  coinText: {fileID: 558832429}
 --- !u!1 &1607469928
 GameObject:
   m_ObjectHideFlags: 0
@@ -10895,7 +10936,6 @@ MonoBehaviour:
       goalType: 0
       requiredAmount: 0
       currentAmount: 0
-  DQuest: {fileID: 1599911889}
   sceneText: MainMap2_1
 --- !u!114 &1767643287
 MonoBehaviour:
@@ -11640,7 +11680,6 @@ MonoBehaviour:
       goalType: 0
       requiredAmount: 0
       currentAmount: 0
-  DQuest: {fileID: 1599911889}
   sceneText: MainMap2_1
 --- !u!114 &1847421746
 MonoBehaviour:
@@ -44832,40 +44871,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1949359648 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9159956382671061938, guid: cd01cfb0280b56f40ab970d068646277,
-    type: 3}
-  m_PrefabInstance: {fileID: 8792409389150138131}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1949359651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1949359648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52ae11525c49da64289a5460b3e1674a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDestroyOnLoad: 0
-  questGiver: {fileID: 0}
-  quest:
-    isActive: 0
-    title: 
-    description: 
-    expReward: 0
-    coinReward: 0
-    goal:
-      goalType: 0
-      requiredAmount: 0
-      currentAmount: 0
-  titleText: {fileID: 1896049271}
-  descriptionText: {fileID: 618864179}
-  expText: {fileID: 866580777}
-  coinText: {fileID: 558832429}
 --- !u!1 &1971151568
 GameObject:
   m_ObjectHideFlags: 0

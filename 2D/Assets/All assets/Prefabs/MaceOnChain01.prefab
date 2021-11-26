@@ -121,9 +121,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   damagePosition: {fileID: 58673322}
+  damagePosition2: {fileID: 0}
   damage: 10
-  gravity: 0
   damageRadius: 0.93
+  damageRadius2: 0
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
