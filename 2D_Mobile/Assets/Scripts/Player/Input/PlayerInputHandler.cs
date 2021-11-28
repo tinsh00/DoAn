@@ -122,7 +122,7 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
-        Debug.Log(RawMovementInput);
+       // Debug.Log(RawMovementInput);
         //NormInputX = Mathf.RoundToInt(RawMovementInput.x);
         //NormInputY = Mathf.RoundToInt(RawMovementInput.y);
         Move();
@@ -195,14 +195,17 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnDashDirectionInput(InputAction.CallbackContext context)
     {
-        RawDashDirectionInput = context.ReadValue<Vector2>();
+        //RawDashDirectionInput = context.ReadValue<Vector2>();
 
-        if(playerInput.currentControlScheme == "Keyboard" && cam)
-        {
-            RawDashDirectionInput = cam.ScreenToWorldPoint((Vector3)RawDashDirectionInput) - transform.position;
-        }
+        //if(playerInput.currentControlScheme == "Keyboard" && cam)
+        //{
+        //    RawDashDirectionInput = cam.ScreenToWorldPoint((Vector3)RawDashDirectionInput) - transform.position;
+        //}
 
-        DashDirectionInput = Vector2Int.RoundToInt(RawDashDirectionInput.normalized);
+        //DashDirectionInput = Vector2Int.RoundToInt(RawDashDirectionInput.normalized);
+        //DashDirectionInput = Vector2Int.RoundToInt(RawMovementInput.normalized);
+        DashDirectionInput = Vector2Int.RoundToInt(new Vector2(NormInputX,NormInputY));
+
     }
 
     public void UseJumpInput() => JumpInput = false;
