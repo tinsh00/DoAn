@@ -84,6 +84,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "d14c9b59-dea0-4775-bf3f-02ea385a386f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -178,7 +186,7 @@
                 {
                     "name": "",
                     "id": "830286df-cc89-43d3-a545-72a6196004da",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -266,7 +274,7 @@
                 {
                     "name": "",
                     "id": "4d45ce02-8b58-44bf-82ad-721c8c65e616",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -288,7 +296,7 @@
                 {
                     "name": "",
                     "id": "8c4b25dd-8e9e-4bb2-a8d9-bd755b6a4b9c",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/u",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -299,7 +307,7 @@
                 {
                     "name": "",
                     "id": "30ed7230-98ec-4718-a0e2-0218d96087d5",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -315,6 +323,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "DodgeRoll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "35668eb7-425b-46ab-bf92-e31a64b73cc7",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

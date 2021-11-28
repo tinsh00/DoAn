@@ -15,6 +15,7 @@ public class PlayerInputHandler : MonoBehaviour
     public int NormInputX { get; private set; }
     public int NormInputY { get; private set; }
     public bool JumpInput { get; private set; }
+    public bool InventoryInput { get; private set; }
     public bool JumpInputStop { get; private set; }
     public bool GrabInput { get; private set; }
     public bool DashInput { get; private set; }
@@ -45,6 +46,7 @@ public class PlayerInputHandler : MonoBehaviour
         AttackInputs = new bool[count];
         Debug.Log(count);
         cam = Camera.main;
+        InventoryInput = false;
         //shieldColdDownStartTime = -3f;
     }
 
@@ -131,19 +133,6 @@ public class PlayerInputHandler : MonoBehaviour
         NormInputX = Mathf.RoundToInt(RawMovementInput.x);
         NormInputY = Mathf.RoundToInt(RawMovementInput.y);
     }
-    public void MoveLeft()
-	{
-        NormInputX = -1;
-    }public void MoveRight()
-	{
-        NormInputX = 1;
-    }public void MoveUp()
-	{
-        NormInputY = 1;
-    }public void MoveDown()
-	{
-        NormInputX = -1;
-    }
 
     public void OnJumpInput(InputAction.CallbackContext context)
     {
@@ -156,6 +145,15 @@ public class PlayerInputHandler : MonoBehaviour
         {
             this.StopJump();
         }
+    }
+
+    public void OnInventoryInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            InventoryInput = !InventoryInput;
+        }
+
     }
     public void Jump()
 	{

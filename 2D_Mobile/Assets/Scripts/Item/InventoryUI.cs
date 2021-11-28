@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
+    
     public Transform itemsParent;
     public GameObject inventoryUI;
     Inventory inventory;
     InventorySlot[] slots;
+    bool isOpen;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,16 +17,29 @@ public class InventoryUI : MonoBehaviour
         inventory.onItemChangedCallBack += UpdateUI;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        isOpen = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (Input.GetButtonDown("Inventory"))
+		if (Player.instance.InputHandler.InventoryInput && inventoryUI.activeSelf==false && !isOpen)
 		{
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
+			inventoryUI.SetActive(true);
+            isOpen = true;
 		}
-    }
+
+		if (!Player.instance.InputHandler.InventoryInput && inventoryUI.activeSelf == true && isOpen)
+		{
+            inventoryUI.SetActive(false);
+            isOpen = false;
+        }
+  //      else if(Player.instance.InputHandler.InventoryInput && inventoryUI.activeSelf==true)
+		//{
+  //          inventoryUI.SetActive(false);
+  //          isOpen = false;
+  //      }            
+	}
 
     void UpdateUI()
 	{
