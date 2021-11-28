@@ -113,11 +113,11 @@ public PlayerStateMachine StateMachine { get; private set; }
 
     private void Update()
     {
-		if (EventSystem.current.IsPointerOverGameObject())
-		{
-            return;
-		}
-        Core.LogicUpdate();
+		//if (EventSystem.current.IsPointerOverGameObject())
+		//{
+		//	return;
+		//}
+		Core.LogicUpdate();
         StateMachine.CurrentState.LogicUpdate();
 
 		if (Player.instance.playerStatus.currentHealth <= 0.0f)

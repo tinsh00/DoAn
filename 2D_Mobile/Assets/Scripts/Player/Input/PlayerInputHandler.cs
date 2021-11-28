@@ -92,17 +92,17 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnPrimaryAttackInput(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            AttackInputs[(int)CombatInputs.primary] = true;
-            
-        }
+		if (context.started)
+		{
+			AttackInputs[(int)CombatInputs.primary] = true;
 
-        if (context.canceled)
-        {
-            AttackInputs[(int)CombatInputs.primary] = false;
-        }
-    }
+		}
+
+		if (context.canceled)
+		{
+			AttackInputs[(int)CombatInputs.primary] = false;
+		}
+	}
 
     public void OnSecondaryAttackInput(InputAction.CallbackContext context)
     {
@@ -120,25 +120,52 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
-
-        NormInputX = Mathf.RoundToInt(RawMovementInput.x);
-        NormInputY = Mathf.RoundToInt(RawMovementInput.y);       
+        Debug.Log(RawMovementInput);
+        //NormInputX = Mathf.RoundToInt(RawMovementInput.x);
+        //NormInputY = Mathf.RoundToInt(RawMovementInput.y);
+        Move();
         
+    }
+    public void Move()
+	{
+        NormInputX = Mathf.RoundToInt(RawMovementInput.x);
+        NormInputY = Mathf.RoundToInt(RawMovementInput.y);
+    }
+    public void MoveLeft()
+	{
+        NormInputX = -1;
+    }public void MoveRight()
+	{
+        NormInputX = 1;
+    }public void MoveUp()
+	{
+        NormInputY = 1;
+    }public void MoveDown()
+	{
+        NormInputX = -1;
     }
 
     public void OnJumpInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            JumpInput = true;
-            JumpInputStop = false;
-            jumpInputStartTime = Time.time;
+            this.Jump();
         }
 
         if (context.canceled)
         {
-            JumpInputStop = true;
+            this.StopJump();
         }
+    }
+    public void Jump()
+	{
+        JumpInput = true;
+        JumpInputStop = false;
+        jumpInputStartTime = Time.time;
+    }
+    public void StopJump()
+	{
+        JumpInputStop = true;
     }
 
     public void OnGrabInput(InputAction.CallbackContext context)

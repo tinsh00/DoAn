@@ -244,7 +244,7 @@
                 {
                     "name": "",
                     "id": "f1306478-882e-4a3c-adb4-6fd5d4a02723",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/t",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
