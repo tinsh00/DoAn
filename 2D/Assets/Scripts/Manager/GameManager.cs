@@ -15,12 +15,12 @@ public class GameManager : MonoBehaviour
     private float respawnTimeStart;
 
     private bool respawn;
-    [SerializeField]
-    private InventoryUI Canvas;
+	[SerializeField]
+	private InventoryUI Canvas;
 
-    //HealthBar healthBar;
+	//HealthBar healthBar;
 
-    private CinemachineVirtualCamera CVC;
+	private CinemachineVirtualCamera CVC;
 
 	private void Awake()
 	{
@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
         //Player.instance.transform.localScale = new Vector3(1f, 1f, 1f);
         Player.instance.LoadDPlayer();
         Canvas.gameObject.SetActive(true);
-        
+
+
     }
 
     private void Update()
