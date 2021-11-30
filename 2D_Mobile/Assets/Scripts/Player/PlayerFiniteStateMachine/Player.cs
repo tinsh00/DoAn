@@ -51,6 +51,7 @@ public PlayerStateMachine StateMachine { get; private set; }
     public int questSuccess;
     public VictoryCanvas GameOver;
     
+    
     #endregion
 
     #region Other Variables         

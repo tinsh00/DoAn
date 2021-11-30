@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     private float respawnTimeStart;
 
     private bool respawn;
-    [SerializeField]
-    private InventoryUI Canvas;
+    //[SerializeField]
+    //private InventoryUI Canvas;
 
     //HealthBar healthBar;
 
@@ -32,8 +32,11 @@ public class GameManager : MonoBehaviour
         CVC.m_Follow = Player.instance.transform;
         //Player.instance.transform.localScale = new Vector3(1f, 1f, 1f);
         Player.instance.LoadDPlayer();
-        Canvas.gameObject.SetActive(true);
-        
+        //Canvas.gameObject.SetActive(true);
+        // Debug.Log(Canvas.gameObject.name);
+        Player.instance.GameOver.transform.parent.gameObject.SetActive(true);
+        //Debug.Log(Player.instance.GameOver.transform.parent.gameObject);
+
     }
 
     private void Update()

@@ -11,10 +11,14 @@ public class MainMenu : MonoBehaviour
 
 	[SerializeField]
 	string pressButtonSound = "ButtonPress";
+
+	[SerializeField]
+	Transform playerTransform;
 	private void Start()
 	{
 		//Player.instance.SaveDPlayer();
 		Player.instance.LoadDPlayer();
+		Player.instance.transform.position = playerTransform.position;
 	}
 	public void PlayGame()
 	{
