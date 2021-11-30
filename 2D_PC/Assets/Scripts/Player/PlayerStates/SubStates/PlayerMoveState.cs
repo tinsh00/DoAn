@@ -68,7 +68,8 @@ public class PlayerMoveState : PlayerGroundedState
             
             yield return new WaitForSeconds(.25f);
             //Debug.Log("run");
-            AudioManager.instance.PlaySound(movePlayer);
+            
+                AudioManager.instance.PlaySound(movePlayer);
         }
 
 	}

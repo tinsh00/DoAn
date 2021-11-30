@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerInputHandler : MonoBehaviour
 {
     private PlayerInput playerInput;
-    private Camera cam;
+    
+    public Camera cam;
 
     public Vector2 RawMovementInput { get; private set; }
     public Vector2 RawDashDirectionInput { get; private set; }
@@ -54,12 +55,12 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Update()
     {
-        //CheckJumpInputHoldTime();
-        //CheckDashInputHoldTime();
-        //CheckShieldInputHoldTime();
-    }
+		CheckJumpInputHoldTime();
+		CheckDashInputHoldTime();
+		//CheckShieldInputHoldTime();
+	}
 
-    public void OnKnifeAttackInput(InputAction.CallbackContext context)
+	public void OnKnifeAttackInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
@@ -198,16 +199,17 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void OnDashDirectionInput(InputAction.CallbackContext context)
     {
-        //RawDashDirectionInput = context.ReadValue<Vector2>();
+		RawDashDirectionInput = context.ReadValue<Vector2>();
 
-        //if(playerInput.currentControlScheme == "Keyboard" && cam)
-        //{
-        //    RawDashDirectionInput = cam.ScreenToWorldPoint((Vector3)RawDashDirectionInput) - transform.position;
-        //}
+		if (playerInput.currentControlScheme == "Keyboard" && cam)
+		{
+			RawDashDirectionInput = cam.ScreenToWorldPoint((Vector3)RawDashDirectionInput) - transform.position;
+		}
 
-        //DashDirectionInput = Vector2Int.RoundToInt(RawDashDirectionInput.normalized);
-        //DashDirectionInput = Vector2Int.RoundToInt(RawMovementInput.normalized);
-        DashDirectionInput = Vector2Int.RoundToInt(new Vector2(NormInputX,NormInputY));
+		DashDirectionInput = Vector2Int.RoundToInt(RawDashDirectionInput.normalized);
+        //Debug.Log("Dash : "+DashDirectionInput);
+		//DashDirectionInput = Vector2Int.RoundToInt(RawMovementInput.normalized);
+		//DashDirectionInput = Vector2Int.RoundToInt(new Vector2(NormInputX,NormInputY));
 
     }
 

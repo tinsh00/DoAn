@@ -39,7 +39,8 @@ public PlayerStateMachine StateMachine { get; private set; }
     #region Components
     public Core Core { get; private set; }
     public Animator Anim { get; private set; }
-    public PlayerInputHandler InputHandler { get; private set; }
+
+    public PlayerInputHandler InputHandler;
     public Rigidbody2D RB { get; private set; }
     public Transform DashDirectionIndicator { get; private set; }
     public BoxCollider2D MovementCollider { get; private set; }
@@ -122,6 +123,8 @@ public PlayerStateMachine StateMachine { get; private set; }
 
 		if (Player.instance.playerStatus.currentHealth <= 0.0f)
 		{
+            Player.instance.LoadDPlayer();
+            Player.instance.quest.goal.currentAmount = 0;
             GameOver.gameObject.SetActive(true);
             Time.timeScale = 0.0f;
         }

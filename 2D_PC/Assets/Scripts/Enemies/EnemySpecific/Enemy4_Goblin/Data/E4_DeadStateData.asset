@@ -16,3 +16,5 @@ MonoBehaviour:
     type: 3}
   deathBloodParticle: {fileID: 1962614393226834858, guid: 3d13ef1f52d189642930444f906fc622,
     type: 3}
+  coin: {fileID: 0}
+  exp: {fileID: 910074776170483980, guid: bad13a645fe70ba4bac3705aaae5ebb4, type: 3}

@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathChunkParticle: {fileID: 0}
   deathBloodParticle: {fileID: 0}
+  coin: {fileID: 5921921160498968898, guid: b7a69c707e6dbe14884af8e97aef93c6, type: 3}
+  exp: {fileID: 0}

@@ -18,20 +18,26 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private InventoryUI Canvas;
 
-    //HealthBar healthBar;
+	//HealthBar healthBar;
 
-    private CinemachineVirtualCamera CVC;
+	//[SerializeField]
+	//private Camera playercamera;
+
+    [SerializeField]
+	private CinemachineVirtualCamera CVC;
 
 	private void Awake()
 	{
-        Player.instance.transform.position = respawnPoint.position;
+        
     }
 	private void Start()
     {
-        CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
+        //CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
         CVC.m_Follow = Player.instance.transform;
+        Player.instance.transform.position = respawnPoint.position;
         //Player.instance.transform.localScale = new Vector3(1f, 1f, 1f);
         Player.instance.LoadDPlayer();
+        Player.instance.InputHandler.cam = Camera.main;
         Canvas.gameObject.SetActive(true);
         
     }
@@ -53,7 +59,7 @@ public class GameManager : MonoBehaviour
         {
            
             var playerTemp = Instantiate(player, respawnPoint);
-            CVC.m_Follow = playerTemp.transform;
+            //CVC.m_Follow = playerTemp.transform;
             respawn = false;
         }
     }

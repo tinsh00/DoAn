@@ -12,7 +12,8 @@ public class PlayerLandState : PlayerGroundedState
 	public override void Enter()
 	{
 		base.Enter();
-        AudioManager.instance.PlaySound(landPlayer);
+        
+            AudioManager.instance.PlaySound(landPlayer);
 	}
 
 	public override void Exit()
