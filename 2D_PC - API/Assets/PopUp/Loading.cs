@@ -10,6 +10,8 @@ public class Loading : MonoBehaviour
     Scene nextScene;
     [SerializeField]
     float loadingTime, checkNetWorkTime;
+    //[SerializeField]
+    //Canvas OpenCanvas;
 
 
     // Start is called before the first frame update
@@ -40,6 +42,8 @@ public class Loading : MonoBehaviour
         }
 
         SceneMN.LoadScene(nextScene);
+        //if(OpenCanvas)
+        // OpenCanvas.gameObject.SetActive(true);
     }
 
 }

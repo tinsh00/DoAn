@@ -3,7 +3,7 @@
 const Mongoose = require("mongoose");
 
 Mongoose.Promise = global.Promise;
-const uri = 'mongodb://localhost:27017/Game';
+const uri = 'mongodb+srv://tinsh00:thanhtin99@dbaiqlbsx.vsetj.mongodb.net/Game?retryWrites=true&w=majority'; // cái này ở đâu ra  link trong nay
 //const uri = 'mongodb://dragon_pocker:dragon187pc@120.72.107.187:27017/dragon_pocker';
 
 var Models = {};
@@ -172,6 +172,15 @@ Init();
 function Init() {
     database.connect();
    
+    // var User1 = new database.users({
+    //     userName:"tin1",
+    //     userLevel:1,
+
+    //     userCoin:3,
+    //     userCurrentExp:1,    
+    // })
+    // User1.save();
+    // console.log ("tin") ;
     // var item = new database.avatarItemEquip ({
     //     userName : "guestTeo" ,
     //     HairItem : 1 ,

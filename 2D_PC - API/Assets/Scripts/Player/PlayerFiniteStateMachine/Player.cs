@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using SocketIO;
 
 public class Player : Singleton<Player>
 {
@@ -51,6 +51,7 @@ public PlayerStateMachine StateMachine { get; private set; }
     public Quest quest;
     public int questSuccess;
     public VictoryCanvas GameOver;
+    public string uName;
     
     #endregion
 
@@ -103,14 +104,22 @@ public PlayerStateMachine StateMachine { get; private set; }
         KnifeAttackState.SetWeapon(PlayerInventory.weapons[(int)CombatInputs.knife]);
         StateMachine.Initialize(IdleState);
 
-		//if (DetailQuest.instance != null)
-		//{
-		//	Player.instance.quest.isActive = true;
-		//	Player.instance.quest = DetailQuest.instance.quest;
+        //if (DetailQuest.instance != null)
+        //{
+        //	Player.instance.quest.isActive = true;
+        //	Player.instance.quest = DetailQuest.instance.quest;
 
-		//}
+        //}
+        
+        JSONObject data = new JSONObject();
+        data.AddField(Schema.userName,UserData.userName1);
+        ClientSC.Submit(Function.LoadData, data);
 
-	}
+        ClientSC.On(Function.LoadData, LoadData);
+
+
+       
+    }
 
     private void Update()
     {
@@ -123,7 +132,7 @@ public PlayerStateMachine StateMachine { get; private set; }
 
 		if (Player.instance.playerStatus.currentHealth <= 0.0f)
 		{
-            Player.instance.LoadDPlayer();
+            //Player.instance.LoadData();
             Player.instance.quest.goal.currentAmount = 0;
             GameOver.gameObject.SetActive(true);
             Time.timeScale = 0.0f;
@@ -141,6 +150,7 @@ public PlayerStateMachine StateMachine { get; private set; }
 
     public void CompleteQuest()
 	{
+        UpdateData();
 		if (quest.isActive)
 		{
 			if (quest.goal.IsReacher())
@@ -148,12 +158,10 @@ public PlayerStateMachine StateMachine { get; private set; }
                 Player.instance.questSuccess++;
                 Player.instance.playerStatus.IncreateCoin(quest.coinReward);
                 Player.instance.playerStatus.IncreateExp(quest.expReward);
-                SaveDPlayer();
+                //SaveDPlayer();
+                //UpdateData();
             }
-			else
-			{
-                LoadDPlayer();
-			}
+			
 		}
 		
 	}
@@ -161,45 +169,68 @@ public PlayerStateMachine StateMachine { get; private set; }
 	{
         Destroy(gameObject);
 	}
-    public void SaveDPlayer()
+    public void UpdateData()
+	{
+        JSONObject data = new JSONObject();
+        data.AddField(Schema.userName, UserData.userName1);
+        data.AddField(Schema.userCoin, Player.instance.playerStatus.coin);
+        data.AddField(Schema.userCurrentExp, Player.instance.playerStatus.currentExp);
+        data.AddField(Schema.userLevel, Player.instance.playerStatus.level);
+        Debug.Log(data);
+        ClientSC.Submit(Function.UpdateData, data);
+    }
+    public void LoadData(SocketIOEvent skEvent)
     {
-        Debug.Log("save data");
+        JSONObject data = skEvent.data;
+        Debug.Log(data.ToString());
+        data.GetField(ref Player.instance.uName, Schema.userName);
+        data.GetField(ref Player.instance.playerStatus.level, Schema.userLevel);
+        data.GetField(ref Player.instance.playerStatus.coin, Schema.userCoin);
+        data.GetField(ref Player.instance.playerStatus.currentExp, Schema.userCurrentExp);
+        Debug.Log(Player.instance.playerStatus.coin);
+        Player.instance.playerStatus.expSlider.SetExp(Player.instance.playerStatus.currentExp);
+        Player.instance.playerStatus.LevelText.text = "LV." + Player.instance.playerStatus.level;
+        Player.instance.playerStatus.coinText.text = "X" + Player.instance.playerStatus.coin;
+    }
+    //  public void SaveDPlayer()
+    //  {
+    //      Debug.Log("save data");
 
-        SaveSystem.SavePlayer();
-    }
-    public void LoadDPlayer()
-    {
-        DPlayer data = SaveSystem.LoadPlayer();
-        if(data!=null)
-		{
-            Debug.Log("load data level :"+data.level);
-            Player.instance.playerStatus.currentExp = data.currentExp;
-            Player.instance.playerStatus.expSlider.SetExp(data.currentExp);
-            Player.instance.playerStatus.level = data.level;
-            Player.instance.playerStatus.LevelText.text = "LV." + Player.instance.playerStatus.level;
-            //Player.instance.playerStatus.currentHealth = data.currentHealth;
-            //Player.instance.playerStatus.healthBar.SetHealth(currentExp);
-            Player.instance.playerStatus.coin = data.coin;
-            Player.instance.playerStatus.coinText.text = "X" + Player.instance.playerStatus.coin;
-            Player.instance.questSuccess = data.missionSuccess;
-        }
-       
-        //Vector3 position;
-        //position.x = data.position[0];
-        //position.y = data.position[1];
-        //position.z = data.position[2];
+    //      SaveSystem.SavePlayer();
+    //  }
+    //  public void LoadDPlayer()
+    //  {
+    //      DPlayer data = SaveSystem.LoadPlayer();
+    //      if(data!=null)
+    //{
+    //          Debug.Log("load data level :"+data.level);
+    //          Player.instance.playerStatus.currentExp = data.currentExp;
+    //          Player.instance.playerStatus.expSlider.SetExp(data.currentExp);
+    //          Player.instance.playerStatus.level = data.level;
+    //          Player.instance.playerStatus.LevelText.text = "LV." + Player.instance.playerStatus.level;
+    //          //Player.instance.playerStatus.currentHealth = data.currentHealth;
+    //          //Player.instance.playerStatus.healthBar.SetHealth(currentExp);
+    //          Player.instance.playerStatus.coin = data.coin;
+    //          Player.instance.playerStatus.coinText.text = "X" + Player.instance.playerStatus.coin;
+    //          Player.instance.questSuccess = data.missionSuccess;
+    //      }
 
-        //transform.parent.parent.position = position;
-        //Debug.Log(position);
-    }
-    public void ResetPlayer()
-    {
-        Debug.Log("reset data");
-        Player.instance.playerStatus.coin = 0;
-        Player.instance.playerStatus.level = 0;
-        Player.instance.playerStatus.currentExp = 0;
-        SaveSystem.SavePlayer();
-    }
+    //      //Vector3 position;
+    //      //position.x = data.position[0];
+    //      //position.y = data.position[1];
+    //      //position.z = data.position[2];
+
+    //      //transform.parent.parent.position = position;
+    //      //Debug.Log(position);
+    //  }
+    //  public void ResetPlayer()
+    //  {
+    //      Debug.Log("reset data");
+    //      Player.instance.playerStatus.coin = 0;
+    //      Player.instance.playerStatus.level = 0;
+    //      Player.instance.playerStatus.currentExp = 0;
+    //      SaveSystem.SavePlayer();
+    //  }
 
     public void SetColliderHeight(float height)
     {

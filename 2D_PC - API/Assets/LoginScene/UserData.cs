@@ -8,7 +8,10 @@ public enum Currency
 {
     Gold, 
     Energy,
-    Zen
+    Zen,
+    Level,
+    Coin,
+    CurrentExp
 }
 public class UserData : MonoBehaviour
 {
@@ -17,6 +20,8 @@ public class UserData : MonoBehaviour
     public static string userName = "vanteo123" , password = "123456";
 
     public static string uID, userName1;
+
+    public static int uLevel = 0, currentExp = 0, uCoin = 0, maxExp=100;
 
     public static int userLevel = 1, userExp = 0, nextLevelExp = 0;
 
@@ -51,15 +56,36 @@ public class UserData : MonoBehaviour
         instance = this;
 
         
-        CaleculateNextLevel();
+        //CaleculateNextLevel();
 
     }
     private void Start()
     {
 
-        ClientSC.On(Function.UpdateUserEnergy, OnUpdateUserEnergy);
-        ClientSC.On(Function.UpdateUserChip, OnUpdateUserGem);
+        //ClientSC.On(Function.UpdateUserEnergy, OnUpdateUserEnergy);
+        //ClientSC.On(Function.UpdateUserChip, OnUpdateUserGem);
+        ClientSC.On(Function.UpdateUserCoin, OnUpdateCoin);
+        ClientSC.On(Function.UpdateUserLevel, OnUpdateLevel);
+        ClientSC.On(Function.UpdateUserCurrentExp, OnUpdateCurrentExp);
+    }
 
+    public void OnUpdateLevel(SocketIOEvent obj)
+	{
+        int value = 0;
+        obj.data.GetField(ref value, Schema.value);
+        SetBalance(Currency.Level, value);
+	}
+    public void OnUpdateCoin(SocketIOEvent obj)
+	{
+        int value = 0;
+        obj.data.GetField(ref value, Schema.value);
+        SetBalance(Currency.Coin, value);
+	}
+    public void OnUpdateCurrentExp(SocketIOEvent obj)
+    {
+        int value = 0;
+        obj.data.GetField(ref value, Schema.value);
+        SetBalance(Currency.CurrentExp, value);
     }
     private void OnUpdateUserGem(SocketIOEvent obj)
     {
@@ -104,7 +130,7 @@ public class UserData : MonoBehaviour
     //user update balance
 
 
-    static Action OnChangeGold, OnChangeZen, OnChangeEnergy, OnChangeQuantityItem;
+    static Action OnChangeGold, OnChangeZen, OnChangeEnergy, OnChangeQuantityItem, OnChangeLevel,OnChangeCoin,OnChangeCurrentExp;
 
     //
 
@@ -189,7 +215,31 @@ public class UserData : MonoBehaviour
         if (OnChangeZen != null)
             OnChangeZen();
     }
+    public static void UpdateCoin(int value)
+    {
+        uCoin += value;
 
+        if (OnChangeCoin != null)
+            OnChangeCoin();
+    }
+    public static void UpdateLevel(int value)
+    {
+        uLevel += value;
+
+        if (OnChangeLevel != null)
+            OnChangeLevel();
+    }
+    public static void UpdateCurrentExp(int value)
+    {
+        currentExp += value;
+		if (currentExp >= maxExp)
+		{
+            UpdateLevel(1);
+            currentExp -= maxExp;
+        }
+        if (OnChangeCurrentExp != null)
+            OnChangeCurrentExp();
+    }
     //
     static Action GetActionBalance(Currency type)
     {
@@ -198,6 +248,9 @@ public class UserData : MonoBehaviour
             case Currency.Gold: return OnChangeGold;
             case Currency.Energy: return OnChangeEnergy;
             case Currency.Zen: return OnChangeZen;
+            case Currency.Coin: return OnChangeCoin;
+            case Currency.Level: return OnChangeLevel;
+            case Currency.CurrentExp: return OnChangeCurrentExp;
         }
         return null;
     }
@@ -210,6 +263,9 @@ public class UserData : MonoBehaviour
             case Currency.Gold: OnChangeGold += func; break;
             case Currency.Energy: OnChangeEnergy += func; break;
             case Currency.Zen: OnChangeZen += func; break;
+            case Currency.Coin: OnChangeCoin += func; break;
+            case Currency.Level: OnChangeLevel += func; break;
+            case Currency.CurrentExp: OnChangeCurrentExp += func; break;
         }
 
     }
@@ -221,6 +277,9 @@ public class UserData : MonoBehaviour
             case Currency.Gold: OnChangeGold -= func; break;
             case Currency.Energy: OnChangeEnergy -= func; break;
             case Currency.Zen: OnChangeZen -= func; break;
+            case Currency.Level: OnChangeLevel -= func; break;
+            case Currency.Coin: OnChangeCoin -= func; break;
+            case Currency.CurrentExp: OnChangeCurrentExp -= func; break;
         }
     }
 
@@ -238,7 +297,9 @@ public class UserData : MonoBehaviour
             case Currency.Gold: return  userGold;
             case Currency.Energy: return userEnergy;
             case Currency.Zen: return userZen;
-
+            case Currency.Level:return uLevel;
+            case Currency.Coin:return uCoin;
+            case Currency.CurrentExp:return currentExp;
         }
 
         return 0;
@@ -260,6 +321,18 @@ public class UserData : MonoBehaviour
                 userZen += value;
                 CallActionBalance(Currency.Zen);
                 break;
+            case Currency.Level:
+                uLevel += value;
+                CallActionBalance(Currency.Level);
+                break;
+            case Currency.Coin:
+                uCoin += value;
+                CallActionBalance(Currency.Coin);
+                break;
+            case Currency.CurrentExp:
+                currentExp += value;
+                CallActionBalance(Currency.CurrentExp);
+                break;
         }
 
     }
@@ -280,6 +353,19 @@ public class UserData : MonoBehaviour
                 userZen = value;
                 CallActionBalance(Currency.Zen);
                 break;
+            case Currency.Level:
+                uLevel = value;
+                CallActionBalance(Currency.Level);
+                break;
+            case Currency.Coin:
+                uCoin = value;
+                CallActionBalance(Currency.Coin);
+                break;
+            case Currency.CurrentExp:
+                currentExp = value;
+                CallActionBalance(Currency.CurrentExp);
+                break;
+
         }
     }
     // 
@@ -361,8 +447,9 @@ public class UserData : MonoBehaviour
         JSONObject data = skEvent.data;
         data.GetField(ref uID, Schema.uID);
         data.GetField(ref userName1, Schema.userName);
-        data.GetField(ref userEnergy, Schema.userEnergys);
-        data.GetField(ref userZen, Schema.userChips);
+        data.GetField(ref uLevel, Schema.userLevel);
+        data.GetField(ref uCoin, Schema.userCoin);
+        data.GetField(ref currentExp, Schema.userCurrentExp);
         Debug.Log(data.ToString());
         SetBalanceData(data);
     }
@@ -370,17 +457,25 @@ public class UserData : MonoBehaviour
     void SetBalanceData(JSONObject data)
     {
         int value = 0;
-        data.GetField(ref value, Schema.userEnergys);
+        //data.GetField(ref value, Schema.userEnergys);
 
-        Debug.Log("Energy : " + value);
-        SetBalance(Currency.Energy, value);
+        //Debug.Log("Energy : " + value);
+        //SetBalance(Currency.Energy, value);
 
-        data.GetField(ref value, Schema.userChips);
-        Debug.Log("Chip : : " + value);
-        SetBalance(Currency.Zen, value);
+        //data.GetField(ref value, Schema.userChips);
+        //Debug.Log("Chip : : " + value);
+        //SetBalance(Currency.Zen, value);
+        data.GetField(ref value, Schema.userCoin);
+        Debug.Log("Coin : : " + value);
+        SetBalance(Currency.Coin, value);
+        data.GetField(ref value, Schema.userLevel);
+        Debug.Log("Level : : " + value);
+        SetBalance(Currency.Level, value);
+        data.GetField(ref value, Schema.userCurrentExp);
+        Debug.Log("Current Exp : : " + value);
+        SetBalance(Currency.CurrentExp, value);
 
 
-        
-            
+
     }
 }

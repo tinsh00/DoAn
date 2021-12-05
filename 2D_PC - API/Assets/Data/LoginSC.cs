@@ -25,8 +25,8 @@ public class LoginSC : MonoBehaviour
     public void LoginSucceed(SocketIOEvent skEvent)
     {
        
-    //    UserData.instance.SetUserData(skEvent);
-        
+        UserData.instance.SetUserData(skEvent);
+        Player.instance.LoadData(skEvent);
         SceneMN.LoadScene(Scene.Menu);
 
 

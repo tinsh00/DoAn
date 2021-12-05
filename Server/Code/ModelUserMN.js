@@ -1,6 +1,6 @@
 'use strict'
 
-var database = require('./database');
+
 var ModelMN = require('./ModelMN');
 var SocketMN = require('./SocketMN');
 var func = require('./function')

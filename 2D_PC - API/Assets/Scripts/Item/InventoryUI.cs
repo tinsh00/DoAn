@@ -5,10 +5,11 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour
 {
     
-    public Transform itemsParent;
+    //public Transform itemsParent;
     public GameObject inventoryUI;
     Inventory inventory;
-    InventorySlot[] slots;
+
+    public InventorySlot[] slots;
     bool isOpen;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class InventoryUI : MonoBehaviour
         inventory= Inventory.instance;
         inventory.onItemChangedCallBack += UpdateUI;
 
-        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        //slots = itemsParent.GetComponentsInChildren<InventorySlot>();
         isOpen = false;
     }
 

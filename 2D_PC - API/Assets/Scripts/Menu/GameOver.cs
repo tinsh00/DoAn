@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+
 	public void QuitGame()
 	{
 		Debug.Log("Application quit");

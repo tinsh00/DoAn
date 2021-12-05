@@ -61,7 +61,7 @@ function NewBuildingInMap (userName , idLandSlot , spriteHouse) {
 module.exports = User;
 
 function User(socket) {
-    console.log ("^^^^^^3") ;
+    console.log ("3") ;
 
 
 
@@ -69,14 +69,19 @@ function User(socket) {
     socket.on(func.UserLogin, function (data) {
         UserLogin(socket, data);
     });
-    console.log ("^^^^^^4") ;
+    console.log ("4") ;
     //===============Guest_login===============
     socket.on(func.GuestLogin, function (data) {
         GuestLogin(socket, data);
     });
     //===============Facebook_login===============
     
-    
+    socket.on(func.LoadData, function (data) {
+        LoadData(socket, data);
+    });
+    socket.on (func.UpdateData , function (data){
+        UpdateData (socket , data) ;
+    });
     socket.on(func.LoadItemAvatarEquiped, function (data) {
         LoadItemAvatarEquiped(socket, data);
     });
@@ -186,10 +191,9 @@ function UserLogin(socket, data) {
         }
     });
 }
-
 function GuestLogin(socket, data) {
     users.findOne({ userName: data.userName }, function (err, user) {
-        console.log ("^^^^^^5") ;
+        console.log ("5") ;
         if (err) {
             console.log("error : " + err);
             return
@@ -200,6 +204,7 @@ function GuestLogin(socket, data) {
             createGuest(socket, data);
         } else {
             console.log ("Da login ***") ;
+            console.log(user);
             let sk = SocketMN.getSocket(user.uID);
             if (sk) {
                 sk.emit(func.UserLogOut);
@@ -232,7 +237,30 @@ function createGuest(socket, data) {
     })
 }
 
+function LoadData (socket , data) {
 
+    users.findOne({ userName: data.userName }, function (err, user) {
+        console.log ("load data") ;
+        if (err) {
+            console.log("error : " + err);
+            return
+        }
+        if (user === null) {
+
+            console.log ("no user") ;
+            createGuest(socket, data);
+        } else {
+            console.log ("Has user") ;
+            
+
+                 User (socket) ;
+                 socket.emit(func.LoadData, user);
+    
+        }
+
+    });
+
+}
 function LoadItemAvatarEquiped (socket , data) {
 
     avatarItems.findOne({ userName: data.userName }, function (err, item) {
@@ -256,10 +284,33 @@ function LoadItemAvatarEquiped (socket , data) {
 
     });
 
-  
-
 }
+function UpdateData (socket , data) {
+    console.log ("Update Data on") ;    
+    users.findOne ({userName : data.userName} ,  function (err , user) {
+        console.log ("Into updata data") ;    
+        if (err)
+        {
+            console.log ("Error : " + err );
+            return ;
+        }
 
+        if (user == null)
+        {
+            console.log ("can't found user");
+            return;
+        }
+        else 
+        {
+                user.userCoin=data.userCoin;
+                user.userCurrentExp=data.userCurrentExp;
+                user.userLevel=data.userLevel;
+                user.save () ;
+                console.log(user);
+                User (socket) ;
+        }
+    }) ;
+}
 function UpdateItemEquipdedHair (socket , data) {
     console.log ("Into updata avatar forst") ;    
     avatarItems.findOne ({userName : data.userName} ,  function (err , item) {

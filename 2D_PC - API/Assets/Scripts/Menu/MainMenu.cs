@@ -17,7 +17,8 @@ public class MainMenu : MonoBehaviour
 	private void Start()
 	{
 		//Player.instance.SaveDPlayer();
-		Player.instance.LoadDPlayer();
+		//Player.instance.LoadDPlayer();
+		Player.instance.UpdateData();
 		Player.instance.transform.position = transformPlayer.position;
 	}
 	public void PlayGame()

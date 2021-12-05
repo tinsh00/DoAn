@@ -4,6 +4,8 @@ module.exports = {
    
     Playing: 'Playing',
     
+    LoadData:'LoadData',
+    UpdateData:'UpdateData',
     UpdateGold: 'UpdateGold',
     
     RealTime: 'RealTime',

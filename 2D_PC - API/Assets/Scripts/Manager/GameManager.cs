@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     private float respawnTimeStart;
 
     private bool respawn;
-    [SerializeField]
-    private InventoryUI Canvas;
+    //[SerializeField]
+    //private InventoryUI Canvas;
 
 	//HealthBar healthBar;
 
@@ -36,9 +36,9 @@ public class GameManager : MonoBehaviour
         CVC.m_Follow = Player.instance.transform;
         Player.instance.transform.position = respawnPoint.position;
         //Player.instance.transform.localScale = new Vector3(1f, 1f, 1f);
-        Player.instance.LoadDPlayer();
+        //Player.instance.LoadDPlayer();
         Player.instance.InputHandler.cam = Camera.main;
-        Canvas.gameObject.SetActive(true);
+        CanvasMovenment.instance.gameObject.SetActive(true);
         
     }
 

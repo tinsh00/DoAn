@@ -91,7 +91,11 @@ public static class extendClass
 }
 public enum Schema
 {
+
     uID,
+    userCoin,
+    userLevel,
+    userCurrentExp,
     userName,
     userEmail,
     userPass,
@@ -153,7 +157,8 @@ public enum Schema
 
 public enum Function
 {
-    
+    LoadData,
+    UpdateData,
     
     connect,
     disconnect,
@@ -180,6 +185,9 @@ public enum Function
     
     UpdateUserEnergy,
     UpdateUserChip,
+    UpdateUserCoin,
+    UpdateUserLevel,
+    UpdateUserCurrentExp,
  
     ChangePassword,
     LoadItemAvatarEquiped ,
