@@ -3,8 +3,7 @@
 const Mongoose = require("mongoose");
 
 Mongoose.Promise = global.Promise;
-const uri = 'mongodb+srv://tinsh00:thanhtin99@dbaiqlbsx.vsetj.mongodb.net/Game?retryWrites=true&w=majority'; // cái này ở đâu ra  link trong nay
-//const uri = 'mongodb://dragon_pocker:dragon187pc@120.72.107.187:27017/dragon_pocker';
+const uri = 'mongodb+srv://tinsh00:thanhtin99@dbaiqlbsx.vsetj.mongodb.net/Game?retryWrites=true&w=majority';
 
 var Models = {};
 

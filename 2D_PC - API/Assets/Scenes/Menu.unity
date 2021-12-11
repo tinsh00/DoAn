@@ -5019,6 +5019,26 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 411450142}
+    - target: {fileID: 4904082871543173706, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904082871543173706, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6940838545625583705, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773486874154406734, guid: 0fe21e3b0f8a6604abecc907f08b4db3,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fe21e3b0f8a6604abecc907f08b4db3, type: 3}
 --- !u!1 &681188574

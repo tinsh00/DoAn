@@ -7,6 +7,8 @@ public class CanvasB : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CanvasMovenment.instance.gameObject.SetActive(false);
+        Player.instance.playerStatus.ResetHealth();
         gameObject.SetActive(false);
     }
 

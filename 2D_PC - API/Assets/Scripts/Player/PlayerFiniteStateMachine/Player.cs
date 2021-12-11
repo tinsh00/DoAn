@@ -148,6 +148,7 @@ public PlayerStateMachine StateMachine { get; private set; }
 
     #region Other Functions
 
+
     public void CompleteQuest()
 	{
         UpdateData();

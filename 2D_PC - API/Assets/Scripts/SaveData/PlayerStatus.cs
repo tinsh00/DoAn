@@ -35,6 +35,11 @@ public class PlayerStatus : Stats
 
 	}
 
+	public override void ResetHealth()
+	{
+		base.ResetHealth();
+	}
+
 	public override void Died()
 	{
 		base.Died();

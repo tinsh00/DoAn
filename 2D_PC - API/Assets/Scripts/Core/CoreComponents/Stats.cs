@@ -107,7 +107,12 @@ public class Stats : CoreComponent
         healthBar.SetHealth(currentHealth);
 
     }
+    public virtual void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        healthBar.SetHealth(currentHealth);
 
+    }
     public virtual void Died()
 	{
         Instantiate(deathChunkParticle, transform.position, deathChunkParticle.transform.rotation);
