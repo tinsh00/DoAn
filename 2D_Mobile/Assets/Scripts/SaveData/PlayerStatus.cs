@@ -34,6 +34,20 @@ public class PlayerStatus : Stats
 		//healthBar.SetHealth(currentHealth);
 
 	}
+	public void UpdateTT()
+	{
+		healthBar.SetHealth(currentHealth);
+		expSlider.SetExp(currentExp);		
+		//coin = Inventory.instance.coin;
+		coinText.text = "X" + coin;
+		//level = Inventory.instance.level;
+		LevelText.text = "lV." + level;
+	}
+	public  void ResetHealth()
+	{
+		currentHealth = maxHealth;
+		healthBar.SetHealth(currentHealth);
+	}
 
 	public override void Died()
 	{
@@ -86,10 +100,10 @@ public class PlayerStatus : Stats
 			currentExp -= maxExp;
 			level++;
 			currentHealth = maxHealth;
-			healthBar.SetHealth(currentHealth);
+			
 		}
-		expSlider.SetExp(currentExp);
-		LevelText.text = "LV." + level;
+		
+		UpdateTT();
 		
 	}
 	public void IncreateCoin(float amount)

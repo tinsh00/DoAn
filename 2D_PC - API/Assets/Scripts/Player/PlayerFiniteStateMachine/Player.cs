@@ -159,6 +159,7 @@ public PlayerStateMachine StateMachine { get; private set; }
                 Player.instance.questSuccess++;
                 Player.instance.playerStatus.IncreateCoin(quest.coinReward);
                 Player.instance.playerStatus.IncreateExp(quest.expReward);
+                Player.instance.playerStatus.UpdateTT();
                 //SaveDPlayer();
                 //UpdateData();
             }

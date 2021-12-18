@@ -213,13 +213,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: 
-    description: 
-    expReward: 0
-    coinReward: 0
+    title: Destroy all enemies
+    description: ' Having thoroughly researched the enemy''s area, this time, Arthur
+      will wipe out the enemy army. Mission: Let''s raid the enemy''s lair, kill
+      12 monsters and successfully escape'
+    expReward: 100
+    coinReward: 100
     goal:
       goalType: 0
-      requiredAmount: 0
+      requiredAmount: 12
       currentAmount: 0
   sceneText: MainMap1_1
 --- !u!114 &26085013
@@ -556,13 +558,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: 
-    description: 
-    expReward: 0
-    coinReward: 0
+    title: Hunt down the enemies
+    description: 'There are many undiscovered locations, this time Arthur will have
+      to search every corner of the enemy''s lair. Mission: Let''s raid the enemy''s
+      lair, kill 8 monsters and successfully escape'
+    expReward: 100
+    coinReward: 100
     goal:
       goalType: 0
-      requiredAmount: 0
+      requiredAmount: 8
       currentAmount: 0
   sceneText: MainMap1_1
 --- !u!114 &143530814
@@ -753,13 +757,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: Quest1
-    description: Kill All enemy
-    expReward: 200
-    coinReward: 200
+    title: Hunt down the enemies
+    description: 'Find and kill escaped enemies. Mission : Kill 5 enemiesd enemy'
+    expReward: 100
+    coinReward: 100
     goal:
       goalType: 0
-      requiredAmount: 2
+      requiredAmount: 5
       currentAmount: 0
   sceneText: MainMap2_1
 --- !u!114 &155212056
@@ -8005,10 +8009,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: Quest1
-    description: Kill All enemy
-    expReward: 200
-    coinReward: 200
+    title: Scout the enemy's lair
+    description: 'For the first time, Arthur will scout the enemy''s area. Mission:
+      Let''s raid the enemy''s lair, kill 4 monsters and successfully escape'
+    expReward: 100
+    coinReward: 100
     goal:
       goalType: 0
       requiredAmount: 4
@@ -8740,13 +8745,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: Quest2
-    description: Collect 1000 coin
-    expReward: 200
-    coinReward: 200
+    title: Scout the enemy's lair
+    description: ' Sweeping the enemy, this time, Arthur is determined to destroy
+      the enemy as much as possible. Mission: Let''s raid the enemy''s lair, kill
+      6 monsters and successfully escape'
+    expReward: 100
+    coinReward: 100
     goal:
-      goalType: 1
-      requiredAmount: 1000
+      goalType: 0
+      requiredAmount: 6
       currentAmount: 0
   sceneText: MainMap1_1
 --- !u!114 &1321183880
@@ -9339,6 +9346,7 @@ GameObject:
   - component: {fileID: 1419932496}
   - component: {fileID: 1419932495}
   - component: {fileID: 1419932494}
+  - component: {fileID: 1419932498}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -9429,6 +9437,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1419932498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419932493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd20f9b8512513b4d8f7579bb427d4dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1430412795
 GameObject:
   m_ObjectHideFlags: 0
@@ -10098,13 +10118,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: 
-    description: 
-    expReward: 0
-    coinReward: 0
+    title: Hunt down the enemies
+    description: ' Find and kill escaped enemies. Mission : Kill 8 enemies'
+    expReward: 100
+    coinReward: 100
     goal:
       goalType: 0
-      requiredAmount: 0
+      requiredAmount: 8
       currentAmount: 0
   sceneText: MainMap2_1
 --- !u!114 &1582361595
@@ -11199,7 +11219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -20.000004}
+  m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1728576815
@@ -11746,13 +11766,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: 
-    description: 
-    expReward: 0
-    coinReward: 0
+    title: Expanding the village
+    description: ' Expanding the village Mission : Scout the surrounding land and
+      kill 10 surviving enemies.'
+    expReward: 100
+    coinReward: 100
     goal:
       goalType: 0
-      requiredAmount: 0
+      requiredAmount: 10
       currentAmount: 0
   sceneText: MainMap2_1
 --- !u!114 &1767643287
@@ -12490,13 +12511,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: 
-    description: 
-    expReward: 0
-    coinReward: 0
+    title: Expanding the village
+    description: ' Expanding the village Mission : Kill 14 remaining enemies, create
+      new land to rebuild the village.'
+    expReward: 100
+    coinReward: 100
     goal:
       goalType: 0
-      requiredAmount: 0
+      requiredAmount: 14
       currentAmount: 0
   sceneText: MainMap2_1
 --- !u!114 &1847421746

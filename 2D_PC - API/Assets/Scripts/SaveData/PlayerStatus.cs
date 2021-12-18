@@ -39,7 +39,13 @@ public class PlayerStatus : Stats
 	{
 		base.ResetHealth();
 	}
-
+	public void UpdateTT()
+	{
+		healthBar.SetHealth(currentHealth);
+		expSlider.SetExp(currentExp);
+		coinText.text = "X" + coin;
+		LevelText.text = "lV." + level;
+	}
 	public override void Died()
 	{
 		base.Died();

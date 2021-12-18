@@ -73,6 +73,14 @@ public class PlayerInputHandler : MonoBehaviour
             AttackInputs[(int)CombatInputs.knife] = false;
         }
     }
+    public void BtnKnifeDown()
+    {
+        AttackInputs[(int)CombatInputs.knife] = true;
+    }
+    public void BtnKnifedUp()
+    {
+        AttackInputs[(int)CombatInputs.knife] = false;
+    }
     public void  OnDefenseInput(InputAction.CallbackContext context)
 	{
         
@@ -94,7 +102,18 @@ public class PlayerInputHandler : MonoBehaviour
         
         
     }
+    public void BtnShieldDown()
+    {
+        ShieldInput = true;
+        shieldInputStartTime = Time.time;
+        AttackInputs[(int)CombatInputs.defense] = true;
+    }
+    public void BtnShieldUp()
+    {
+        ShieldInput = false;
 
+        AttackInputs[(int)CombatInputs.defense] = false;
+    }
     public void OnPrimaryAttackInput(InputAction.CallbackContext context)
     {
 		if (context.started)
@@ -108,7 +127,14 @@ public class PlayerInputHandler : MonoBehaviour
 			AttackInputs[(int)CombatInputs.primary] = false;
 		}
 	}
-
+    public void BtnSwordDown()
+    {
+        AttackInputs[(int)CombatInputs.primary] = true;
+    }
+    public void BtnSwordUp()
+    {
+        AttackInputs[(int)CombatInputs.primary] = false;
+    }
     public void OnSecondaryAttackInput(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -121,7 +147,14 @@ public class PlayerInputHandler : MonoBehaviour
             AttackInputs[(int)CombatInputs.secondary] = false;
         }
     }
-
+    public void BtnBowDown()
+    {
+        AttackInputs[(int)CombatInputs.secondary] = true;
+    }
+    public void BtnBowUp()
+    {
+        AttackInputs[(int)CombatInputs.secondary] = false;
+    }
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
@@ -131,11 +164,43 @@ public class PlayerInputHandler : MonoBehaviour
 		//Move();
 
 	}
- //   public void Move()
-	//{
- //       NormInputX = Mathf.RoundToInt(RawMovementInput.x);
- //       NormInputY = Mathf.RoundToInt(RawMovementInput.y);
- //   }
+    //   public void Move()
+    //{
+    //       NormInputX = Mathf.RoundToInt(RawMovementInput.x);
+    //       NormInputY = Mathf.RoundToInt(RawMovementInput.y);
+    //   }
+    public void MoveWDown()
+    {
+        NormInputY = 1;
+    }
+    public void MoveWUp()
+    {
+        NormInputY = 0;
+    }
+    public void MoveSDown()
+    {
+        NormInputY = -1;
+    }
+    public void MoveSUp()
+    {
+        NormInputY = 0;
+    }
+    public void MoveADown()
+    {
+        NormInputX = -1;
+    }
+    public void MoveAUp()
+    {
+        NormInputX = 0;
+    }
+    public void MoveDDown()
+    {
+        NormInputX = 1;
+    }
+    public void MoveDUp()
+    {
+        NormInputX = 0;
+    }
 
     public void OnJumpInput(InputAction.CallbackContext context)
     {
@@ -151,7 +216,16 @@ public class PlayerInputHandler : MonoBehaviour
             JumpInputStop = true;
         }
     }
-
+    public void BtnJumpDown()
+    {
+        JumpInput = true;
+        JumpInputStop = false;
+        jumpInputStartTime = Time.time;
+    }
+    public void BtnJumpUp()
+    {
+        JumpInputStop = true;
+    }
     public void OnInventoryInput(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -159,6 +233,10 @@ public class PlayerInputHandler : MonoBehaviour
             InventoryInput = !InventoryInput;
         }
 
+    }
+    public void BtnInventoryDown()
+    {
+        InventoryInput = !InventoryInput;
     }
     public void OnPauseInput(InputAction.CallbackContext context)
     {
@@ -168,7 +246,10 @@ public class PlayerInputHandler : MonoBehaviour
         }
 
     }
-
+    public void BtnPauseDown()
+    {
+        PauseInput = !PauseInput;
+    }
 
     public void OnGrabInput(InputAction.CallbackContext context)
     {
@@ -182,7 +263,14 @@ public class PlayerInputHandler : MonoBehaviour
             GrabInput = false;
         }
     }
-
+    public void BtnGrabDown()
+    {
+        GrabInput = true;
+    }
+    public void BtnGrabUp()
+    {
+        GrabInput = false;
+    }
     public void OnDashInput(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -196,7 +284,16 @@ public class PlayerInputHandler : MonoBehaviour
             DashInputStop = true;
         }
     }
-
+    public void btnDashDown()
+    {
+        DashInput = true;
+        DashInputStop = false;
+        dashInputStartTime = Time.time;
+    }
+    public void btnDashUp()
+    {
+        DashInputStop = true;
+    }
     public void OnDashDirectionInput(InputAction.CallbackContext context)
     {
 		RawDashDirectionInput = context.ReadValue<Vector2>();
