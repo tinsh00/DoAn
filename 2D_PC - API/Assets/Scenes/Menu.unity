@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: Destroy all enemies
+    title: Destroy all enemies 4
     description: ' Having thoroughly researched the enemy''s area, this time, Arthur
       will wipe out the enemy army. Mission: Let''s raid the enemy''s lair, kill
       12 monsters and successfully escape'
@@ -267,7 +267,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 901243110}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 544294807}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 26085012}
+        m_TargetAssemblyTypeName: QuestGiver, Assembly-CSharp
+        m_MethodName: OpenQuestWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &26085014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,7 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: Hunt down the enemies
+    title: Hunt down the enemies 3
     description: 'There are many undiscovered locations, this time Arthur will have
       to search every corner of the enemy''s lair. Mission: Let''s raid the enemy''s
       lair, kill 8 monsters and successfully escape'
@@ -611,7 +635,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 384476821}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 544294807}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 143530813}
+        m_TargetAssemblyTypeName: QuestGiver, Assembly-CSharp
+        m_MethodName: OpenQuestWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &143530815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -756,7 +804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: Hunt down the enemies
+    title: Hunt down the enemies s2 1
     description: 'Find and kill escaped enemies. Mission : Kill 5 enemiesd enemy'
     expReward: 100
     coinReward: 100
@@ -8120,7 +8168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: Scout the enemy's lair
+    title: Scout the enemy's lair 1
     description: 'For the first time, Arthur will scout the enemy''s area. Mission:
       Let''s raid the enemy''s lair, kill 4 monsters and successfully escape'
     expReward: 100
@@ -8856,7 +8904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: Scout the enemy's lair
+    title: Scout the enemy's lair 2
     description: ' Sweeping the enemy, this time, Arthur is determined to destroy
       the enemy as much as possible. Mission: Let''s raid the enemy''s lair, kill
       6 monsters and successfully escape'
@@ -10396,7 +10444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: Hunt down the enemies
+    title: Hunt down the enemies s2 2
     description: ' Find and kill escaped enemies. Mission : Kill 8 enemies'
     expReward: 100
     coinReward: 100
@@ -12117,7 +12165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: Expanding the village
+    title: Expanding the village 3
     description: ' Expanding the village Mission : Scout the surrounding land and
       kill 10 surviving enemies.'
     expReward: 100
@@ -12170,7 +12218,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1548151534}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 468288928}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1767643286}
+        m_TargetAssemblyTypeName: QuestGiver, Assembly-CSharp
+        m_MethodName: OpenQuestWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1777278540
 GameObject:
   m_ObjectHideFlags: 0
@@ -12892,7 +12964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quest:
     isActive: 0
-    title: Expanding the village
+    title: Expanding the village 4
     description: ' Expanding the village Mission : Kill 14 remaining enemies, create
       new land to rebuild the village.'
     expReward: 100
@@ -12945,7 +13017,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 418583320}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 468288928}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1847421745}
+        m_TargetAssemblyTypeName: QuestGiver, Assembly-CSharp
+        m_MethodName: OpenQuestWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1869789127
 GameObject:
   m_ObjectHideFlags: 0

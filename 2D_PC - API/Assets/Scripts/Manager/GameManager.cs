@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public Transform respawnPoint;
     [SerializeField]
+    public Transform respawnPoint2;
+    [SerializeField]
+    public Transform respawnPoint3;
+    [SerializeField]
+    public Transform respawnPoint4;
+    [SerializeField]
     private GameObject player;
     [SerializeField]
     private float respawnTime;
@@ -34,7 +40,42 @@ public class GameManager : MonoBehaviour
     {
         //CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
         CVC.m_Follow = Player.instance.transform;
-        Player.instance.transform.position = respawnPoint.position;
+        if(Player.instance.quest.title.Equals("Scout the enemy's lair 1"))
+		{
+            Player.instance.transform.position = respawnPoint.position;
+		}
+        else if(Player.instance.quest.title.Equals("Scout the enemy's lair 2"))
+		{
+            Player.instance.transform.position = respawnPoint2.position;
+        }
+        else if (Player.instance.quest.title.Equals("Hunt down the enemies 3"))
+        {
+            Player.instance.transform.position = respawnPoint3.position;
+        }
+        else if (Player.instance.quest.title.Equals("Destroy all enemies 4"))
+        {
+            Player.instance.transform.position = respawnPoint4.position;
+        }
+        else if (Player.instance.quest.title.Equals("Hunt down the enemies s2 1"))
+        {
+            Player.instance.transform.position = respawnPoint.position;
+        }
+        else if (Player.instance.quest.title.Equals("Hunt down the enemies s2 2"))
+        {
+            Player.instance.transform.position = respawnPoint2.position;
+        }
+        else if (Player.instance.quest.title.Equals("Expanding the village 3"))
+        {
+            Player.instance.transform.position = respawnPoint3.position;
+        }
+        else if (Player.instance.quest.title.Equals("Expanding the village 4"))
+        {
+            Player.instance.transform.position = respawnPoint4.position;
+        }
+		else
+		{
+            Player.instance.transform.position = respawnPoint.position;
+        }
         //Player.instance.transform.localScale = new Vector3(1f, 1f, 1f);
         //Player.instance.LoadDPlayer();
         Player.instance.InputHandler.cam = Camera.main;

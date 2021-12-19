@@ -19,7 +19,8 @@ public class trap : MonoBehaviour
     [SerializeField]
     private float damageRadius2;
 
-
+    [SerializeField]
+    private string playerHurt = "playerHurt";
     private int leftOnPlayer=-1;
 
     private float timeRecover = 2f;
@@ -51,7 +52,7 @@ public class trap : MonoBehaviour
                     Debug.Log("trap");
                     damageable.Damage(damage);
                     timeRecoverStart = Time.time;
-                    
+                    AudioManager.instance.PlaySound(playerHurt);
                 }
                
             }
@@ -77,7 +78,7 @@ public class trap : MonoBehaviour
                         Debug.Log("trap2");
                         damageable.Damage(damage);
                         timeRecoverStart = Time.time;
-
+                        AudioManager.instance.PlaySound(playerHurt);
                     }
 
                 }

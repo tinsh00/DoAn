@@ -31,10 +31,13 @@ public class ItemPickup : MonoBehaviour
 	
 	void PickUp()
 	{
-		Debug.Log("Picking up "+item.name);
+		
 
 		bool wasPickup = Inventory.instance.addItem(item);
 		if (wasPickup)
+		{
 			Destroy(gameObject);
+			Debug.Log("Picking up " + item.name);
+		}
 	}
 }
