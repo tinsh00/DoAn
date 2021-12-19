@@ -8523,7 +8523,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7955925933447854498}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: VictoryCanvas, Assembly-CSharp
         m_MethodName: LoadMenu
         m_Mode: 1
@@ -10221,7 +10221,6 @@ GameObject:
   - component: {fileID: 669679718460464542}
   - component: {fileID: 7640897979684477178}
   - component: {fileID: 6932069488717354231}
-  - component: {fileID: 7955925933447854498}
   m_Layer: 5
   m_Name: VictoryCanvas
   m_TagString: Untagged
@@ -10310,21 +10309,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7955925933447854498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8334507183762491141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f016e8b0bac4fe4b88da1b0676c6773, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textCompleteQuest: {fileID: 6643392191986778260}
-  btnRetry: {fileID: 2891061456081049500}
-  btnSave: {fileID: 8312632539460392268}
 --- !u!1 &8452363832090235868
 GameObject:
   m_ObjectHideFlags: 0

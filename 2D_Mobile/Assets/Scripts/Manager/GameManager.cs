@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         Player.instance.LoadDPlayer();
         //Canvas.gameObject.SetActive(true);
         // Debug.Log(Canvas.gameObject.name);
-        Player.instance.GameOver.transform.parent.gameObject.SetActive(true);
+        //Player.instance.GameOver.gameObject.SetActive(true);
         //Debug.Log(Player.instance.GameOver.transform.parent.gameObject);
         CanvasMovement.instance.gameObject.SetActive(true);
 

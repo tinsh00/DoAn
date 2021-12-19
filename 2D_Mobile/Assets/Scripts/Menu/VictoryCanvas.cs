@@ -40,13 +40,12 @@ public class VictoryCanvas : MonoBehaviour
     }
     public void LoadMenu()
     {
-        Time.timeScale = 1f;
+        Player.instance.GameOver.gameObject.SetActive(false);
+        Player.instance.playerStatus.ResetHealth();
         SceneManager.LoadScene("Menu");
     }
     public void QuitGame()
     {
-        Time.timeScale = 1f;
-
         Debug.Log("Quit game");
         Application.Quit();
     }

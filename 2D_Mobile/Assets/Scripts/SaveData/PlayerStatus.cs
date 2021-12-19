@@ -46,7 +46,7 @@ public class PlayerStatus : Stats
 	public  void ResetHealth()
 	{
 		currentHealth = maxHealth;
-		healthBar.SetHealth(currentHealth);
+		UpdateTT();
 	}
 
 	public override void Died()

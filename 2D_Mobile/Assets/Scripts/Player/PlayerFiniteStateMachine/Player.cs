@@ -123,7 +123,7 @@ public PlayerStateMachine StateMachine { get; private set; }
 
 		if (Player.instance.playerStatus.currentHealth <= 0.0f)
 		{
-            GameOver.gameObject.SetActive(true);
+            Player.instance.GameOver.gameObject.SetActive(true);
             Time.timeScale = 0.0f;
         }
 
