@@ -76,22 +76,30 @@ public class GameManager : MonoBehaviour
         else if (Player.instance.quest.title.Equals("Hunt down the enemies s2 1"))
         {
             Player.instance.transform.position = respawnPoint.position;
+            objQuest1.SetActive(true);
         }
         else if (Player.instance.quest.title.Equals("Hunt down the enemies s2 2"))
         {
             Player.instance.transform.position = respawnPoint2.position;
+            objQuest2.SetActive(true);
         }
         else if (Player.instance.quest.title.Equals("Expanding the village 3"))
         {
             Player.instance.transform.position = respawnPoint3.position;
+            objQuest3.SetActive(true);
         }
         else if (Player.instance.quest.title.Equals("Expanding the village 4"))
         {
             Player.instance.transform.position = respawnPoint4.position;
+            objQuest4.SetActive(true);
         }
 		else
 		{
             Player.instance.transform.position = respawnPoint.position;
+            objQuest1.SetActive(true);
+            objQuest2.SetActive(true);
+            objQuest3.SetActive(true);
+            objQuest4.SetActive(true);
         }
         //Player.instance.transform.localScale = new Vector3(1f, 1f, 1f);
         //Player.instance.LoadDPlayer();
