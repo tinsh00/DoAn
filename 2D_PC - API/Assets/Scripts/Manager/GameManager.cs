@@ -13,6 +13,16 @@ public class GameManager : MonoBehaviour
     public Transform respawnPoint3;
     [SerializeField]
     public Transform respawnPoint4;
+
+    [SerializeField]
+    public GameObject objQuest1;
+    [SerializeField]
+    public GameObject objQuest2;
+    [SerializeField]
+    public GameObject objQuest3;
+    [SerializeField]
+    public GameObject objQuest4;
+
     [SerializeField]
     private GameObject player;
     [SerializeField]
@@ -34,27 +44,34 @@ public class GameManager : MonoBehaviour
 
 	private void Awake()
 	{
-        
+        objQuest1.SetActive(false);
+        objQuest2.SetActive(false);
+        objQuest3.SetActive(false);
+        objQuest4.SetActive(false);
     }
 	private void Start()
     {
         //CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
-        CVC.m_Follow = Player.instance.transform;
+        
         if(Player.instance.quest.title.Equals("Scout the enemy's lair 1"))
 		{
             Player.instance.transform.position = respawnPoint.position;
+            objQuest1.SetActive(true);
 		}
         else if(Player.instance.quest.title.Equals("Scout the enemy's lair 2"))
 		{
             Player.instance.transform.position = respawnPoint2.position;
+            objQuest2.SetActive(true);
         }
         else if (Player.instance.quest.title.Equals("Hunt down the enemies 3"))
         {
             Player.instance.transform.position = respawnPoint3.position;
+            objQuest3.SetActive(true);
         }
         else if (Player.instance.quest.title.Equals("Destroy all enemies 4"))
         {
             Player.instance.transform.position = respawnPoint4.position;
+            objQuest4.SetActive(true);
         }
         else if (Player.instance.quest.title.Equals("Hunt down the enemies s2 1"))
         {
@@ -78,6 +95,7 @@ public class GameManager : MonoBehaviour
         }
         //Player.instance.transform.localScale = new Vector3(1f, 1f, 1f);
         //Player.instance.LoadDPlayer();
+        CVC.m_Follow = Player.instance.transform;
         Player.instance.InputHandler.cam = Camera.main;
         CanvasMovenment.instance.gameObject.SetActive(true);
         

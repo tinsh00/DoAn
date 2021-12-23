@@ -28,12 +28,15 @@ public class Combat : CoreComponent, IDamageable, IKnockbackable
 
     public void Knockback(Vector2 angle, float strength, int direction)
     {
-        core.Movement.SetVelocity(strength, angle, direction);
-        core.Movement.CanSetVelocity = false;
-        isKnockbackActive = true;
-        knockbackStartTime = Time.time;
-        
-        core.PlayerSP.color = Color.red;
+        if(core)
+		{
+            core.Movement.SetVelocity(strength, angle, direction);
+            core.Movement.CanSetVelocity = false;
+            isKnockbackActive = true;
+            knockbackStartTime = Time.time;
+
+            core.PlayerSP.color = Color.red;
+        }        
     }
 
     private void CheckKnockback()
